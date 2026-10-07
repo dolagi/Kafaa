@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Wizard View for Transfer Applicants -->
+    <record id="view_transfer_applicants_wizard" model="ir.ui.view">
+        <field name="name">transfer.applicants.wizard</field>
+        <field name="model">transfer.applicants.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Transfer Applicants">
+                <group>
+                    <group>
+                        <field name="applicant_ids" invisible="1"/>
+                        <field name="stage_id"/>
+                        <field name="notes" invisible="not exam_date_stage and not interview_stage"/>
+                    </group>
+                    <group>
+                        <field name="exam_date_stage" invisible="1"/>
+                        <field name="interview_stage" invisible="1"/>
+                        <field name="hired_stage" invisible="1"/>
+                        <field name="date" invisible="not exam_date_stage and not interview_stage"/>
+                        <field name="exam_center_id" invisible="not exam_date_stage" required="exam_date_stage"/>
+                    </group>
+                </group>
+
+                <!-- NEW: shown only when moving applicants into the hired stage -->
+                <group string="Selection Decision Details" invisible="not hired_stage">
+                    <group>
+                        <field name="manager_name" required="hired_stage" placeholder="Manager Name"/>
+                        <field name="entity_name" readonly="1"/>
+                        <field name="sector" required="hired_stage" placeholder="Example: University"/>
+                        <field name="degree" readonly="1"/>
+                        <field name="decision_year" readonly="1"/>
+                    </group>
+                    <group>
+                        <field name="letter_number" placeholder="Letter Number"/>
+                        <field name="letter_date"/>
+                    </group>
+                </group>
+
+                <footer>
+                    <button string="Confirm" type="object" name="action_confirm" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

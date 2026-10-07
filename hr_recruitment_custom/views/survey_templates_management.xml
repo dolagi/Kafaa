@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo><data>
+    <template id="survey_navigation" inherit_id="survey.survey_navigation">
+        <!-- Replace back chevron (first button) with "Previous" -->
+        <xpath expr="//i[contains(@class,'oi-chevron-left')]" position="replace">
+            <span class="px-2">Previous</span>
+        </xpath>
+        <xpath expr="//i[contains(@class,'oi-chevron-right')]" position="replace">
+            <span class="px-2">Next</span>
+        </xpath>
+    </template>
+</data></odoo>

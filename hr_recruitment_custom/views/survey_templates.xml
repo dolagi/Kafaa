@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+    <template id="survey_fill_form_done" inherit_id="survey.survey_fill_form_done">
+        <!-- Hide "Take Again" button -->
+        <xpath expr="//t[@t-call='survey.survey_button_retake']" position="replace"/>
+        <!-- Hide "Review your answers" button -->
+        <xpath expr="//p[a[contains(@class,'o_survey_review')]]" position="replace"/>
+    </template>
+
+    <template id="survey_fill_header" inherit_id="survey.survey_fill_header">
+        <xpath expr="//h1[contains(@class,'o_survey_main_title')]" position="after">
+            <t t-if="answer and answer.partner_id">
+                <h4 class="text-muted mt-2">
+                    Hello, <t t-esc="answer.partner_id.name"/>
+                </h4>
+            </t>
+        </xpath>
+    </template>
+        <template id="survey_fill_form_done_feedback" inherit_id="survey.survey_fill_form_done">
+        <xpath expr="//div[hasclass('o_survey_finished')]" position="inside">
+            <t t-if="answer and answer.feedback_survey_url">
+                <div class="mt-4 text-center">
+                    <p class="text-muted">We would love to hear your feedback about the recruitment process.</p>
+                    <a t-att-href="answer.feedback_survey_url"
+                    class="btn btn-primary btn-lg">
+                        Rate the Recruitment Process
+                    </a>
+                </div>
+            </t>
+        </xpath>
+    </template>
+</data>
+</odoo>

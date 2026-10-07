@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- hr recruitment stage exam fields -->
+    <record id="view_hr_recruitment_stage_form_inherit" model="ir.ui.view">
+        <field name="name">hr.recruitment.stage.form.inherit</field>
+        <field name="model">hr.recruitment.stage</field>
+        <field name="inherit_id" ref="hr_recruitment.hr_recruitment_stage_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='hired_stage']" position="after">
+                <field name="exam_date_stage"/>
+                <field name="exam_stage"/>
+                <field name="interview_stage"/>
+            </xpath>
+            <xpath expr="//field[@name='template_id']" position="after">
+                <field name="allowed_group_ids" widget="many2many_tags"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

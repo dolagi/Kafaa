@@ -1,0 +1,19 @@
+/* Brighter highlight for selected answer */
+.o_survey_choice_btn.o_survey_selected {
+    background-color: #0d3d013d !important;
+    color: #ffffff !important;
+    border-color: #0d3d013d !important;
+}
+
+.o_survey_choice_btn.o_survey_selected span {
+    color: #ffffff !important;
+}
+
+.o_survey_choice_btn.o_survey_selected .o_survey_choice_key {
+    background-color: #0d3d013d !important;
+    color: #ffffff !important;
+}
+
+.o_survey_choice_btn.o_survey_selected .o_survey_choice_key span {
+    color: #ffffff !important;
+}

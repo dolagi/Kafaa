@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_exam_builder_wizard_form" model="ir.ui.view">
+        <field name="name">exam.builder.wizard.form</field>
+        <field name="model">exam.builder.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Build Exam From Question Bank">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" required="1"/>
+                            <field name="total_questions_count" required="1"/>
+                        </group>
+                        <group>
+                            <field name="total_time"/>
+                            <field name="passing_score"/>
+                        </group>
+                    </group>
+
+                    <group>
+                        <field name="selected_questions_count" invisible="1"/>
+                    </group>
+
+                    <field name="line_ids">
+                        <list editable="bottom">
+                            <field name="source_survey_id" required="1"/>
+                            <field name="section_name" required="1" placeholder="Example: Subject Exam Section / Aptitude Section"/>
+                            <field name="available_questions_count" column_invisible="1"/>
+                            <field name="questions_count" required="1"/>
+                            <field name="score_per_question" required="1"/>
+                        </list>
+                    </field>
+                </sheet>
+                <footer>
+                    <button
+                        name="action_confirm"
+                        type="object"
+                        string="Generate Exam"
+                        class="btn-primary"
+                    />
+                    <button string="Cancel" special="cancel" class="btn-secondary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_exam_builder_wizard" model="ir.actions.act_window">
+        <field name="name">Build Exam From Question Bank</field>
+        <field name="res_model">exam.builder.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem
+        id="menu_exam_builder_wizard"
+        name="Build Exam"
+        parent="survey.menu_surveys"
+        action="action_exam_builder_wizard"
+        groups="hr_recruitment_custom.group_examinations_department"
+        sequence="2"
+    />
+</odoo>

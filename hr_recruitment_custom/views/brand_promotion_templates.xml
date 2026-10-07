@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="brand_promotion_message_inherit"
+              inherit_id="web.brand_promotion_message">
+
+        <!-- Replace the odoo_logo variable -->
+        <xpath expr="//t[@t-set='odoo_logo']" position="replace">
+            <t t-set="odoo_logo">
+                <a target="_blank"
+                   href="https://sudarecboard.nctr.sd/ar"
+                   class="badge text-bg-light">
+
+                    <img alt="Kafaa"
+                         src="/hr_recruitment_custom/static/src/img/KafaatLogo.png"
+                         style="
+                            width: 140px;
+                            height: auto;
+                            max-height: none;
+                            vertical-align: middle;
+                         "/>
+                </a>
+            </t>
+        </xpath>
+
+    </template>
+</odoo>
+

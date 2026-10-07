@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- hr applicant exam fields   -->
+    <record id="view_hr_applicant_form_inherit" model="ir.ui.view">
+        <field name="name">hr.applicant.form.inherit</field>
+        <field name="model">hr.applicant</field>
+        <field name="inherit_id" ref="hr_recruitment.hr_applicant_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="action_open_evaluation_wizard"
+                        type="object"
+                        groups="hr_recruitment_custom.group_inspection_committee">
+                    <div class="o_field_widget o_stat_info">
+                        <span class="o_stat_text">Enter Evaluation</span>
+                    </div>
+                </button>
+            </xpath>
+            <xpath expr="//div[hasclass('oe_title')]" position="before">
+                <div class="alert alert-success" role="alert"
+                     invisible="not hired_for_other_jobs">
+                    <i class="fa fa-check-circle me-2"/>
+                    <strong>Already hired for: </strong>
+                    <field name="hired_for_other_jobs" readonly="1"
+                           nolabel="1" class="oe_inline fw-bold"/>
+                </div>
+            </xpath>
+            <xpath expr="//notebook" position="inside">
+                <field name="exam_stage" invisible="1"/>
+                <field name="exam_date_stage" invisible="1"/>
+                <page string="Exam Details" invisible="not exam_stage and not exam_date_stage">
+                    <group>                      
+                        <group>
+                            <field name="exam_date" required="exam_date_stage"/>
+                            <field name="notes"/>
+                        </group>
+                        <group>
+                            <field name="exam_center_id" required="exam_date_stage"/>
+                        </group>
+                    </group>
+                </page>
+                <page string="Interview Details" invisible="not interview_stage">
+                    <group>
+                        <group>
+                            <field name="interview_date"/>
+                            <field name="interview_notes"/>
+                        </group>
+                    </group>
+                </page>
+                <field name="selection_decision_count" invisible="1"/>
+                <page string="Selection Decision" invisible="not selection_decision_count">
+                    <field name="selection_decision_ids" readonly="1">
+                        <list create="false" edit="false" delete="false">
+                            <field name="job_id"/>
+                            <field name="entity_name"/>
+                            <field name="letter_number"/>
+                            <field name="letter_date"/>
+                        </list>
+                    </field>
+                </page>
+            </xpath>
+            <xpath expr="//button[@name='action_send_survey']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//page[@name='application_details']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//page[3]" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_hr_applicant_tree_hired_other_jobs" model="ir.ui.view">
+        <field name="name">hr.applicant.tree.hired.other.jobs</field>
+        <field name="model">hr.applicant</field>
+        <field name="inherit_id" ref="hr_recruitment.crm_case_tree_view_job"/>
+        <field name="arch" type="xml">
+            <xpath expr="//list" position="attributes">
+                <attribute name="decoration-success">hired_for_other_jobs</attribute>
+            </xpath>
+            <xpath expr="//field[@name='job_id']" position="after">
+                <field name="hired_for_other_jobs" string="Hired For"
+                       optional="show" readonly="1"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_hr_applicant_kanban_hired_other_jobs" model="ir.ui.view">
+        <field name="name">hr.applicant.kanban.hired.other.jobs</field>
+        <field name="model">hr.applicant</field>
+        <field name="inherit_id" ref="hr_recruitment.hr_kanban_view_applicant"/>
+        <field name="arch" type="xml">
+            <xpath expr="//kanban/templates" position="before">
+                <field name="hired_for_other_jobs"/>
+            </xpath>
+            <xpath expr="//t[@t-name='card']/field[@name='partner_name']" position="before">
+                <widget name="web_ribbon" title="Already Hired" bg_color="text-bg-success"
+                        invisible="not hired_for_other_jobs"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="action_move_applicant_next_stage" model="ir.actions.server">
+        <field name="name">Move Applicant To Next Stage</field>
+        <field name="model_id" ref="hr_recruitment.model_hr_applicant"/>
+        <field name="binding_model_id" ref="hr_recruitment.model_hr_applicant"/>
+        <field name="state">code</field>
+        <field name="code">
+if records:
+    action = records.open_next_stage_wizard()</field>
+    </record>
+
+    <record id="action_filter_candidates" model="ir.actions.server">
+        <field name="name">Filter Candidates</field>
+        <field name="model_id" ref="hr_recruitment.model_hr_applicant"/>
+        <field name="binding_model_id" ref="hr_recruitment.model_hr_applicant"/>
+        <field name="state">code</field>
+        <field name="code">
+if records:
+    action = records.open_filter_candidates_wizard()</field>
+    </record>
+
+</odoo>

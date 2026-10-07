@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="view_company_form_inherit_hr_recruitment_custom" model="ir.ui.view">
+        <field name="name">res.company.form.inherit.hr.recruitment.custom</field>
+        <field name="model">res.company</field>
+        <field name="inherit_id" ref="base.view_company_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='alias_domain_id']" position="after">
+                <field name="secretary_general_name"
+                       string="Secretary General Name"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

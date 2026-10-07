@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_hr_job_close_wizard_form" model="ir.ui.view">
+        <field name="name">hr.job.close.wizard.form</field>
+        <field name="model">hr.job.close.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Confirm Job Closure">
+                <div class="alert alert-info" role="alert">
+                    Review the selected applicants before confirming closure.
+                    Closing the job will stop its publication.
+                </div>
+                <footer>
+                    <button name="action_confirm_close" string="Confirm Closure"
+                            type="object" class="btn-primary"/>
+                    <button string="Cancel" special="cancel" class="btn-secondary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

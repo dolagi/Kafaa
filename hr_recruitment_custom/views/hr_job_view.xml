@@ -1,0 +1,179 @@
+<odoo>
+    <!-- Inherit the standard job form view -->
+    <record id="view_hr_job_form_inherit_exam" model="ir.ui.view">
+        <field name="name">hr.job.form.inherit.exam</field>
+        <field name="model">hr.job</field>
+        <field name="inherit_id" ref="hr.view_hr_job_form"/>
+        <field name="arch" type="xml">
+            <!-- Add exam_id field inside the first group -->
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button class="oe_stat_button" type="object"
+                        name="action_view_selected_applicants"
+                        icon="fa-users" invisible="not selected_applicants_count">
+                    <field name="selected_applicants_count" widget="statinfo"
+                        string="Selected Applicants"/>
+                </button>
+                <button class="oe_stat_button" type="object"
+                        name="action_view_exam_participants"
+                        icon="fa-pencil-square-o"
+                        invisible="not exam_id">
+                    <field name="exam_participants_count" widget="statinfo"
+                        string="Exam Participants"/>
+                </button>
+                <button class="oe_stat_button" type="object"
+                        name="action_view_appointed_applicants"
+                        icon="fa-file-text-o"
+                        invisible="not survey_id">
+                    <field name="appointed_applicants_count" widget="statinfo"
+                        string="Appointed Applicants"/>
+                </button>
+            </xpath>
+            <xpath expr="//button[@name='%(hr_recruitment.action_hr_job_sources)d']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//sheet" position="before">
+                <header>
+                    <button string="Approve" name="action_approve" type="object" class="oe_highlight" invisible="state != 'draft'" groups="hr_recruitment_custom.group_general_secretariat"/>
+                    <button string="Close Job" name="action_close" type="object" class="oe_highlight" invisible="state != 'approved'" groups="hr_recruitment_custom.group_general_secretariat"/>
+                    <field name="state" widget="statusbar" readonly="1" statusbar_visible="draft,approved,closed" statusbar_colors='{"draft":"grey","approved":"blue","closed":"red"}'/>
+                    
+                </header>
+            </xpath>
+            <xpath expr="//field[@name='name']" position="attributes">
+                <attribute name="readonly">state != 'draft'</attribute>
+            </xpath>
+            <xpath expr="//field[@name='contract_type_id']" position="after">
+                <field name="degree_level" readonly="state != 'draft'"/>
+                <field name="working_period" readonly="state != 'draft'" invisible="1"/>
+                <field name="academic_degree" readonly="state != 'draft'"/>
+                <field name="announcement_date" readonly="state != 'draft'"/>
+                <field name="closing_date" required="1"/>
+            </xpath>
+            <xpath expr="//field[@name='interviewer_ids']" position="after">
+                <field name="experience_years" readonly="state != 'draft'"/>
+                <field name="attendance_type" readonly="state != 'draft'" invisible="1"/>
+                <field name="exam_id" readonly="state != 'draft'" required="1" domain="[('survey_type', '=', 'assessment')]"/>
+                <field name="feedback_survey_id" readonly="state != 'draft'"/>
+                <field name="scoring_criteria" readonly="state != 'draft'"/>
+            </xpath>
+            <xpath expr="//page[@name='job_description_page']" position="after">
+                <page name="selected_applicants" string="Selected Applicants">
+                    <field name="selected_applicant_ids" readonly="1">
+                        <list create="false" edit="false" delete="false">
+                            <field name="partner_name" string="Applicant"/>
+                            <field name="stage_id"/>
+                        </list>
+                    </field>
+                </page>
+                <page name="requirements" string="Requirements">
+                    <field name="requirements" readonly="state != 'draft'"/>
+                </page>
+            </xpath>
+            <xpath expr="//field[@name='skill_ids']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='date_from']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='department_id']" position="attributes">
+                <attribute name="readonly">state != 'draft'</attribute>
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='company_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='address_id']" position="attributes">
+                <attribute name="readonly">state != 'draft'</attribute>
+            </xpath>
+            <xpath expr="//field[@name='industry_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//label[@for='alias_name']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//div[@name='edit_alias']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+           <xpath expr="//field[@name='contract_type_id']" position="attributes">
+                <attribute name="readonly">state != 'draft'</attribute>
+                <attribute name="invisible">1</attribute>
+           </xpath>
+           <xpath expr="//field[@name='no_of_recruitment']" position="attributes">
+                <attribute name="readonly">state != 'draft'</attribute>
+           </xpath>
+           <xpath expr="//field[@name='user_id']" position="attributes">
+                <attribute name="readonly">state != 'draft'</attribute>
+           </xpath>
+           <xpath expr="//field[@name='interviewer_ids']" position="attributes">
+                <attribute name="readonly">state != 'draft'</attribute>
+           </xpath>
+           <xpath expr="//field[@name='survey_id']" position="attributes">
+                <attribute name="readonly">state != 'draft'</attribute>
+                <attribute name="required">1</attribute>
+           </xpath>
+           <xpath expr="//field[@name='description']" position="attributes">
+                <attribute name="readonly">state != 'draft'</attribute>
+           </xpath>
+           <xpath expr="//field[@name='interviewer_ids']" position="attributes">
+                <attribute name="invisible">1</attribute>
+           </xpath>
+        </field>
+    </record>
+
+    <record id="view_hr_job_form_website_published_button" model="ir.ui.view" >
+        <field name="name">hr.job.form.inherit.published.button</field>
+        <field name="model">hr.job</field>
+        <field name="inherit_id" ref="hr_recruitment.hr_job_survey"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('oe_title')]" position="before">
+                <div class="float-end">
+                    <field name="is_published" widget="boolean_toggle" nolabel="1"
+                        options="{'false_label': 'Not Published', 'true_label': 'Published'}"
+                        invisible="state != 'approved'"/>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="hr_job_website_inherit" model="ir.ui.view">
+        <field name="name">hr.job.kanban.inherit</field>
+        <field name="model">hr.job</field>
+        <field name="inherit_id" ref="hr_recruitment.view_hr_job_kanban"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//kanban" position="attributes">
+                <attribute name="default_order">is_published desc, is_favorite desc, create_date DESC</attribute>
+                <attribute name="on_create">hr_recruitment_custom.create_job</attribute>
+                <attribute name="action"></attribute>
+                <attribute name="type">open</attribute>
+            </xpath>
+
+            <xpath expr="//kanban" position="inside">
+                <field name="state"/>
+            </xpath>
+
+            <xpath expr="//div[@name='kanban_boxes']" position="attributes">
+                <attribute name="class" add="border-top pt-2 mx-n2 px-3" separator=" "/>
+            </xpath>
+
+            <xpath expr="//div[@name='kanban_boxes']" position="inside">
+                <div class="col-6">
+                    <field name="is_published" groups="hr_recruitment.group_hr_recruitment_user"
+                        widget="boolean_toggle"
+                        options="{'false_label': 'Not Published', 'true_label': 'Published'}"
+                        invisible="state != 'approved'"/>
+                </div>
+                <div class="col-6" name="bottom_right"></div>
+            </xpath>
+
+        </field>
+    </record>
+
+    <record id="create_job" model="ir.actions.act_window">
+        <field name="name">Create a Job Position</field>
+        <field name="res_model">hr.job</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="hr.view_hr_job_form"/>
+    </record>
+
+</odoo>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_candidates_filter_wizard_form" model="ir.ui.view">
+        <field name="name">candidates.filter.wizard.form</field>
+        <field name="model">candidates.filter.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Filter Candidates">
+                <sheet>
+
+                    <group>
+                        <field name="applicant_ids" widget="many2many_tags" invisible="1"/>
+                    </group>
+                    <group>
+                        <group string="Filter Criteria" >
+                            <field name="job_id"/>
+                            <field name="filter_stage_id"/>
+                            <field name="qualification_level"/>
+                            <field name="specialization_ids" widget="many2many_tags"/>
+                        </group>
+                        <group string="Experience Filter" col="2">
+                            <field name="operator"/>
+                            <field name="years_of_experience"/>
+                    </group>
+                    </group>
+
+                    
+
+                    <footer>
+                        <button
+                            name="action_apply_filters"
+                            type="object"
+                            string="Apply Filters"
+                            class="btn-primary"
+                        />
+                        <button name="action_filter_and_transfer"
+                            string="Filter &amp; Transfer"
+                            type="object"
+                            class="btn-secondary"/>
+                        <button
+                            string="Cancel"
+                            special="cancel"
+                            class="btn-secondary"
+                        />
+                    </footer>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

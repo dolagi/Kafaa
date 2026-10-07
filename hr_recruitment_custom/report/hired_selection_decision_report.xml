@@ -1,0 +1,100 @@
+<odoo>
+    <template id="hired_selection_decision_report">
+        <t t-call="web.html_container">
+            <t t-foreach="reports" t-as="report">
+                <t t-set="decision" t-value="report['decision']"/>
+
+                <!-- ═══════════ PAGE 1 : the letter ═══════════ -->
+                <t t-call="web.external_layout">
+                    <div class="page" style="direction: rtl; font-family: 'Arial', sans-serif; font-size: 13px; line-height: 2;">
+
+                        <div style="text-align:left;">
+                            التاريخ: <t t-esc="decision.date"/>
+                        </div>
+
+                        <div style="margin-top:25px;">
+                            السيد/ <t t-esc="decision.manager_name"/>
+                        </div>
+
+                        <div style="text-align:center; margin-top:15px;">
+                            السلام عليكم ورحمة الله وبركاته
+                        </div>
+
+                        <div style="text-align:center; font-weight:bold; margin-top:25px;">
+                            الموضوع / قرار اختيار رقم (<t t-esc="decision.name"/>) للعام
+                            <t t-esc="decision.year"/> ـخبرات
+                        </div>
+
+                        <div style="margin-top:25px;">
+                            بالاشارة لخطابكم لنا بالنمرة
+                            <t t-esc="decision.letter_number or '.......................'"/>
+                            ، بتاريخ /
+                            <t t-esc="decision.letter_date or '.................'"/>
+                            وبناء علي ما تم من اجراءات.
+                        </div>
+
+                        <div style="margin-top:15px;">
+                            ننقل لكم قرار المفوضية باختيار المذكورين أدناه. وذلك للعمل معكم بالقطاع
+                            <t t-esc="decision.sector or '.............'"/>.
+                        </div>
+
+                        <div style="margin-top:15px;">
+                            يبدأ الكشف بـ <t t-esc="report['first_name']"/>
+                            وينتهي بـ <t t-esc="report['last_name']"/>
+                            وعدد المختارين (<t t-esc="report['count']"/>)
+                        </div>
+
+                        <div style="margin-top:40px; font-size:11px;">
+                            *يوضع هذا القرار موضع التنفيذ بالتنسيق مع الجهات ذات الصلة ونفيدكم بما تم في هذا الشأن.
+                        </div>
+
+                        <div style="margin-top:30px; text-align:center;">والله الموفق</div>
+
+                        <div style="margin-top:60px; text-align:center; font-weight:bold;">
+                            <div t-if="company.secretary_general_name" t-esc="company.secretary_general_name"/>
+                            <div>الأمين العام لمفوضية الاختيار للخدمة المدنية القومية</div>
+                        </div>
+
+                        <div style="margin-top:30px; font-size:11px;">
+                            *صورة لديوان شؤون الخدمة
+                        </div>
+                    </div>
+                </t>
+
+                <!-- ═══════════ PAGE 2 : selected candidates table (الكشف) ═══════════ -->
+                <t t-call="web.external_layout">
+                    <div class="page" style="direction: rtl; font-family: 'Arial', sans-serif; font-size: 12px;">
+                        <h4 style="text-align:center;">
+                            كشف المختارين للعمل بـ<t t-esc="decision.entity_name or '.............'"/> خبرات
+                        </h4>
+
+                        <table style="width:100%; border-collapse:collapse; text-align:center; margin-top:20px;">
+                            <thead style="background:#D9D9D9;">
+                                <tr>
+                                    <th style="border:1px solid black; padding:6px;">الرقم</th>
+                                    <th style="border:1px solid black; padding:6px;">الرقم الوطني</th>
+                                    <th style="border:1px solid black; padding:6px;">الاسم</th>
+                                    <th t-if="decision.show_education_columns" style="border:1px solid black; padding:6px;">التخصص</th>
+                                    <th t-if="decision.show_education_columns" style="border:1px solid black; padding:6px;">الجامعة</th>
+                                    <!-- <th style="border:1px solid black; padding:6px;">الدرجة</th> -->
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="report['rows']" t-as="r">
+                                    <tr>
+                                        <td style="border:1px solid black; padding:6px;" t-esc="r['index']"/>
+                                        <td style="border:1px solid black; padding:6px;" t-esc="r['nationality_no']"/>
+                                        <td style="border:1px solid black; padding:6px;" t-esc="r['name']"/>
+                                        <td t-if="decision.show_education_columns" style="border:1px solid black; padding:6px;" t-esc="r['specialization']"/>
+                                        <td t-if="decision.show_education_columns" style="border:1px solid black; padding:6px;" t-esc="r['university']"/>
+                                        <!-- <td style="border:1px solid black; padding:6px;" t-esc="r['degree']"/> -->
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

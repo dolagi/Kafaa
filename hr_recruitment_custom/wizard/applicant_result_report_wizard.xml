@@ -1,0 +1,38 @@
+<odoo>
+
+    <record id="applicant_result_report_wizard_form" model="ir.ui.view">
+        <field name="name">applicant.result.report.wizard.form</field>
+        <field name="model">applicant.result.report.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Print Job Exam Results">
+                <group>
+                    <field name="job_id"/>
+                </group>
+
+                <footer>
+                    <button
+                        name="action_print_pdf"
+                        type="object"
+                        string="Print PDF"
+                        class="btn-primary"
+                    />
+                    <button string="Cancel" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="action_applicant_result_report_wizard" model="ir.actions.act_window">
+        <field name="name">Job Exam Results</field>
+        <field name="res_model">applicant.result.report.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+<menuitem
+    id="menu_applicant_result_results"
+    name="Job Exam Results"
+    parent="hr_recruitment.report_hr_recruitment"
+    action="action_applicant_result_report_wizard"
+/>
+
+</odoo>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="action_applicant_result_report" model="ir.actions.report">
+        <field name="name">Applicant Results Report</field>
+        <field name="model">hr.applicant</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">hr_recruitment_custom.applicant_results_template</field>
+        <field name="report_file">hr_recruitment_custom.applicant_results_template</field>
+        <field name="print_report_name">'Applicant Result - %s' % (object.job_id.name)</field>
+        <field name="binding_model_id" ref="hr_recruitment.model_hr_applicant"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <record id="action_job_result_report" model="ir.actions.report">
+        <field name="name">Job Results Report</field>
+        <field name="model">hr.job</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">hr_recruitment_custom.job_results_template</field>
+        <field name="report_file">hr_recruitment_custom.job_results_template</field>
+        <field name="print_report_name">'Job Result - %s' % (object.name)</field>
+        <field name="binding_model_id" ref="hr_recruitment.model_hr_job"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <record id="action_interview_form_report" model="ir.actions.report">
+        <field name="name">Interview Evaluation Form</field>
+        <field name="model">hr.job</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">hr_recruitment_custom.interview_form_report</field>
+        <field name="report_file">hr_recruitment_custom.interview_form_report</field>
+        <field name="print_report_name">'Evaluation_Form_%s' % (object.name)</field>
+        <field name="binding_model_id" ref="hr_recruitment.model_hr_job"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <record id="action_hired_selection_decision_report" model="ir.actions.report">
+        <field name="name">Selection Decision</field>
+        <field name="model">hr.selection.decision</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">hr_recruitment_custom.hired_selection_decision_report</field>
+        <field name="report_file">hr_recruitment_custom.hired_selection_decision_report</field>
+        <field name="print_report_name">'Selection_Decision_%s' % (object.name)</field>
+        <field name="binding_model_id" ref="model_hr_selection_decision"/>
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>

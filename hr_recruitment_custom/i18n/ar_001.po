@@ -1,0 +1,2357 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* hr_recruitment_custom
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-30 08:40+0000\n"
+"PO-Revision-Date: 2026-06-30 08:40+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hr_recruitment_custom
+#: model:ir.actions.report,print_report_name:hr_recruitment_custom.action_applicant_result_report
+msgid "'Applicant Result - %s' % (object.job_id.name)"
+msgstr "'نتيجة المتقدم - %s' % (object.job_id.name)"
+
+#. module: hr_recruitment_custom
+#: model:ir.actions.report,print_report_name:hr_recruitment_custom.action_job_result_report
+msgid "'Job Result - %s' % (object.name)"
+msgstr "'نتيجة الوظيفة - %s' % (object.name)"
+
+#. module: hr_recruitment_custom
+#: model:ir.actions.report,print_report_name:hr_recruitment_custom.action_interview_form_report
+msgid "'Evaluation_Form_%s' % (object.name)"
+msgstr "'استمارة_تقييم_%s' % (object.name)"
+
+#. module: hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.applicant_results_template
+msgid "(Top"
+msgstr "(أعلى"
+
+#. module: hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.applicant_results_template
+msgid "<b>#</b>"
+msgstr "<b>#</b>"
+
+#. module: hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.applicant_results_template
+msgid "<b>Candidate Name</b>"
+msgstr "<b>المرشح</b>"
+
+#. module: hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.applicant_results_template
+msgid "<b>Exam Score (%)</b>"
+msgstr "<b>درجة الإمتحان (%)</b>"
+
+#. module: hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.applicant_results_template
+msgid "<b>Interview Score (%)</b>"
+msgstr "<b>درجة المعاينة (%)</b>"
+
+#. module: hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.applicant_results_template
+msgid "<b>National ID</b>"
+msgstr "<b>الرقم الوطني</b>"
+
+#. module: hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.applicant_results_template
+msgid "<b>Total (%)</b>"
+msgstr "<b>المجموع (%)</b>"
+
+#. module: hr_recruitment_custom
+#. odoo-python
+#: code:addons/hr_recruitment_custom/wizard/send_participants_wizard.py:0
+msgid "<p>Please find attached the exam participants list.</p>"
+msgstr "<p>يرجى الاطلاع على القائمة المرفقة للمشاركين في الامتحان.</p>"
+
+#. module: hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.view_hr_applicant_evaluation_button
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.view_hr_applicant_form_inherit
+msgid "<span class=\"o_stat_text\">Enter Evaluation</span>"
+msgstr "<span class=\"o_stat_text\">ملء إستمارة المعاينة</span>"
+
+#. module: hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.survey_navigation
+msgid "<span class=\"px-2\">Next</span>"
+msgstr "التالي"
+
+#. module: hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.survey_navigation
+msgid "<span class=\"px-2\">Previous</span>"
+msgstr "السابق"
+
+#. module: hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.interview_form_report
+msgid ""
+"<span>رئيس اللجنة: ............................... التوقيع: .........................</span>\n"
+"                                <span>عضو اللجنة: ............................... التوقيع: .........................</span>"
+msgstr ""
+"<span>رئيس اللجنة: ............................... التوقيع: .........................</span>\n"
+"                                <span>عضو اللجنة: ............................... التوقيع: .........................</span>"
+
+#. module: hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.interview_form_report
+msgid ""
+"<span>عضو اللجنة: ............................... التوقيع: .........................</span>\n"
+"                                <span>المقرر: ............................... التوقيع: .........................</span>"
+msgstr ""
+"<span>عضو اللجنة: ............................... التوقيع: .........................</span>\n"
+"                                <span>المقرر: ............................... التوقيع: .........................</span>"
+
+#. module: hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.applicant_results_template
+msgid "<strong>Announcement Date: </strong>"
+msgstr "<strong>تاريخ الإعلان: </strong>"
+
+#. module: hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.applicant_results_template
+msgid "<strong>Completed: </strong>"
+msgstr "<strong>مكتمل: </strong>"
+
+#. module: hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.applicant_results_template
+msgid "<strong>Job: </strong>"
+msgstr "<strong>الوظيفة :</strong>"
+
+#. module: hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.applicant_results_template
+msgid "<strong>Positions Required: </strong>"
+msgstr "<strong>العدد المتوقع: </strong>"
+
+#. module: hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.applicant_results_template
+msgid "<strong>Scoring Criteria: </strong>"
+msgstr "<strong>معايير التقييم: </strong>"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_job__academic_degree
+msgid "Academic Degree"
+msgstr "الدرجة العلمية"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_survey_survey__access_mode
+msgid "Access Mode"
+msgstr "وضع الوصول "
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_candidate_specialization__active
+msgid "Active"
+msgstr "نشط"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__candidate_language__proficiency__advanced
+msgid "Advanced"
+msgstr "متقدم"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__survey_survey__questions_selection__all
+msgid "All questions"
+msgstr "كافة الأسئلة "
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_recruitment_stage__allowed_group_ids
+msgid "Allowed Groups"
+msgstr "المجموعات المسموح لها"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_job__announcement_date
+msgid "Announcement Date"
+msgstr " تاربخ الإعلان"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__survey_survey__access_mode__public
+msgid "Anyone with the link"
+msgstr "أي شخص لديه الرابط"
+
+#. module: hr_recruitment_custom
+#: model:ir.model,name:hr_recruitment_custom.model_hr_applicant
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_evaluation_wizard__applicant_id
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.view_hr_job_form_inherit_exam
+msgid "Applicant"
+msgstr "المتقدم"
+
+#. module: hr_recruitment_custom
+#: model:ir.actions.report,name:hr_recruitment_custom.action_applicant_result_report
+msgid "Applicant Results Report"
+msgstr "تقرير نتائج المتقدمين"
+
+#. module: hr_recruitment_custom
+#: model:ir.actions.report,name:hr_recruitment_custom.action_job_result_report
+msgid "Job Results Report"
+msgstr "تقرير نتائج المتقدمين"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_candidates_filter_wizard__applicant_ids
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_transfer_applicants_wizard__applicant_ids
+msgid "Applicants"
+msgstr "المتقدمون"
+
+#. module: hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.view_candidates_filter_wizard_form
+msgid "Apply Filters"
+msgstr "تطبيق عوامل التصفية"
+
+#. module: hr_recruitment_custom
+#. odoo-python
+#: code:addons/hr_recruitment_custom/models/hr_job.py:0
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_job__appointed_applicants_count
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.view_hr_job_form_inherit_exam
+msgid "Appointed Applicants"
+msgstr "إستمارات المعاينة"
+
+#. module: hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.survey_user_input_view_form
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.view_hr_job_form_inherit_exam
+msgid "Approve"
+msgstr "اعتماد"
+
+#. module: hr_recruitment_custom
+#: model:ir.actions.server,name:hr_recruitment_custom.action_approve
+msgid "Approve Exam"
+msgstr "اعتماد الإمتحان"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__hr_job__state__approved
+#: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__survey_user_input__state__approved
+msgid "Approved"
+msgstr "معتمد"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__candidate_education__graduation_month__4
+msgid "April"
+msgstr "أبريل"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_job__attendance_type
+msgid "Attendance Type"
+msgstr "نوع الحضور"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__candidate_education__graduation_month__8
+msgid "August"
+msgstr "أغسطس"
+
+#. module: hr_recruitment_custom
+#: model:survey.question,scale_mid_label:hr_recruitment_custom.feedback_survey_question_rating
+msgid "Average"
+msgstr "متوسط"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__candidate_education__certification__bachelor
+#: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__candidates_filter_wizard__qualification_level__bachelor
+msgid "Bachelor"
+msgstr "بكالوريوس"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__hr_job__academic_degree__bachelor
+msgid "Bachelor’s Degree"
+msgstr "درجة البكالوريوس"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__candidate_language__proficiency__beginner
+msgid "Beginner"
+msgstr "مبتدئ"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_candidate__birth_date
+msgid "Birth Date"
+msgstr "تاربخ الميلاد"
+
+#. module: hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.applicant_result_report_wizard_form
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.view_candidates_filter_wizard_form
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.view_survey_send_participants_wizard_form
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.view_transfer_applicants_wizard
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.view_exam_builder_wizard_form
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.view_hr_job_close_wizard_form
+msgid "Cancel"
+msgstr "إلغاء"
+
+#. module: hr_recruitment_custom
+#: model:ir.model,name:hr_recruitment_custom.model_hr_candidate
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_candidate_education__candidate_id
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_candidate_language__candidate_id
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_candidate_work_experience__candidate_id
+msgid "Candidate"
+msgstr "المرشح "
+
+#. module: hr_recruitment_custom
+#: model:ir.model,name:hr_recruitment_custom.model_candidate_education
+msgid "Candidate Education"
+msgstr "مؤهل المرشح"
+
+#. module: hr_recruitment_custom
+#: model:ir.model,name:hr_recruitment_custom.model_candidate_language
+msgid "Candidate Language"
+msgstr "لغات المرشح"
+
+#. module: hr_recruitment_custom
+#: model:ir.model,name:hr_recruitment_custom.model_candidate_specialization
+msgid "Candidate Specialization"
+msgstr "تخصص المتقدم"
+
+#. module: hr_recruitment_custom
+#: model:ir.model,name:hr_recruitment_custom.model_candidate_work_experience
+msgid "Candidate Work Experience"
+msgstr "الخبرات العملية للمرشح"
+
+#. module: hr_recruitment_custom
+#. odoo-python
+#: code:addons/hr_recruitment_custom/wizard/transfer_applicants.py:0
+msgid ""
+"Cannot move \"%s\" to an interview stage: exam score (%.1f%%) is below the "
+"passing threshold (%.1f%%)."
+msgstr ""
+"لا يمكن نقل \"%s\" إلى مرحلة المقابلة: درجة الإمتحان (%.1f%%) أقل من الحد "
+"الأدنى للنجاح (%.1f%%)."
+
+#. module: hr_recruitment_custom
+#. odoo-python
+#: code:addons/hr_recruitment_custom/wizard/transfer_applicants.py:0
+msgid ""
+"Cannot move \"%s\" to an interview stage: the candidate has not completed "
+"the job exam yet."
+msgstr ""
+"لا يمكن نقل \"%s\" إلى مرحلة المقابلة: لم يُكمل المرشح إمتحان الوظيفة بعد."
+
+#. module: hr_recruitment_custom
+#. odoo-python
+#: code:addons/hr_recruitment_custom/models/hr_applicant.py:0
+msgid "Cannot move to an exam stage without setting the exam date."
+msgstr "لا يمكن الانتقال إلى مرحلة الامتحان دون تحديد تاريخ الامتحان."
+
+#. module: hr_recruitment_custom
+#. odoo-python
+#: code:addons/hr_recruitment_custom/models/hr_applicant.py:0
+msgid "Cannot move to an interview stage without setting the interview date."
+msgstr "لا يمكن الانتقال إلى مرحلة المقابلة دون تحديد تاريخ المقابلة."
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_exam_center__capacity
+msgid "Capacity"
+msgstr "السعة"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_candidate_education__certification
+msgid "Certification"
+msgstr "الشهادات"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,help:hr_recruitment_custom.field_candidate_education__certification
+msgid "Certification obtained by the candidate."
+msgstr "الشهادات التي حصل عليها المرشح."
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_candidate_work_experience__city
+msgid "City"
+msgstr "المدينة"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_candidate__residence_city
+msgid "City of Residence"
+msgstr "مدينة الإقامة"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_job__closing_date
+msgid "Closing Date"
+msgstr "تاريخ الإغلاق"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_survey_user_input_signature__user_id
+msgid "Committee Member"
+msgstr "عضو اللجنة"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_survey_user_input__signature_ids
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.survey_user_input_view_form
+msgid "Committee Signatures"
+msgstr "توقيعات اللجنة"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_candidate_work_experience__company_name
+msgid "Company Name"
+msgstr "اسم الشركة"
+
+#. module: hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.view_evaluation_wizard_form
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.view_transfer_applicants_wizard
+msgid "Confirm"
+msgstr "تأكيد"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_candidate_work_experience__country
+msgid "Country"
+msgstr "الدولة"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_candidate__residence_country
+msgid "Country of Residence"
+msgstr "بلد الإقامة"
+
+#. module: hr_recruitment_custom
+#: model:ir.actions.act_window,name:hr_recruitment_custom.create_job
+msgid "Create a Job Position"
+msgstr "إنشاء وظيفة شاغرة"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_applicant_result_report_wizard__create_uid
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_candidate_education__create_uid
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_candidate_language__create_uid
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_candidate_specialization__create_uid
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_candidate_work_experience__create_uid
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_candidates_filter_wizard__create_uid
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_exam_center__create_uid
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_evaluation_wizard__create_uid
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_evaluation_wizard_line__create_uid
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_survey_send_participants_wizard__create_uid
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_survey_user_input_signature__create_uid
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_transfer_applicants_wizard__create_uid
+msgid "Created by"
+msgstr "أنشئ بواسطة"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_applicant_result_report_wizard__create_date
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_candidate_education__create_date
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_candidate_language__create_date
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_candidate_specialization__create_date
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_candidate_work_experience__create_date
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_candidates_filter_wizard__create_date
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_exam_center__create_date
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_evaluation_wizard__create_date
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_evaluation_wizard_line__create_date
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_survey_send_participants_wizard__create_date
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_survey_user_input_signature__create_date
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_transfer_applicants_wizard__create_date
+msgid "Created on"
+msgstr "تاريخ الإنشاء"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_transfer_applicants_wizard__date
+msgid "Date"
+msgstr "التاريخ"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_transfer_applicants_wizard__manager_name
+msgid "Requesting Entity Manager"
+msgstr "اسم مدير الجهة الطالبة"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_transfer_applicants_wizard__entity_name
+msgid "Requesting Entity Name"
+msgstr "اسم الجهة الطالبة"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_transfer_applicants_wizard__sector
+msgid "Sector"
+msgstr "القطاع"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_transfer_applicants_wizard__letter_number
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.view_transfer_applicants_wizard
+msgid "Letter Number"
+msgstr "نمرة الخطاب"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_transfer_applicants_wizard__letter_date
+msgid "Letter Date"
+msgstr "تاريخ الخطاب"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_selection_decision__year
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_transfer_applicants_wizard__decision_year
+msgid "Year"
+msgstr "السنة"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_selection_decision__degree
+msgid "Degree Level"
+msgstr "المستوى العلمي"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_selection_decision__applicant_count
+msgid "Count"
+msgstr "العدد"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_selection_decision__job_id
+msgid "Job Position"
+msgstr "المسمى الوظيفي"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_selection_decision__date
+msgid "Date"
+msgstr "التاريخ"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_transfer_applicants_wizard__degree
+msgid "Degree"
+msgstr "الدرجة"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_selection_decision__manager_name
+msgid "Requesting Entity Manager"
+msgstr "اسم مدير الجهة الطالبة"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_selection_decision__entity_name
+msgid "Requesting Entity Name"
+msgstr "اسم الجهة الطالبة"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_selection_decision__sector
+msgid "Sector"
+msgstr "القطاع"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_selection_decision__letter_number
+msgid "Their Letter Number"
+msgstr "نمرة الخطاب"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_selection_decision__letter_date
+msgid "Their Letter Date"
+msgstr "تاريخ الخطاب"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_selection_decision__applicant_ids
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.view_hr_selection_decision_form
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.view_hr_applicant_form_inherit
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.hr_candidate_view_form
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_job__selected_applicant_ids
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_job__selected_applicants_count
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.view_hr_job_form_inherit_exam
+msgid "Selected Applicants"
+msgstr "المتقدمون المختارون"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_selection_decision__name
+msgid "Decision Number"
+msgstr "رقم القرار"
+
+#. module: hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.view_transfer_applicants_wizard
+msgid "Selection Decision Details"
+msgstr "تفاصيل قرار التعيين"
+
+#. module: hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.view_hr_applicant_form_inherit
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.hr_candidate_view_form
+msgid "Selection Decision"
+msgstr "قرار التعيين"
+
+#. module: hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.view_hr_applicant_form_inherit
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.hr_candidate_view_form
+msgid "Selection Decision"
+msgstr "قرار التعيين"
+
+#. module: hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.view_transfer_applicants_wizard
+msgid "Manager Name"
+msgstr "اسم المدير"
+
+#. module: hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.view_transfer_applicants_wizard
+msgid "Example: University"
+msgstr "مثال: الجامعة"
+
+#. module: hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.view_hr_selection_decision_form
+msgid "Selection Decision"
+msgstr "قرار التعيين"
+
+#. module: hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.view_hr_selection_decision_form
+msgid "Selected Applicants"
+msgstr "المتقدمون المختارون"
+
+#. module: hr_recruitment_custom
+#: model:ir.actions.act_window,name:hr_recruitment_custom.action_hr_selection_decision
+#: model:ir.ui.menu,name:hr_recruitment_custom.menu_hr_selection_decision
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.view_hr_selection_decision_list
+msgid "Selection Decisions"
+msgstr "قرارات التعيين"
+
+#. module: hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.view_hr_selection_decision_form
+msgid "Print"
+msgstr "طباعة"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_selection_decision__applicant_count
+msgid "Count"
+msgstr "العدد"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_selection_decision__degree
+msgid "Degree Level"
+msgstr "المؤهل"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_selection_decision__job_id
+msgid "Job Position"
+msgstr "المسمى الوظيفي"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_selection_decision__date
+msgid "Date"
+msgstr "التاريخ"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_survey_user_input_signature__signed_date
+msgid "Date Signed"
+msgstr "تاريخ التوقيع"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,help:hr_recruitment_custom.field_hr_job__closing_date
+msgid "Date when the job application closes."
+msgstr "تاريخ إغلاق التقديم على الوظيفة."
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,help:hr_recruitment_custom.field_hr_job__announcement_date
+msgid "Date when the job was announced."
+msgstr "تاريخ الإعلان عن الوظيفة."
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__candidate_education__graduation_month__12
+msgid "December"
+msgstr "ديسمبر"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_job__degree_level
+msgid "Degree Level"
+msgstr "الدرجة"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__candidate_education__certification__diploma
+#: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__candidates_filter_wizard__qualification_level__diploma
+#: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__hr_job__academic_degree__diploma
+msgid "Diploma"
+msgstr "دبلوم"
+
+#. module: hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.view_evaluation_wizard_form
+msgid "Discard"
+msgstr "إغلاق"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_applicant_result_report_wizard__display_name
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_candidate_education__display_name
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_candidate_language__display_name
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_candidate_specialization__display_name
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_candidate_work_experience__display_name
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_candidates_filter_wizard__display_name
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_exam_center__display_name
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_evaluation_wizard__display_name
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_evaluation_wizard_line__display_name
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_survey_send_participants_wizard__display_name
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_survey_user_input_signature__display_name
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_transfer_applicants_wizard__display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_survey_survey__progression_mode
+msgid "Display Progress as"
+msgstr "عرض التقدم كـ"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__hr_job__state__draft
+msgid "Draft"
+msgstr "مسودة"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_candidate__education_ids
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.hr_candidate_form_view_inherit_graduation
+msgid "Education"
+msgstr "المؤهل العلمي"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__hr_job__degree_level__eighth
+msgid "Eighth Level"
+msgstr "الدرجة الثامنة"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__hr_job__degree_level__eleventh
+msgid "Eleventh Level"
+msgstr "الدرجة الحادية عشر"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_candidate_work_experience__end_date
+msgid "End Date"
+msgstr "تاريخ الانتهاء"
+
+#. module: hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.view_evaluation_wizard_form
+msgid "Enter Evaluation"
+msgstr "ملء إستمارة المعاينة"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__candidates_filter_wizard__operator__equal
+msgid "Equal To"
+msgstr "يساوي"
+
+#. module: hr_recruitment_custom
+#. odoo-python
+#: code:addons/hr_recruitment_custom/models/hr_applicant.py:0
+msgid "Evaluation"
+msgstr "إستمارة المعاينة"
+
+#. module: hr_recruitment_custom
+#: model:ir.model,name:hr_recruitment_custom.model_hr_evaluation_wizard
+msgid "Evaluation Wizard"
+msgstr "معالج التقييم"
+
+#. module: hr_recruitment_custom
+#: model:ir.model,name:hr_recruitment_custom.model_hr_evaluation_wizard_line
+msgid "Evaluation Wizard Line"
+msgstr "بند معالج التقييم"
+
+#. module: hr_recruitment_custom
+#. odoo-python
+#: code:addons/hr_recruitment_custom/models/hr_applicant.py:0
+msgid "Evaluation is only available for applicants in the interview stage."
+msgstr "ملء إستمارة المعاينة متاح فقط للمتقدمين في مرحلة المقابلة."
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_applicant__evaluation_count
+msgid "Evaluations"
+msgstr "التقييمات"
+
+#. module: hr_recruitment_custom
+#: model:ir.model,name:hr_recruitment_custom.model_exam_center
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_applicant__exam_center_id
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_transfer_applicants_wizard__exam_center_id
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.view_exam_center_form
+msgid "Exam Center"
+msgstr "مركز الامتحان"
+
+#. module: hr_recruitment_custom
+#: model:ir.actions.act_window,name:hr_recruitment_custom.exam_center_action
+#: model:ir.ui.menu,name:hr_recruitment_custom.menu_exam_center_root
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.view_exam_center_tree
+msgid "Exam Centers"
+msgstr "مراكز الامتحانات"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_applicant__exam_date
+msgid "Exam Date"
+msgstr "تاريخ الامتحان"
+
+#. module: hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.view_hr_applicant_form_inherit
+msgid "Exam Details"
+msgstr "تفاصيل الامتحان"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__hr_job__scoring_criteria__exam_only
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.applicant_results_template
+msgid "Exam Only"
+msgstr "الإمتحان فقط"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__hr_job__scoring_criteria__interview_only
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.applicant_results_template
+msgid "Interview Only"
+msgstr "المقابلة فقط"
+
+#. module: hr_recruitment_custom
+#. odoo-python
+#: code:addons/hr_recruitment_custom/models/hr_job.py:0
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_job__exam_participants_count
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.view_hr_job_form_inherit_exam
+msgid "Exam Participants"
+msgstr "المشاركون في الإمتحان"
+
+#. module: hr_recruitment_custom
+#. odoo-python
+#: code:addons/hr_recruitment_custom/wizard/send_participants_wizard.py:0
+msgid "Exam Participants List"
+msgstr "قائمة المشاركين في الإمتحان"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_survey_user_input__applicant_exam_score
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.survey_user_input_view_form
+msgid "Exam Score (%)"
+msgstr "درجة الإمتحان"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_applicant__exam_date_stage
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_applicant__exam_stage
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_applicant__interview_stage
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_transfer_applicants_wizard__exam_date_stage
+msgid "Exam Stage"
+msgstr "مرحلة الامتحان"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__hr_job__scoring_criteria__exam_and_interview
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.applicant_results_template
+msgid "Exam and Observation"
+msgstr "الإمتحان والمقابلة"
+
+#. module: hr_recruitment_custom
+#: model:res.groups,name:hr_recruitment_custom.group_examinations_department
+msgid "Examinations Department"
+msgstr "إدارة الامتحانات"
+
+#. module: hr_recruitment_custom
+#: model:survey.question,scale_max_label:hr_recruitment_custom.feedback_survey_question_rating
+msgid "Excellent"
+msgstr "ممتاز"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_candidate__experience_ids
+msgid "Experience"
+msgstr "الخبرات"
+
+#. module: hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.view_candidates_filter_wizard_form
+msgid "Experience Filter"
+msgstr "تصفية حسب الخبرة"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_candidates_filter_wizard__operator
+msgid "Experience Operator"
+msgstr "المعامل"
+
+#. module: hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.hr_candidate_form_view_inherit_graduation
+msgid "Experiences"
+msgstr "الخبرات"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__candidate_education__graduation_month__2
+msgid "February"
+msgstr "فبراير"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_job__feedback_survey_id
+msgid "Feedback Survey"
+msgstr "استبيان إستطلاع الرأي "
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_survey_user_input__feedback_survey_url
+msgid "Feedback Survey URL"
+msgstr "رابط استبيان إستطلاع الرأي"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__hr_candidate__gender__female
+msgid "Female"
+msgstr "أنثى"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__hr_job__degree_level__fifteenth
+msgid "Fifteenth Level"
+msgstr "الدرجة الخامسة عشر"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__hr_job__degree_level__fifth
+msgid "Fifth Level"
+msgstr "الدرجة الخامسة"
+
+#. module: hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.view_candidates_filter_wizard_form
+msgid "Filter & Transfer"
+msgstr "تصفية ونقل"
+
+#. module: hr_recruitment_custom
+#. odoo-python
+#: code:addons/hr_recruitment_custom/models/hr_applicant.py:0
+#: model:ir.actions.server,name:hr_recruitment_custom.action_filter_candidates
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.view_candidates_filter_wizard_form
+msgid "Filter Candidates"
+msgstr "تصفية المتقدمين"
+
+#. module: hr_recruitment_custom
+#: model:ir.model,name:hr_recruitment_custom.model_candidates_filter_wizard
+msgid "Filter Candidates Wizard"
+msgstr "معالج تصفية المتقدمين"
+
+#. module: hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.view_candidates_filter_wizard_form
+msgid "Filter Criteria"
+msgstr "معايير التصفية"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_candidates_filter_wizard__filter_stage_id
+msgid "Filter by Stage"
+msgstr "التصفية حسب المرحلة"
+
+#. module: hr_recruitment_custom
+#. odoo-python
+#: code:addons/hr_recruitment_custom/wizard/candidates_filter.py:0
+msgid "Filtered Candidates"
+msgstr "المتقدمون المطابقون للمعايير"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__hr_job__degree_level__first
+msgid "First Level"
+msgstr "الدرجة الأولى"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__candidate_language__proficiency__fluent
+msgid "Fluent"
+msgstr "طلاقة"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__hr_job__degree_level__fourteenth
+msgid "Fourteenth Level"
+msgstr "الدرجة الرابعة عشر"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__hr_job__degree_level__fourth
+msgid "Fourth Level"
+msgstr "الدرجة الرابعة"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__hr_job__working_period__full_time
+msgid "Full Time"
+msgstr "دوام كامل"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_candidate__gender
+msgid "Gender"
+msgstr "النوع"
+
+#. module: hr_recruitment_custom
+#: model:res.groups,name:hr_recruitment_custom.group_general_secretariat
+msgid "General Secretariat"
+msgstr "الأمين العام"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_candidate_education__graduation_month
+msgid "Graduation Month"
+msgstr "شهر التخرج"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_candidate_education__graduation_year
+msgid "Graduation Year"
+msgstr "سنة التخرج"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__candidates_filter_wizard__operator__bigger
+msgid "Greater Than"
+msgstr "أكبر من"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__candidates_filter_wizard__operator__bigger_equal
+msgid "Greater Than or Equal To"
+msgstr "أكبر من أو يساوي"
+
+#. module: hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.survey_fill_header
+msgid "Hello,"
+msgstr "مرحبا ,"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__candidate_education__certification__high_school
+#: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__candidates_filter_wizard__qualification_level__high_school
+#: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__hr_job__academic_degree__high_school
+msgid "High School"
+msgstr "الثانوية العامة"
+
+#. module: hr_recruitment_custom
+#: model:survey.question,title:hr_recruitment_custom.feedback_survey_question_rating
+msgid "How would you rate the recruitment process?"
+msgstr "كيف تقيّم عملية التوظيف؟"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__hr_job__attendance_type__hybrid
+msgid "Hybrid"
+msgstr "هجين"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_applicant_result_report_wizard__id
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_candidate_education__id
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_candidate_language__id
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_candidate_specialization__id
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_candidate_work_experience__id
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_candidates_filter_wizard__id
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_exam_center__id
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_evaluation_wizard__id
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_evaluation_wizard_line__id
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_survey_send_participants_wizard__id
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_survey_user_input_signature__id
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_transfer_applicants_wizard__id
+msgid "ID"
+msgstr "المعرّف"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,help:hr_recruitment_custom.field_survey_survey__progression_mode
+msgid ""
+"If Number is selected, it will display the number of questions answered on "
+"the total number of question to answer."
+msgstr ""
+"إذا كان الرقم محدداً، سيقوم بعرض عدد الأسئلة التي تمت الإجابة عليها من "
+"إجمالي عدد الأسئلة للإجابة عليها. "
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,help:hr_recruitment_custom.field_survey_survey__questions_selection
+msgid ""
+"If randomized is selected, you can configure the number of random questions "
+"by section. This mode is ignored in live session."
+msgstr ""
+"إذا تم تحديد الوضع العشوائي، بإمكانك تهيئة عدد الأسئلة العشوائية حسب القسم. "
+"يتم تجاهل هذا الوضع في الجلسات المباشرة. "
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_candidate__image_1920
+msgid "Image"
+msgstr "صورة"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_candidate__image_1024
+msgid "Image 1024"
+msgstr "صورة 1024"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_candidate__image_128
+msgid "Image 128"
+msgstr "صورة 128"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_candidate__image_256
+msgid "Image 256"
+msgstr "صورة 256"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_candidate__image_512
+msgid "Image 512"
+msgstr "صورة 512"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_candidate__image_url
+msgid "Image URL"
+msgstr "رابط الصورة"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,help:hr_recruitment_custom.field_hr_applicant__exam_date_stage
+#: model:ir.model.fields,help:hr_recruitment_custom.field_hr_applicant__exam_stage
+#: model:ir.model.fields,help:hr_recruitment_custom.field_hr_applicant__interview_stage
+#: model:ir.model.fields,help:hr_recruitment_custom.field_transfer_applicants_wizard__exam_date_stage
+msgid "Indicates whether the applicant is in an exam stage."
+msgstr "يشير إلى ما إذا كان المتقدم في مرحلة امتحان."
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,help:hr_recruitment_custom.field_hr_recruitment_stage__exam_date_stage
+#: model:ir.model.fields,help:hr_recruitment_custom.field_hr_recruitment_stage__exam_stage
+msgid "Indicates whether this recruitment stage involves an exam."
+msgstr "يشير إلى ما إذا كانت مرحلة التوظيف هذه تتضمن امتحانًا."
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,help:hr_recruitment_custom.field_hr_recruitment_stage__interview_stage
+#: model:ir.model.fields,help:hr_recruitment_custom.field_transfer_applicants_wizard__interview_stage
+msgid "Indicates whether this recruitment stage involves an interview."
+msgstr "يشير إلى ما إذا كانت مرحلة التوظيف هذه تتضمن مقابلة."
+
+#. module: hr_recruitment_custom
+#: model:res.groups,name:hr_recruitment_custom.group_information_center
+msgid "Information Center"
+msgstr "مركز المعلومات"
+
+#. module: hr_recruitment_custom
+#: model:res.groups,name:hr_recruitment_custom.group_inspection_committee
+msgid "Inspection Committee"
+msgstr "لجنة المعاينة"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__candidate_language__proficiency__intermediate
+msgid "Intermediate"
+msgstr "متوسط"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_applicant__interview_date
+msgid "Interview Date"
+msgstr "تاريخ المقابلة"
+
+#. module: hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.view_hr_applicant_form_inherit
+msgid "Interview Details"
+msgstr "تفاصيل المقابلة"
+
+#. module: hr_recruitment_custom
+#: model:ir.actions.report,name:hr_recruitment_custom.action_interview_form_report
+msgid "Interview Evaluation Form"
+msgstr "استمارة تقييم المقابلة"
+
+#. module: hr_recruitment_custom
+#: model:ir.model,name:hr_recruitment_custom.model_report_hr_recruitment_custom_interview_form_report
+msgid "Interview Evaluation Form Report"
+msgstr "تقرير استمارة تقييم المقابلة"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_survey_user_input_signature__user_input_id
+msgid "Interview Form"
+msgstr "استمارة المقابلة"
+
+#. module: hr_recruitment_custom
+#: model:ir.model,name:hr_recruitment_custom.model_survey_user_input_signature
+msgid "Interview Form Signature"
+msgstr "توقيع استمارة المقابلة"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_applicant__interview_notes
+msgid "Interview Notes"
+msgstr "ملاحظات المقابلة"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__survey_survey__access_mode__token
+msgid "Invited people only"
+msgstr "الأشخاص المدعوين فقط "
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_recruitment_stage__exam_date_stage
+msgid "Is Exam Date Stage"
+msgstr "مرحلة تحديد مواعيد الامتحان"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_recruitment_stage__exam_stage
+msgid "Is Exam Stage"
+msgstr "مرحلة الامتحان"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_recruitment_stage__interview_stage
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_transfer_applicants_wizard__interview_stage
+msgid "Is Interview Stage"
+msgstr "مرحلة المقابلة"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_job__is_published
+msgid "Is Published"
+msgstr "تم نشره"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__candidate_education__graduation_month__1
+msgid "January"
+msgstr "يناير"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_applicant_result_report_wizard__job_id
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_candidates_filter_wizard__job_id
+msgid "Job"
+msgstr "الوظيفة"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_job__exam_id
+msgid "Job Exam"
+msgstr "امتحان الوظيفة"
+
+#. module: hr_recruitment_custom
+#: model:ir.model,name:hr_recruitment_custom.model_applicant_result_report_wizard
+msgid "Job Exam Report Wizard"
+msgstr "معالج تقرير امتحان الوظيفة"
+
+#. module: hr_recruitment_custom
+#: model:ir.actions.act_window,name:hr_recruitment_custom.action_applicant_result_report_wizard
+#: model:ir.ui.menu,name:hr_recruitment_custom.menu_applicant_result_results
+msgid "Job Exam Results"
+msgstr "نتائج امتحان الوظيفة"
+
+#. module: hr_recruitment_custom
+#: model:ir.model,name:hr_recruitment_custom.model_hr_job
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_survey_user_input__job_id
+msgid "Job Position"
+msgstr "المنصب الوظيفي"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_candidate_work_experience__job_title
+msgid "Job Title"
+msgstr "المسمى الوظيفي"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__candidate_education__graduation_month__7
+msgid "July"
+msgstr "يوليو"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__candidate_education__graduation_month__6
+msgid "June"
+msgstr "يونيو"
+
+#. module: hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.brand_promotion_message_inherit
+msgid "Kafaa"
+msgstr "كفاءة"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,help:hr_recruitment_custom.field_candidates_filter_wizard__specialization_ids
+msgid ""
+"Keep only candidates who have at least one education entry matching one of "
+"the selected specializations. Leave empty to skip this filter."
+msgstr ""
+"الاحتفاظ فقط بالمتقدمين الذين لديهم سجل تعليمي واحد على الأقل يطابق أحد "
+"التخصصات المحددة. اترك الحقل فارغًا لتجاوز هذا المرشح."
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,help:hr_recruitment_custom.field_candidates_filter_wizard__qualification_level
+msgid ""
+"Keep only candidates whose highest certification is at least this level."
+msgstr "تصفية المتقدمين حسب أعلى مؤهل علمي."
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_candidate__language_ids
+msgid "Language"
+msgstr "اللغات"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_candidate_language__language_name
+msgid "Language Name"
+msgstr "اللغة"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,help:hr_recruitment_custom.field_candidate_language__proficiency
+msgid "Language proficiency level"
+msgstr "نص حر: لغة أم، متقدم، متوسط، مبتدئ"
+
+#. module: hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.hr_candidate_form_view_inherit_graduation
+msgid "Languages"
+msgstr "اللغات"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_applicant_result_report_wizard__write_uid
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_candidate_education__write_uid
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_candidate_language__write_uid
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_candidate_specialization__write_uid
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_candidate_work_experience__write_uid
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_candidates_filter_wizard__write_uid
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_exam_center__write_uid
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_evaluation_wizard__write_uid
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_evaluation_wizard_line__write_uid
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_survey_send_participants_wizard__write_uid
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_survey_user_input_signature__write_uid
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_transfer_applicants_wizard__write_uid
+msgid "Last Updated by"
+msgstr "آخر تعديل بواسطة"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_applicant_result_report_wizard__write_date
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_candidate_education__write_date
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_candidate_language__write_date
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_candidate_specialization__write_date
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_candidate_work_experience__write_date
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_candidates_filter_wizard__write_date
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_exam_center__write_date
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_evaluation_wizard__write_date
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_evaluation_wizard_line__write_date
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_survey_send_participants_wizard__write_date
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_survey_user_input_signature__write_date
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_transfer_applicants_wizard__write_date
+msgid "Last Updated on"
+msgstr "آخر تعديل في"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__candidates_filter_wizard__operator__less
+msgid "Less Than"
+msgstr "أقل من"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__candidates_filter_wizard__operator__less_equal
+msgid "Less Than or Equal To"
+msgstr "أقل من أو يساوي"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_evaluation_wizard__line_ids
+msgid "Lines"
+msgstr "البنود"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,help:hr_recruitment_custom.field_hr_job__responsibilities
+msgid "List of responsibilities for the job position."
+msgstr "قائمة بالمسؤوليات الخاصة بالمنصب الوظيفي."
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_exam_center__name
+msgid "Location"
+msgstr "الموقع"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,help:hr_recruitment_custom.field_candidate_education__university_location
+msgid "Location of the university attended by the candidate."
+msgstr "موقع الجامعة التي درس بها المتقدم."
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__hr_candidate__gender__male
+msgid "Male"
+msgstr "ذكر"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__candidate_education__graduation_month__3
+msgid "March"
+msgstr "مارس"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__candidate_education__certification__master
+#: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__candidates_filter_wizard__qualification_level__master
+msgid "Master"
+msgstr "ماجستير"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__hr_job__academic_degree__master
+msgid "Master’s Degree"
+msgstr "درجة الماجستير"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__candidate_education__graduation_month__5
+msgid "May"
+msgstr "مايو"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_candidates_filter_wizard__qualification_level
+msgid "Minimum Qualification Level"
+msgstr "المستوى العلمي"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,help:hr_recruitment_custom.field_hr_job__experience_years
+msgid "Minimum years of experience required for the job position."
+msgstr "الحد الأدنى لسنوات الخبرة المطلوبة للمنصب الوظيفي."
+
+#. module: hr_recruitment_custom
+#: model:ir.actions.server,name:hr_recruitment_custom.action_move_applicant_next_stage
+msgid "Move Applicant To Next Stage"
+msgstr "نقل المتقدم إلى المرحلة التالية"
+
+#. module: hr_recruitment_custom
+#: model:ir.actions.server,name:hr_recruitment_custom.action_move_applicant_on_survey_pass
+msgid "Move Applicant on Exam Pass"
+msgstr "نقل المتقدم عند اجتياز الإمتحان"
+
+#. module: hr_recruitment_custom
+#. odoo-python
+#: code:addons/hr_recruitment_custom/models/hr_applicant.py:0
+#: code:addons/hr_recruitment_custom/models/survey.py:0
+msgid "Move To Next Stage"
+msgstr "الانتقال إلى المرحلة التالية"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_candidate__nationality_no
+msgid "National ID Number"
+msgstr "رقم الهوية الوطنية"
+
+#. module: hr_recruitment_custom
+#: model:ir.model,name:hr_recruitment_custom.model_news_news
+#: model:ir.actions.act_window,name:hr_recruitment_custom.action_news_news
+#: model:ir.ui.menu,name:hr_recruitment_custom.main_menu_news
+#: model:ir.ui.menu,name:hr_recruitment_custom.menu_news
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.view_news_news_list
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.view_news_news_form
+msgid "News"
+msgstr "الأخبار"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_news_news__title
+msgid "Title"
+msgstr "العنوان"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_news_news__content
+msgid "Content"
+msgstr "المحتوى"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_news_news__image
+msgid "Image"
+msgstr "الصورة"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_news_news__is_published
+msgid "Publish"
+msgstr "نشر"
+
+#. module: hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.view_news_news_form
+msgid "Published"
+msgstr "تم النشر"
+
+#. module: hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.view_news_news_form
+msgid "News title"
+msgstr "عنوان الخبر"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_candidate__nationality
+msgid "Nationality"
+msgstr "الجنسية"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__candidate_language__proficiency__native
+msgid "Native"
+msgstr "اللغة الأم"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_transfer_applicants_wizard__stage_id
+msgid "Next Stage"
+msgstr "المرحلة التالية"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__hr_job__degree_level__ninth
+msgid "Ninth Level"
+msgstr "الدرجة التاسعة"
+
+#. module: hr_recruitment_custom
+#. odoo-python
+#: code:addons/hr_recruitment_custom/wizard/candidates_filter.py:0
+msgid "No Candidates"
+msgstr "لا يوجد متقدمون"
+
+#. module: hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.applicant_results_template
+msgid "No candidates completed both exam and interview."
+msgstr "لم يكمل أي مرشح كلاً من الامتحان والمقابلة."
+
+#. module: hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.applicant_results_template
+msgid "No candidates completed the exam."
+msgstr "لم يُكمل أي متقدم الإمتحان."
+
+#. module: hr_recruitment_custom
+#. odoo-python
+#: code:addons/hr_recruitment_custom/wizard/candidates_filter.py:0
+msgid "No candidates passed the selected filters."
+msgstr "لم يجتز أي متقدم المرشحات المحددة."
+
+#. module: hr_recruitment_custom
+#. odoo-python
+#: code:addons/hr_recruitment_custom/models/hr_applicant.py:0
+msgid "No survey linked to this job position."
+msgstr "لا يوجد إستمارة تعيين مرتبط بهذه الوظيفة "
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_applicant__notes
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_transfer_applicants_wizard__notes
+msgid "Notes"
+msgstr "ملاحظات"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__candidate_education__graduation_month__11
+msgid "November"
+msgstr "نوفمبر"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__survey_survey__progression_mode__number
+msgid "Number"
+msgstr "عدد "
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__candidate_education__graduation_month__10
+msgid "October"
+msgstr "أكتوبر"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__hr_job__attendance_type__onsite
+msgid "On-site"
+msgstr "حضوري"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__hr_job__working_period__part_time
+msgid "Part Time"
+msgstr "دوام جزئي"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_survey_survey__pass_stage_id
+msgid "Pass Stage"
+msgstr "مرحلة النجاح"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__survey_survey__progression_mode__percent
+msgid "Percentage left"
+msgstr "نسبة الأسئلة المتبقية "
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__candidate_education__certification__phd
+#: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__candidates_filter_wizard__qualification_level__phd
+#: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__hr_job__academic_degree__phd
+msgid "PhD"
+msgstr "دكتوراه"
+
+#. module: hr_recruitment_custom
+#: model:ir.actions.act_window,name:hr_recruitment_custom.action_question_bank
+#: model:ir.ui.menu,name:hr_recruitment_custom.menu_question_bank
+msgid "Question Bank"
+msgstr "بنك الأسئلة"
+
+#. module: hr_recruitment_custom
+#: model:ir.actions.act_window,name:hr_recruitment_custom.action_exam_builder_wizard
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.view_exam_builder_wizard_form
+msgid "Build Exam From Question Bank"
+msgstr "إنشاء إمتحان من بنك الأسئلة"
+
+#. module: hr_recruitment_custom
+#: model:ir.ui.menu,name:hr_recruitment_custom.menu_exam_builder_wizard
+msgid "Build Exam"
+msgstr "إنشاء إمتحان"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_exam_builder_wizard__name
+msgid "New Exam Name"
+msgstr "اسم الإمتحان الجديد"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_exam_builder_wizard__total_time
+msgid "Exam Duration (Minutes)"
+msgstr "مدة الإمتحان (دقيقة)"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_exam_builder_wizard__total_questions_count
+msgid "Total Number of Questions"
+msgstr "إجمالي عدد الأسئلة"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_exam_builder_wizard__passing_score
+msgid "Passing Score (%)"
+msgstr "درجة النجاح (%)"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_exam_builder_wizard__line_ids
+msgid "Source Exams"
+msgstr "الإمتحانات المصدر"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_exam_builder_wizard__selected_questions_count
+msgid "Selected Questions"
+msgstr "الأسئلة المختارة"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_exam_builder_wizard_line__source_survey_id
+msgid "Source Exam"
+msgstr "الإمتحان المصدر"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_exam_builder_wizard_line__section_name
+msgid "Section Name"
+msgstr "اسم القسم"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_exam_builder_wizard_line__available_questions_count
+msgid "Available Questions"
+msgstr "الأسئلة المتاحة"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_exam_builder_wizard_line__questions_count
+msgid "Number of Questions to Pick"
+msgstr "عدد الأسئلة المطلوب اختيارها"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_exam_builder_wizard_line__score_per_question
+msgid "Score per Question"
+msgstr "الدرجة لكل سؤال"
+
+#. module: hr_recruitment_custom
+#. odoo-python
+#: code:addons/hr_recruitment_custom/wizard/exam_bulider_wizard.py:0
+msgid "Generated Exam"
+msgstr "الإمتحان المنشئ"
+
+#. module: hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.view_exam_builder_wizard_form
+msgid "Generate Exam"
+msgstr "إنشاء إمتحان"
+
+#. module: hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.view_exam_builder_wizard_form
+msgid "Example: Subject Exam Section / Aptitude Section"
+msgstr "مثال: قسم امتحان الوظيفة / قسم القدرات"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,help:hr_recruitment_custom.field_exam_builder_wizard__total_time
+msgid "Total time allowed for the generated exam."
+msgstr "إجمالي الوقت المسموح به للإمتحان المنشئ."
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,help:hr_recruitment_custom.field_exam_builder_wizard__total_questions_count
+msgid "Maximum number of questions the generated exam may contain. The sum of questions picked from all source exams below must not exceed this number."
+msgstr "الحد الأقصى لعدد الأسئلة التي يمكن أن يحتويها الإمتحان المنشئ. يجب ألا يتجاوز مجموع الأسئلة المختارة من جميع الإمتحانات المصدر أدناه هذا الرقم."
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,help:hr_recruitment_custom.field_exam_builder_wizard__passing_score
+msgid "Minimum scoring percentage required to pass the generated exam."
+msgstr "الحد الأدنى لنسبة الدرجات المطلوبة لاجتياز الإمتحان المنشئ."
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,help:hr_recruitment_custom.field_exam_builder_wizard_line__source_survey_id
+msgid "One of the exams in the question bank."
+msgstr "إحدى الإمتحانات الموجودة في بنك الأسئلة."
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,help:hr_recruitment_custom.field_exam_builder_wizard_line__section_name
+msgid "The section (page) title that will group this source exam's questions inside the generated exam, e.g. \"Example: Subject Exam Section / Aptitude Section\"."
+msgstr "عنوان القسم (الصفحة) الذي سيجمع أسئلة هذا الإمتحان المصدر داخل الإمتحان المنشئ، على سبيل المثال: \"مثال: قسم امتحان الموضوع / قسم القدرة\"."
+
+#. module: hr_recruitment_custom
+#. odoo-python
+#: code:addons/hr_recruitment_custom/wizard/exam_bulider_wizard.py:0
+msgid "The number of questions selected from the source exams (%(selected)s) exceeds the total number of questions allowed for this exam (%(total)s)."
+msgstr "عدد الأسئلة المختارة من الإمتحانات المصدر (%(selected)s) يتجاوز إجمالي عدد الأسئلة المسموح بها لهذا الإمتحان (%(total)s)."
+
+#. module: hr_recruitment_custom
+#. odoo-python
+#: code:addons/hr_recruitment_custom/wizard/exam_bulider_wizard.py:0
+msgid "Source exam \"%(survey)s\" only has %(available)s scorable question(s), but %(requested)s were requested."
+msgstr "الإمتحان المصدر \"%(survey)s\" يحتوي على %(available)s سؤال(أسئلة) قابلة للتقييم فقط، بينما تم طلب %(requested)s."
+
+#. module: hr_recruitment_custom
+msgid "Please add at least one source exam."
+msgstr "يرجى إضافة إمتحان مصدر واحد على الأقل."
+
+#. module: hr_recruitment_custom
+#. odoo-python
+#: code:addons/hr_recruitment_custom/wizard/exam_bulider_wizard.py:0
+msgid "Source exam \"%(survey)s\" only has %(available)s question(s) available."
+msgstr "الإمتحان المصدر \"%(survey)s\" يحتوي على %(available)s سؤال(أسئلة) متاح(ة) فقط."
+
+#. module: hr_recruitment_custom
+#: model:ir.model,name:hr_recruitment_custom.model_exam_builder_wizard_line
+msgid "Exam Builder Source Line"
+msgstr "سطر مصدر بناء الإمتحان"
+
+#. module: hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.applicant_result_report_wizard_form
+msgid "Print Job Exam Results"
+msgstr "طباعة نتائج امتحان الوظيفة"
+
+#. module: hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.applicant_result_report_wizard_form
+msgid "Print PDF"
+msgstr "طباعة ملف PDF"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_candidate_language__proficiency
+msgid "Proficiency"
+msgstr "مستوى الإتقان"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_evaluation_wizard_line__question_id
+msgid "Question"
+msgstr "السؤال"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_survey_survey__questions_selection
+msgid "Question Selection"
+msgstr "اختيار السؤال "
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__survey_survey__questions_selection__random
+msgid "Randomized per Section"
+msgstr "عشوائي لكل قسم "
+
+#. module: hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.survey_fill_form_done_feedback
+msgid "Rate the Recruitment Process"
+msgstr "قيّم عملية التوظيف"
+
+#. module: hr_recruitment_custom
+#: model:survey.survey,title:hr_recruitment_custom.default_recruitment_feedback_survey
+msgid "Recruitment Process Feedback"
+msgstr "إستطلاع رأي لعملية التوظيف"
+
+#. module: hr_recruitment_custom
+#: model:ir.model,name:hr_recruitment_custom.model_hr_recruitment_stage
+msgid "Recruitment Stages"
+msgstr "مراحل التوظيف "
+
+#. module: hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.applicant_results_template
+msgid "Remaining Candidates"
+msgstr "المرشحون المتبقون"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__hr_job__attendance_type__remote
+msgid "Remote"
+msgstr "عن بُعد"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_candidates_filter_wizard__specialization_ids
+msgid "Required Specializations"
+msgstr "التخصصات المطلوبة"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,help:hr_recruitment_custom.field_hr_job__degree_level
+msgid "Required degree level for the job position."
+msgstr "الدرجة التعليمي المطلوب للمنصب الوظيفي."
+
+#. module: hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.view_hr_job_form_inherit_exam
+msgid "Requirements"
+msgstr "الجدارات الوظيفية"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_job__responsibilities
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.view_hr_job_form_inherit_exam
+msgid "Responsibilities"
+msgstr "المسؤوليات"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_evaluation_wizard_line__score
+msgid "Score"
+msgstr "الدرجة"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_survey_user_input_line__question_max_score
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.survey_user_input_view_form
+msgid "Maximum Score"
+msgstr "الدرجة القصوى"
+
+#. module: hr_recruitment_custom
+#. odoo-python
+#: code:addons/hr_recruitment_custom/models/survey.py:0
+msgid "The answer score (%(score)s) cannot exceed the maximum score for this question (%(maximum)s)."
+msgstr "لا يمكن أن تتجاوز درجة الإجابة (%(score)s) الدرجة القصوى لهذا السؤال (%(maximum)s)."
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_job__scoring_criteria
+msgid "Scoring Criteria"
+msgstr "معايير التقييم"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_applicant__hired_for_other_jobs
+msgid "Hired for Other Jobs"
+msgstr "تم تعيينه في وظائف أخرى"
+
+#. module: hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.view_hr_applicant_form_inherit
+msgid ""
+"<i class=\"fa fa-check-circle me-2\"/>\n"
+"                    <strong>Already hired for: </strong>"
+msgstr ""
+"<i class=\"fa fa-check-circle me-2\"/>\n"
+"                    <strong>تم تعيينه مسبقًا في:  </strong>"
+
+#. module: hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.view_hr_applicant_tree_hired_other_jobs
+msgid "Hired For"
+msgstr "تم تعيينه في"
+
+#. module: hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.view_hr_applicant_kanban_hired_other_jobs
+msgid "Already Hired"
+msgstr "تم تعيينه مسبقًا"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__hr_job__degree_level__second
+msgid "Second Level"
+msgstr "الدرجة الثانية"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_res_company__secretary_general_name
+msgid "Secretary General Name"
+msgstr "اسم الأمين العام"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,help:hr_recruitment_custom.field_res_company__secretary_general_name
+msgid "Name of the Secretary General of the company, used in decision letters for selected candidates."
+msgstr "اسم الأمين العام للشركة، يُستخدم في خطابات القرار للمتقدمين المختارين."
+
+#. module: hr_recruitment_custom
+#: model:res.groups,name:hr_recruitment_custom.group_selection_affairs
+msgid "Selection Affairs Department"
+msgstr "ادارة شئون الإختيار"
+
+#. module: hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.view_survey_send_participants_wizard_form
+msgid "Send"
+msgstr "إرسال"
+
+#. module: hr_recruitment_custom
+#. odoo-python
+#: code:addons/hr_recruitment_custom/models/survey.py:0
+msgid "Send Email"
+msgstr "إرسال بريد إلكتروني"
+
+#. module: hr_recruitment_custom
+#: model:ir.actions.server,name:hr_recruitment_custom.action_send_participants
+msgid "Send Participants"
+msgstr "إرسال المشاركين"
+
+#. module: hr_recruitment_custom
+#: model:ir.model,name:hr_recruitment_custom.model_survey_send_participants_wizard
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.view_survey_send_participants_wizard_form
+msgid "Send Survey Participants"
+msgstr "إرسال المشاركين في الاستبيان"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_survey_send_participants_wizard__partner_id
+msgid "Send To"
+msgstr "إرسال إلى"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__candidate_education__graduation_month__9
+msgid "September"
+msgstr "سبتمبر"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__hr_job__degree_level__seventeenth
+msgid "Seventeenth Level"
+msgstr "الدرجة السابعة عشرة"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__hr_job__degree_level__seventh
+msgid "Seventh Level"
+msgstr "الدرجة السابعة"
+
+#. module: hr_recruitment_custom
+#: model:ir.model,name:hr_recruitment_custom.model_report_hr_recruitment_custom_applicant_results_template
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.applicant_results_template
+msgid "Shortlist Report"
+msgstr "تقرير نتائج المتقدمين"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_survey_user_input_signature__signature
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.survey_user_input_view_form
+msgid "Signature"
+msgstr "التوقيع"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__hr_job__degree_level__sixteenth
+msgid "Sixteenth Level"
+msgstr "الدرجة السادسة عشرة"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__hr_job__degree_level__sixth
+msgid "Sixth Level"
+msgstr "الدرجة السادسة"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__hr_job__degree_level__special_first
+msgid "Special First Level"
+msgstr "الدرجة الخاصة الأولى"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__hr_job__degree_level__special_second
+msgid "Special Second Level"
+msgstr "الدرجة الخاصة الثانية"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__hr_job__degree_level__special_third
+msgid "Special Third Level"
+msgstr "الدرجة الخاصة الثالثة"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_candidate_education__specialization_id
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_candidate_specialization__name
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.view_candidate_specialization_form
+msgid "Specialization"
+msgstr "التخصص"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.constraint,message:hr_recruitment_custom.constraint_candidate_specialization_name_uniq
+msgid "Specialization name must be unique."
+msgstr "يجب أن يكون اسم التخصص فريدًا."
+
+#. module: hr_recruitment_custom
+#: model:ir.actions.act_window,name:hr_recruitment_custom.action_candidate_specialization
+#: model:ir.ui.menu,name:hr_recruitment_custom.menu_candidate_specialization
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.view_candidate_specialization_tree
+msgid "Specializations"
+msgstr "التخصصات"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_candidate_work_experience__start_date
+msgid "Start Date"
+msgstr "تاريخ البدء"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_job__state
+msgid "State"
+msgstr "الحالة"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_survey_user_input__state
+msgid "Status"
+msgstr "الحالة"
+
+#. module: hr_recruitment_custom
+#: model:ir.model,name:hr_recruitment_custom.model_survey_survey
+msgid "Survey"
+msgstr "امتحان"
+
+#. module: hr_recruitment_custom
+#. odoo-python
+#: code:addons/hr_recruitment_custom/wizard/send_participants_wizard.py:0
+msgid "Survey Participants List"
+msgstr "قائمة المشاركين في الاستبيان"
+
+#. module: hr_recruitment_custom
+#: model:ir.model,name:hr_recruitment_custom.model_survey_user_input
+msgid "Survey User Input"
+msgstr "مُدخلات مستخدم الامتحان"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,help:hr_recruitment_custom.field_hr_job__exam_id
+msgid "Survey/exam assigned to this job position."
+msgstr " الامتحان المخصص لهذا المنصب الوظيفي."
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__hr_job__degree_level__tenth
+msgid "Tenth Level"
+msgstr "الدرجة العاشرة"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,help:hr_recruitment_custom.field_hr_candidate__birth_date
+msgid "The birth date of the candidate."
+msgstr "تاريخ ميلاد المتقدم."
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,help:hr_recruitment_custom.field_candidate_education__specialization_id
+msgid "The candidate's field of specialization."
+msgstr "مجال تخصص المتقدم."
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,help:hr_recruitment_custom.field_hr_candidate__residence_city
+msgid "The city where the candidate resides."
+msgstr "المدينة التي يقيم فيها المتقدم."
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,help:hr_recruitment_custom.field_candidate_work_experience__city
+msgid "The city where the work experience took place."
+msgstr "المدينة التي تم فيها اكتساب الخبرة العملية."
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,help:hr_recruitment_custom.field_hr_candidate__residence_country
+msgid "The country where the candidate resides."
+msgstr "الدولة التي يقيم فيها المرشح."
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,help:hr_recruitment_custom.field_candidate_work_experience__country
+msgid "The country where the work experience took place."
+msgstr "الدولة التي تمت فيها الخبرة العملية."
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,help:hr_recruitment_custom.field_hr_applicant__exam_date
+msgid "The date when the applicant took the exam."
+msgstr "تاريخ أداء المرشح للامتحان."
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,help:hr_recruitment_custom.field_candidate_work_experience__end_date
+msgid "The end date of the work experience."
+msgstr "تاريخ انتهاء الخبرة العملية."
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,help:hr_recruitment_custom.field_hr_applicant__exam_center_id
+msgid "The exam center assigned to this applicant."
+msgstr "مركز الامتحان المخصص لهذا المرشح."
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,help:hr_recruitment_custom.field_hr_candidate__gender
+msgid "The gender of the candidate."
+msgstr "نوع المتقدم."
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,help:hr_recruitment_custom.field_candidate_education__graduation_month
+msgid "The month the candidate graduated."
+msgstr "شهر تخرج المرشح."
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,help:hr_recruitment_custom.field_candidate_work_experience__company_name
+msgid "The name of the company where the candidate worked."
+msgstr "اسم الجهة التي عمل بها المرشح."
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,help:hr_recruitment_custom.field_hr_candidate__nationality_no
+msgid "The national identification number of the candidate."
+msgstr "رقم الهوية الوطنية للمرشح."
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,help:hr_recruitment_custom.field_hr_candidate__nationality
+msgid "The nationality of the candidate."
+msgstr "جنسية المرشح."
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,help:hr_recruitment_custom.field_survey_survey__pass_stage_id
+msgid "The recruitment stage to set when the candidate passes the exam."
+msgstr "مرحلة التوظيف التي يتم تعيينها عند اجتياز المرشح للامتحان."
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,help:hr_recruitment_custom.field_candidate_work_experience__start_date
+msgid "The start date of the work experience."
+msgstr "تاريخ بدء الخبرة العملية."
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,help:hr_recruitment_custom.field_candidate_work_experience__job_title
+msgid "The title of the job held during this work experience."
+msgstr "المسمى الوظيفي خلال هذه الخبرة العملية."
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,help:hr_recruitment_custom.field_candidate_education__university
+msgid "The university attended by the candidate."
+msgstr "الجامعة التي التحق بها المرشح."
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,help:hr_recruitment_custom.field_candidate_education__graduation_year
+msgid "The year the candidate graduated."
+msgstr "سنة تخرج المرشح."
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__hr_job__degree_level__third
+msgid "Third Level"
+msgstr "الدرجة الثالثة"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__hr_job__degree_level__thirteenth
+msgid "Thirteenth Level"
+msgstr "الدرجة الثالثة عشرة"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.constraint,message:hr_recruitment_custom.constraint_survey_user_input_signature_unique_user_per_input
+msgid "This committee member has already signed this form."
+msgstr "عضو اللجنة هذا قد وقّع على هذه الاستمارة مسبقاً."
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,help:hr_recruitment_custom.field_candidates_filter_wizard__years_of_experience
+msgid "Threshold used together with the operator below."
+msgstr "تصفية المتقدمين الذين لديهم على الأقل هذا العدد من سنوات الخبرة."
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_candidate__total_experience_years
+msgid "Total Experience (Years)"
+msgstr "إجمالي سنوات الخبرة"
+
+#. module: hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.view_transfer_applicants_wizard
+msgid "Transfer Applicants"
+msgstr "نقل المتقدمين"
+
+#. module: hr_recruitment_custom
+#: model:ir.model,name:hr_recruitment_custom.model_transfer_applicants_wizard
+msgid "Transfer Applicants to Next Stage"
+msgstr "نقل المتقدمين إلى المرحلة التالية"
+
+#. module: hr_recruitment_custom
+#. odoo-python
+#: code:addons/hr_recruitment_custom/wizard/candidates_filter.py:0
+msgid "Transfer Filtered Candidates"
+msgstr "نقل المتقدمين المطابقين للمعايير"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__hr_job__degree_level__twelfth
+msgid "Twelfth Level"
+msgstr "الدرجة الثانية عشرة"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_candidate_education__university
+msgid "University"
+msgstr "الجامعة"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_candidate_education__university_location
+msgid "University Location"
+msgstr "موقع الجامعة"
+
+#. module: hr_recruitment_custom
+#: model:ir.actions.server,name:hr_recruitment_custom.ir_cron_unpublish_expired_jobs_ir_actions_server
+msgid "Unpublish Expired Job Positions"
+msgstr "إلغاء نشر الوظائف المنتهية"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,help:hr_recruitment_custom.field_hr_recruitment_stage__allowed_group_ids
+msgid ""
+"Users must belong to one of these groups to move applicants to this stage."
+msgstr ""
+"يجب أن ينتمي المستخدم إلى إحدى هذه المجموعات لنقل المتقدمين إلى هذه المرحلة."
+
+#. module: hr_recruitment_custom
+#: model:survey.question,scale_min_label:hr_recruitment_custom.feedback_survey_question_rating
+msgid "Very Poor"
+msgstr "ضعيف جدًا"
+
+#. module: hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.survey_fill_form_done_feedback
+msgid "We would love to hear your feedback about the recruitment process."
+msgstr "يسرنا سماع ملاحظاتك حول عملية التوظيف."
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_evaluation_wizard_line__wizard_id
+msgid "Wizard"
+msgstr "المعالج"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_job__working_period
+msgid "Working Period"
+msgstr "فترة العمل"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_candidates_filter_wizard__years_of_experience
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_job__experience_years
+msgid "Years of Experience"
+msgstr "الحد الأدنى لسنوات الخبرة"
+
+#. module: hr_recruitment_custom
+#. odoo-python
+#: code:addons/hr_recruitment_custom/models/hr_applicant.py:0
+msgid "You cannot move to a previous stage. Move to the next stage only."
+msgstr ""
+"لا يمكنك الرجوع إلى مرحلة سابقة. يُسمح فقط بالتقدم إلى المرحلة التالية."
+
+#. module: hr_recruitment_custom
+#. odoo-python
+#: code:addons/hr_recruitment_custom/models/hr_applicant.py:0
+msgid "You cannot skip stages. Move to the next stage only."
+msgstr "لا يمكنك تخطي المراحل. انتقل إلى المرحلة التالية فقط"
+
+#. module: hr_recruitment_custom
+#. odoo-python
+#: code:addons/hr_recruitment_custom/models/hr_applicant.py:0
+msgid "You do not have permission to move the applicant to the stage: %s"
+msgstr "لا تملك الصلاحية لنقل المتقدم إلى هذه لمرحلة: %s"
+
+#. module: hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.interview_form_report
+msgid "استمارة معاينة —"
+msgstr "استمارة معاينة —"
+
+#. module: hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.interview_form_report
+msgid "الاسم رباعي"
+msgstr "الاسم رباعي"
+
+#. module: hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.interview_form_report
+msgid "الرقم"
+msgstr "الرقم"
+
+#. module: hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.interview_form_report
+msgid "المجموع %"
+msgstr "المجموع %"
+
+#. module: hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.interview_form_report
+msgid ""
+"الوحدة: ......................................\n"
+"                            التخصص: ......................................\n"
+"                            تاريخ المعاينة: ......................................\n"
+"                            رقم الكشف: ......................................"
+msgstr ""
+"الوحدة: ......................................\n"
+"                            التخصص: ......................................\n"
+"                            تاريخ المعاينة: ......................................\n"
+"                            رقم الكشف: ......................................"
+
+#. module: hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.interview_form_report
+msgid "بسم الله الرحمن الرحيم"
+msgstr "بسم الله الرحمن الرحيم"
+
+#. module: hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.interview_form_report
+msgid "مفوضية الاختيار للخدمة المدنية القومية"
+msgstr "مفوضية الاختيار للخدمة المدنية القومية"
+
+#. module: hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.interview_form_report
+msgid "ملاحظات"
+msgstr "ملاحظات"
+
+#. module: hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.interview_form_report
+msgid "وزارة مجلس الوزراء"
+msgstr "وزارة مجلس الوزراء"
+
+#. module: hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.applicant_results_template
+msgid "✓ Selected Candidates"
+msgstr "✓ المرشحون المختارون"
+
+#. module: survey
+#: model:ir.model,name:survey.model_res_partner
+#: model:ir.model.fields,field_description:survey.field_survey_user_input__partner_id
+msgid "Contact"
+msgstr "المتقدم"
+
+#. module: survey
+#: model:ir.model,name:survey.model_res_partner
+#: model:ir.model.fields,field_description:survey.field_survey_user_input__survey_id
+msgid "Survey"
+msgstr "الإمتحان/الإستمارة"
+
+#. module: survey
+#: model:ir.actions.act_window,name:survey.action_survey_form
+#: model:ir.ui.menu,name:survey.menu_survey_form
+#: model:ir.ui.menu,name:survey.menu_surveys
+msgid "Surveys"
+msgstr "الإمتحانات "
+
+#. module: survey
+#: model:mail.template,body_html:survey.mail_template_user_input_invite
+msgid ""
+"<div style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
+"    <p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
+"        Dear <t t-out=\"object.partner_id.name or 'participant'\">participant</t><br/><br/>\n"
+"        <t t-if=\"object.survey_id.certification\">\n"
+"            You have been invited to take a new certification.\n"
+"        </t>\n"
+"        <t t-else=\"\">\n"
+"            We are conducting a survey and your response would be appreciated.\n"
+"        </t>\n"
+"        </p><div style=\"margin: 16px 0px 16px 0px;\">\n"
+"            <a t-att-href=\"(object.get_start_url())\" style=\"background-color: #875A7B; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px; font-size:13px;\">\n"
+"                <t t-if=\"object.survey_id.certification\">\n"
+"                    Start Certification\n"
+"                </t>\n"
+"                <t t-else=\"\">\n"
+"                    Start Survey\n"
+"                </t>\n"
+"            </a>\n"
+"        </div>\n"
+"        <t t-if=\"object.deadline\">\n"
+"            Please answer the survey for <t t-out=\"format_date(object.deadline) or ''\">05/05/2021</t>.<br/><br/>\n"
+"        </t>\n"
+"        <t t-if=\"object.survey_id.certification\">\n"
+"            We wish you good luck!\n"
+"        </t>\n"
+"        <t t-else=\"\">\n"
+"            Thank you in advance for your participation.\n"
+"        </t>\n"
+"    \n"
+"</div>\n"
+"            "
+msgstr ""
+"<div style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
+"    <p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
+"        عزيزنا <t t-out=\"object.partner_id.name or 'participant'\">المشارك</t><br/><br/>\n"
+"        <t t-if=\"object.survey_id.certification\">\n"
+"            لقد تمت دعوتك لخوض إمتحان شهادة جديد.\n"
+"        </t>\n"
+"        <t t-else=\"\">\n"
+"            نُجري إمتحاناً الآن ونُقدّر ردك كثيراً.\n"
+"        </t>\n"
+"        </p><div style=\"margin: 16px 0px 16px 0px;\">\n"
+"            <a t-att-href=\"(object.get_start_url())\" style=\"background-color: #875A7B; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px; font-size:13px;\">\n"
+"                <t t-if=\"object.survey_id.certification\">\n"
+"                    بدء الإمتحان\n"
+"                </t>\n"
+"                <t t-else=\"\">\n"
+"                    بدء الإمتحان\n"
+"                </t>\n"
+"            </a>\n"
+"        </div>\n"
+"        <t t-if=\"object.deadline\">\n"
+"            يرجى الإجابة على الاستمارة بتاريخ <t t-out=\"format_date(object.deadline) or ''\">05/05/2021</t>.<br/><br/>\n"
+"        </t>\n"
+"        <t t-if=\"object.survey_id.certification\">\n"
+"            حظاً موفقاً!\n"
+"        </t>\n"
+"        <t t-else=\"\">\n"
+"            مع وافر الشكر والتقدير على مشاركتك.\n"
+"        </t>\n"
+"    \n"
+"</div>\n"
+"            "
+
+#. module: survey
+#: model_terms:ir.ui.view,arch_db:survey.survey_button_form_view
+msgid "<i class=\"oi oi-fw oi-arrow-right\"/>Go to Survey"
+msgstr "<i class=\"oi oi-fw oi-arrow-right\"/>اذهب إلى الإمتحان "
+
+#. module: survey
+#: model_terms:ir.ui.view,arch_db:survey.survey_fill_form_start
+msgid "Start Survey"
+msgstr "بدء الإمتحان"
+
+#. module: survey
+#: model_terms:ir.ui.view,arch_db:survey.survey_access_error
+msgid "Survey Access Error"
+msgstr "خطأ في الوصول إلى الإمتحان "
+
+#. module: hr_recruitment
+#: model:ir.model.fields,field_description:hr_recruitment.field_hr_job__address_id
+msgid "Job Location"
+msgstr "الجهه الطالبة"
+
+#. module: survey
+#: model_terms:ir.ui.view,arch_db:survey.survey_fill_form_start
+msgid "Start Certification"
+msgstr "بدء الإمتحان"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_job__no_of_recruitment
+msgid "Target"
+msgstr "العدد المستهدف للوظيفة"
+
+#. module: hr
+#: model_terms:ir.ui.view,arch_db:hr.view_hr_job_form
+msgid "Job Summary"
+msgstr "الوصف الوظيفي "
+
+#. module: hr_recruitment
+#: model:ir.model.fields,field_description:hr_recruitment.field_hr_applicant__partner_name
+msgid "Partner Name"
+msgstr "اسم المتقدم"
+
+#. module: hr_recruitment_custom
+#. odoo-python
+#: code:addons/hr_recruitment_custom/models/hr_applicant.py:0
+msgid "The exam date cannot be earlier than today."
+msgstr "لا يمكن أن يكون تاريخ الامتحان قبل تاريخ اليوم."
+
+#. module: hr_recruitment_custom
+#. odoo-python
+#: code:addons/hr_recruitment_custom/models/hr_applicant.py:0
+msgid "The interview date cannot be earlier than today."
+msgstr "لا يمكن أن يكون تاريخ المقابلة قبل تاريخ اليوم."
+
+#. module: hr_recruitment_custom
+#. odoo-python
+#: code:addons/hr_recruitment_custom/models/hr_job.py:0
+msgid "The announcement date cannot be earlier than today."
+msgstr "لا يمكن أن يكون تاريخ الإعلان قبل تاريخ اليوم."
+
+#. module: hr_recruitment_custom
+#. odoo-python
+#: code:addons/hr_recruitment_custom/models/hr_job.py:0
+msgid "The closing date must be after the announcement date."
+msgstr "يجب أن يكون تاريخ الإغلاق بعد تاريخ الإعلان."
+
+#. module: hr_recruitment_custom
+#. odoo-python
+#: code:addons/hr_recruitment_custom/models/hr_job.py:0
+msgid "A job position must be approved before it can be published."
+msgstr "يجب اعتماد المنصب الوظيفي قبل نشره."
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__hr_job__state__closed
+msgid "Closed"
+msgstr "مغلق"
+
+#. module: hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.view_hr_job_form_inherit_exam
+msgid "Close Job"
+msgstr "إغلاق الوظيفة"
+
+#. module: hr_recruitment_custom
+#. odoo-python
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.view_hr_job_close_wizard_form
+#: code:addons/hr_recruitment_custom/models/hr_job.py:0
+msgid "Confirm Job Closure"
+msgstr "تأكيد إغلاق الوظيفة"
+
+#. module: hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.view_hr_job_close_wizard_form
+msgid "Confirm Closure"
+msgstr "تأكيد الإغلاق"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_job_close_wizard__selected_count
+msgid "Selected Count"
+msgstr "عدد المختارين"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_job_close_wizard__required_count
+msgid "Required Count"
+msgstr "العدد المطلوب"
+
+#. module: hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.view_hr_job_close_wizard_form
+msgid "The selected applicants are fewer than the requested number.\n                    Review the figures and confirm closure only if approved."
+msgstr "عدد المتقدمين المختارين أقل من العدد المطلوب.\n                    راجع الأعداد وأكّد الإغلاق إذا تمت الموافقة عليه."
+
+#. module: hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.view_hr_job_close_wizard_form
+msgid "Review the selected applicants before confirming closure.\n                    Closing the job will stop its publication."
+msgstr "راجع المتقدمين المختارين قبل تأكيد الإغلاق.\n                    سيؤدي إغلاق الوظيفة إلى إيقاف نشرها."

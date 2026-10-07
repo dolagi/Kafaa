@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <menuitem
+        name="Recruitment"
+        id="hr_recruitment.menu_hr_recruitment_root"
+        web_icon="hr_recruitment,static/description/icon.png"
+        groups="hr_recruitment.group_hr_recruitment_user,hr_recruitment.group_hr_recruitment_interviewer,hr_recruitment_custom.group_information_center,hr_recruitment_custom.group_general_secretariat,hr_recruitment_custom.group_selection_affairs,hr_recruitment_custom.group_examinations_department,hr_recruitment_custom.group_inspection_committee"
+        sequence="210"/>
+
+    <menuitem
+            name="Applications"
+            parent="hr_recruitment.menu_hr_recruitment_root"
+            id="hr_recruitment.menu_crm_case_categ0_act_job"
+            sequence="2"
+            groups="hr_recruitment_custom.group_information_center,hr_recruitment_custom.group_selection_affairs,hr_recruitment_custom.group_general_secretariat,hr_recruitment_custom.group_examinations_department,hr_recruitment_custom.group_inspection_committee"
+
+            />
+
+    <menuitem
+            name="By Job Positions"
+            id="hr_recruitment.menu_hr_job_position"
+            parent="hr_recruitment.menu_crm_case_categ0_act_job"
+            action="hr_recruitment.action_hr_job"
+            sequence="1"
+            groups="hr_recruitment.group_hr_recruitment_user,hr_recruitment_custom.group_information_center,hr_recruitment_custom.group_general_secretariat,hr_recruitment_custom.group_selection_affairs"/>
+
+    <menuitem
+            name="All Applications"
+            parent="hr_recruitment.menu_crm_case_categ0_act_job"
+            id="hr_recruitment.menu_crm_case_categ_all_app"
+            action="hr_recruitment.crm_case_categ0_act_job"
+            sequence="2"
+            groups="hr_recruitment_custom.group_information_center,hr_recruitment_custom.group_selection_affairs,hr_recruitment_custom.group_general_secretariat,hr_recruitment_custom.group_examinations_department,hr_recruitment_custom.group_inspection_committee"/>
+
+    <menuitem 
+            name="Surveys"
+            id="survey.menu_surveys"
+            sequence="130"
+            groups="survey.group_survey_user,hr_recruitment_custom.group_selection_affairs,hr_recruitment_custom.group_general_secretariat"
+            web_icon="survey,static/description/icon.png"/>
+
+    <menuitem 
+            name="Surveys" 
+            id="survey.menu_survey_form" 
+            action="survey.action_survey_form" 
+            parent="survey.menu_surveys" 
+            groups="hr_recruitment_custom.group_selection_affairs,hr_recruitment_custom.group_examinations_department"
+            sequence="1"/>
+
+    <menuitem
+            name="Question Bank"
+            id="menu_question_bank"
+            action="action_question_bank"
+            parent="survey.menu_surveys"
+            groups="hr_recruitment_custom.group_examinations_department,hr_recruitment_custom.group_selection_affairs"
+            sequence="2"/>
+
+    <menuitem 
+            name="Participations"
+            id="survey.menu_survey_type_form1"
+            action="survey.action_survey_user_input"
+            parent="survey.menu_surveys"
+            groups="hr_recruitment_custom.group_examinations_department,hr_recruitment_custom.group_general_secretariat"
+            sequence="1"/>
+
+    <menuitem 
+            name="Questions &amp; Answers"
+            id="survey.survey_menu_questions"
+            parent="survey.menu_surveys"
+            groups="hr_recruitment_custom.group_examinations_department"
+            sequence="90"/>
+
+    <menuitem
+            name="Candidates"
+            parent="hr_recruitment.menu_crm_case_categ0_act_job"
+            id="hr_recruitment.menu_hr_candidate"
+            action="hr_recruitment.action_hr_candidate"
+            sequence="3"
+            groups="hr_recruitment_custom.group_selection_affairs"/>
+
+        <menuitem
+            name="News"
+            parent="hr_recruitment.menu_hr_recruitment_root"
+            id="main_menu_news"
+            sequence="3"/>
+
+        <menuitem
+            name="News"
+            id="menu_news"
+            action="action_news_news"
+            parent="main_menu_news"
+            groups="hr_recruitment_custom.group_information_center"
+            sequence="1"/>
+
+      </odoo>

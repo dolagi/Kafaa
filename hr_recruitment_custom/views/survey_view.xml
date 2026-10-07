@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <!-- Inherit Exam Form View to add pass_degree and pass_stage_id fields -->
+        <record id="view_survey_form_inherit_hr_recruitment" model="ir.ui.view">
+            <field name="name">survey.survey.form.inherit.hr.recruitment</field>
+            <field name="model">survey.survey</field>
+            <field name="inherit_id" ref="survey.survey_survey_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@name='button_box']" position="attributes">
+                    <attribute name="groups">hr_recruitment_custom.group_examinations_department</attribute>
+                </xpath>
+                <xpath expr="//field[@name='survey_type']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <!-- Share -->
+                <xpath expr="//header/button[@name='action_send_survey']" position="attributes">
+                    <attribute name="groups">hr_recruitment_custom.group_examinations_department</attribute>
+                </xpath>
+
+                <!-- See results -->
+                <xpath expr="//header/button[@name='action_result_survey']" position="attributes">
+                    <attribute name="groups">hr_recruitment_custom.group_examinations_department</attribute>
+                </xpath>
+
+                <!-- Create Live Session -->
+                <xpath expr="//header/button[@name='action_start_session']" position="attributes">
+                    <attribute name="groups">hr_recruitment_custom.group_examinations_department</attribute>
+                </xpath>
+
+                <!-- Open Session Manager -->
+                <xpath expr="//header/button[@name='action_open_session_manager']" position="attributes">
+                    <attribute name="groups">hr_recruitment_custom.group_examinations_department</attribute>
+                </xpath>
+
+                <!-- Close Live Session -->
+                <xpath expr="//header/button[@name='action_end_session']" position="attributes">
+                    <attribute name="groups">hr_recruitment_custom.group_examinations_department</attribute>
+                </xpath>
+
+                <!-- Test -->
+                <xpath expr="//header/button[@name='action_test_survey']" position="attributes">
+                    <attribute name="groups">hr_recruitment_custom.group_examinations_department</attribute>
+                </xpath>
+
+                <!-- Reopen -->
+                <xpath expr="//header/button[@name='action_unarchive']" position="attributes">
+                    <attribute name="groups">hr_recruitment_custom.group_examinations_department</attribute>
+                </xpath>
+
+                <!-- Close -->
+                <xpath expr="//header/button[@name='action_archive']" position="attributes">
+                    <attribute name="groups">hr_recruitment_custom.group_examinations_department</attribute>
+                </xpath>
+
+                <xpath expr="//sheet/notebook/page[@name='options']" position="inside">
+                    <group>
+                        <field name="pass_stage_id"/>
+                    </group>
+                </xpath>
+                <xpath expr="//field[@name='scoring_success_min']" position="attributes">
+                    <attribute name="groups">hr_recruitment_custom.group_selection_affairs</attribute>
+                </xpath>
+                <xpath expr="//field[@name='questions_layout']" position="attributes">
+                    <attribute name="readonly">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='progression_mode']" position="attributes">
+                    <attribute name="readonly">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='access_mode']" position="attributes">
+                    <attribute name="readonly">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='questions_selection']" position="attributes">
+                    <attribute name="readonly">1</attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="action_move_applicant_on_survey_pass" model="ir.actions.server">
+            <field name="name">Move Applicant on Exam Pass</field>
+            <field name="model_id" ref="survey.model_survey_user_input"/>
+            <field name="binding_model_id" ref="survey.model_survey_user_input"/>
+            <field name="state">code</field>
+            <field name="code">
+if records:
+    action = records.action_set_application_stage()</field>
+        </record>
+
+        <record id="action_approve" model="ir.actions.server">
+            <field name="name">Approve Exam</field>
+            <field name="model_id" ref="survey.model_survey_user_input"/>
+            <field name="binding_model_id" ref="survey.model_survey_user_input"/>
+            <field name="state">code</field>
+            <field name="code">
+if records:
+    records.action_approve()</field>
+        </record>
+
+        <record id="survey_user_input_view_tree" model="ir.ui.view">
+        <field name="name">survey.user_input.view.list</field>
+        <field name="model">survey.user_input</field>
+        <field name="inherit_id" ref="survey.survey_user_input_view_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//list" position="attributes">
+                    <attribute name="create">True</attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="survey_user_input_view_form" model="ir.ui.view">
+        <field name="name">survey.user_input.view.form</field>
+        <field name="model">survey.user_input</field>
+            <field name="inherit_id" ref="survey.survey_user_input_view_form"/>
+            <field name="arch" type="xml">
+                <!-- Result ribbons are meaningful only after the exam answer is
+                     completed (or approved), never while it is new/in progress. -->
+                <xpath expr="(//widget[@name='web_ribbon'])[1]" position="attributes">
+                    <attribute name="invisible">state not in ['done', 'approved'] or not test_entry</attribute>
+                </xpath>
+                <xpath expr="(//widget[@name='web_ribbon'])[2]" position="attributes">
+                    <attribute name="invisible">state not in ['done', 'approved'] or test_entry or scoring_type == 'no_scoring' or scoring_success</attribute>
+                </xpath>
+                <xpath expr="(//widget[@name='web_ribbon'])[3]" position="attributes">
+                    <attribute name="invisible">state not in ['done', 'approved'] or test_entry or scoring_type == 'no_scoring' or not scoring_success</attribute>
+                </xpath>
+                <xpath expr="//header" position="inside">
+                    <button name="action_approve" type="object" string="Approve" class="btn-primary" invisible="state == 'approved'"/>
+                </xpath>
+                <xpath expr="//form" position="attributes">
+                    <attribute name="create">True</attribute>
+                </xpath>
+                <xpath expr="//field[@name='user_input_line_ids']" position="attributes">
+                    <attribute name="readonly" >0</attribute>
+                </xpath>
+                <xpath expr="//field[@name='deadline']" position="attributes">
+                    <attribute name="invisible" >1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='email']" position="attributes">
+                    <attribute name="invisible" >1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='user_input_line_ids']/list" position="attributes">
+                    <attribute name="editable" >bottom</attribute>
+                </xpath>
+                <xpath expr="//field[@name='survey_id']" position="attributes">
+                    <attribute name="readonly" >0</attribute>
+                </xpath>
+                <xpath expr="//field[@name='partner_id']" position="attributes">
+                    <attribute name="readonly" >0</attribute>
+                    <attribute name="required" >1</attribute>
+                    <attribute name="domain">[('id', 'in', interview_applicant_partner_ids)] if is_interview_form else []</attribute>
+                </xpath>
+                <xpath expr="//page[@name='page_answers']/field[@name='user_input_line_ids']/list" position="inside">
+                    <field name="value_char_box" column_invisible="1"/>
+                    <field name="question_max_score" string="Maximum Score" readonly="1"
+                        column_invisible="not parent.is_interview_form" sum="total"/>
+                </xpath>
+                <xpath expr="//page[@name='page_answers']/field[@name='user_input_line_ids']/list/field[@name='display_name']" position="attributes">
+                    <attribute name="optional">hide</attribute>
+                </xpath>
+                <xpath expr="//page[@name='page_answers']/field[@name='user_input_line_ids']/list/field[@name='skipped']" position="attributes">
+                    <attribute name="optional">hide</attribute>
+                </xpath>
+                <xpath expr="//page[@name='page_answers']/field[@name='user_input_line_ids']/list/field[@name='answer_is_correct']" position="attributes">
+                    <attribute name="optional">hide</attribute>
+                </xpath>
+                <xpath expr="//field[@name='survey_id']" position="after">
+                    <field name="is_interview_form" invisible="1"/>
+                    <field name="interview_applicant_partner_ids" invisible="1"/>
+                    <field name="job_id" />
+                </xpath>
+                <xpath expr="//field[@name='partner_id']" position="after">
+                    <field name="applicant_exam_score"
+                        string="Exam Score (%)"
+                        readonly="1"
+                        invisible="applicant_exam_score == 0"/>
+                </xpath>
+                <xpath expr="//notebook" position="inside">
+                    <page name="signatures" string="Committee Signatures">
+                        <field name="signature_ids">
+                            <list editable="bottom">
+                                <field name="user_id"/>
+                                <field name="signed_date"/>
+                                <field name="signature" widget="signature" string="Signature"/>
+                            </list>
+                        </field>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="survey.action_survey_form">
+        <field name="name">Surveys</field>
+        <field name="path">surveys</field>
+        <field name="res_model">survey.survey</field>
+        <field name="view_mode">kanban,list,form,activity</field>
+        <field name="domain">[('survey_type', '=', 'assessment')]</field>
+        <field name="context">{
+                'default_survey_type': 'assessment',
+            }
+        </field>
+        <field name="help" type="html">
+            <p>
+                No Survey Found
+            </p><p>
+                Ready to test? Pick a sample or create one from scratch...
+            </p>
+            <div class="row mb-4">
+                <div class="col-sm-3 o_survey_sample_container" action="action_load_sample_survey">
+                    <div class="o_survey_sample_tile position-relative w-100 d-flex align-items-center justify-content-center m-auto">
+                        <img src="/survey/static/src/img/survey_sample_survey.png" class="img-fluid"/>
+                        <div class="o_survey_sample_tile_cover o_survey_load_sample w-100 h-100 position-absolute rounded-circle text-center text-white p-3">
+                            Gather feedbacks from your employees and customers
+                        </div>
+                    </div>
+                    <div class="my-3">
+                        <a class="o_survey_load_sample h3 text-center text-primary">Survey</a>
+                    </div>
+                    <a class="btn btn-outline-primary o_survey_load_sample"><span>Try It</span></a>
+                </div>
+                <div class="col-sm-3 o_survey_sample_container" action="action_load_sample_assessment">
+                    <div class="o_survey_sample_tile position-relative w-100 d-flex align-items-center justify-content-center m-auto">
+                        <img src="/survey/static/src/img/survey_sample_assessment.png" class="img-fluid"/>
+                        <div class="o_survey_sample_tile_cover o_survey_load_sample w-100 h-100 position-absolute rounded-circle text-center text-white p-3">
+                            Handle quiz &amp; certifications
+                        </div>
+                    </div>
+                    <div class="my-3">
+                        <a class="o_survey_load_sample h3 text-center text-primary">Assessment</a>
+                    </div>
+                    <a class="btn btn-outline-primary o_survey_load_sample"><span>Try It</span></a>
+                </div>
+                <div class="col-sm-3 o_survey_sample_container" action="action_load_sample_live_session">
+                    <div class="o_survey_sample_tile position-relative w-100 d-flex align-items-center justify-content-center m-auto">
+                        <img src="/survey/static/src/img/survey_sample_live_session.png" class="img-fluid"/>
+                        <div class="o_survey_sample_tile_cover o_survey_load_sample w-100 h-100 position-absolute rounded-circle text-center text-white p-3">
+                            Add some fun to your presentations by sharing questions live
+                        </div>
+                    </div>
+                    <div class="my-3">
+                        <a class="o_survey_load_sample h3 text-center text-primary">Live Session</a>
+                    </div>
+                    <a class="btn btn-outline-primary o_survey_load_sample"><span>Try It</span></a>
+                </div>
+                <div class="col-sm-3 o_survey_sample_container" action="action_load_sample_custom">
+                    <div class="o_survey_sample_tile position-relative w-100 d-flex align-items-center justify-content-center m-auto">
+                        <img src="/survey/static/src/img/survey_sample_custom.png" class="img-fluid"/>
+                        <div class="o_survey_sample_tile_cover o_survey_load_sample w-100 h-100 position-absolute rounded-circle text-center text-white p-3">
+                            Create a custom survey from scratch
+                        </div>
+                    </div>
+                    <div class="my-3">
+                        <a class="o_survey_load_sample h3 text-center text-primary">Custom</a>
+                    </div>
+                    <a class="btn btn-outline-primary o_survey_load_sample"><span>Try It</span></a>
+                </div>
+            </div>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_question_bank">
+        <field name="name">Question Bank</field>
+        <field name="path">question-bank</field>
+        <field name="res_model">survey.survey</field>
+        <field name="view_mode">kanban,list,form,activity</field>
+        <field name="domain">[('survey_type', '=', 'custom')]</field>
+        <field name="context">{
+                'default_survey_type': 'custom',
+            }
+        </field>
+    </record>
+
+    <record id="survey_survey_view_form" model="ir.ui.view">
+        <field name="name">survey.survey.view.form.inherit.recruitment</field>
+        <field name="model">survey.survey</field>
+        <field name="inherit_id" ref="hr_recruitment_survey.survey_survey_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='scoring']" position="attributes">
+                <attribute name="invisible">False</attribute>
+            </xpath>
+            <xpath expr="//field[@name='scoring_type']" position="attributes">
+                <attribute name="invisible">False</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="action_send_participants" model="ir.actions.server">
+        <field name="name">Send Participants</field>
+        <field name="model_id" ref="survey.model_survey_user_input"/>
+        <field name="binding_model_id" ref="survey.model_survey_user_input"/>
+        <field name="state">code</field>
+        <field name="code">
+if records:
+    action = records.open_send_participants_wizard()</field>
+    </record>
+
+
+
+</odoo>
