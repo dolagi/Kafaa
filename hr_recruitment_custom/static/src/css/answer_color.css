@@ -2,12 +2,9 @@
     border: 0;
     border-radius: 12px;
     padding: 2rem;
-    width: min(540px, calc(100% - 2rem));
+    width: 100%;
+    margin: auto;
     text-align: center;
-}
-
-.o_exam_submission_confirmation::backdrop {
-    background: rgba(0, 0, 0, 0.45);
 }
 
 /* Keep the logo beside the arrows in a compact bottom navigation bar. */
@@ -61,4 +58,15 @@
 
 .o_survey_choice_btn.o_survey_selected .o_survey_choice_key span {
     color: #ffffff !important;
+}
+.o_survey_form button[type="submit"] {
+    position: relative;
+    z-index: 1;
+    pointer-events: auto;
+}
+
+.o_survey_form button[type="submit"]::before,
+.o_survey_form button[type="submit"]::after,
+.o_survey_form button[type="submit"] > * {
+    pointer-events: none;
 }
