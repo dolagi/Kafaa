@@ -15,10 +15,10 @@
         </xpath>
         <xpath expr="//t[@t-if=&quot;survey.questions_layout == 'one_page'&quot;]//button[@type='submit']" position="replace">
             <button type="submit" value="finish" class="btn btn-secondary disabled"
-                    t-att-data-explicit-exam-submit="'1' if survey.survey_type == 'assessment' and not answer.is_session_answer else None">تسليم وخروج</button>
+                    t-att-data-explicit-exam-submit="'1' if survey.survey_type == 'assessment' and not answer.is_session_answer else None">Next</button>
         </xpath>
         <xpath expr="//t[@t-if=&quot;submit_value == 'finish'&quot;]" position="replace">
-            <t t-if="submit_value == 'finish'">تسليم وخروج</t>
+            <t t-if="submit_value == 'finish'">Next</t>
         </xpath>
     </template>
     <template id="survey_fill_form_done" inherit_id="survey.survey_fill_form_done">

@@ -1,3 +1,15 @@
+.o_exam_submission_confirmation {
+    border: 0;
+    border-radius: 12px;
+    padding: 2rem;
+    width: min(540px, calc(100% - 2rem));
+    text-align: center;
+}
+
+.o_exam_submission_confirmation::backdrop {
+    background: rgba(0, 0, 0, 0.45);
+}
+
 /* Keep the logo beside the arrows in a compact bottom navigation bar. */
 .o_recruitment_survey_logo {
     display: flex;

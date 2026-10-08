@@ -3,7 +3,7 @@
     <template id="survey_navigation" inherit_id="survey.survey_navigation">
         <xpath expr="//button[@t-att-value]" position="attributes">
             <attribute name="t-att-value">'next' if survey.survey_type == 'assessment' or not survey_last else 'finish'</attribute>
-            <attribute name="t-att-disabled">not can_go_forward or (survey.survey_type == 'assessment' and survey_last)</attribute>
+            <attribute name="t-att-disabled">not can_go_forward</attribute>
         </xpath>
         <!-- Replace back chevron (first button) with "Previous" -->
         <xpath expr="//i[contains(@class,'oi-chevron-left')]" position="replace">
