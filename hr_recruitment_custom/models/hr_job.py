@@ -197,8 +197,15 @@ class HrJob(models.Model):
 
         SECRETARIAT_ALLOWED = {'state', 'is_published', 'announcement_date', 'closing_date'}
         unauthorized = set(vals.keys()) - SECRETARIAT_ALLOWED
-        if unauthorized and self.env.user.has_group('hr_recruitment_custom.group_general_secretariat'):
-            raise AccessError("You are only allowed to change the job status.")
+        if (
+            unauthorized
+            and not self.env.su
+            and not self.env.user.has_group('base.group_system')
+            and self.env.user.has_group(
+                'hr_recruitment_custom.group_general_secretariat'
+            )
+        ):
+            raise AccessError(_("You are only allowed to change the job status."))
 
         result = super().write(vals)
 

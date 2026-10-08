@@ -1,3 +1,36 @@
+/* Keep the logo beside the arrows in a compact bottom navigation bar. */
+.o_recruitment_survey_logo {
+    display: flex;
+    align-items: center;
+    flex: 0 1 auto;
+    min-width: 0;
+}
+
+.o_recruitment_survey_logo img {
+    width: 120px;
+    max-width: 100%;
+    height: auto;
+    max-height: 40px;
+    object-fit: contain;
+}
+
+.o_survey_brand_message {
+    display: flex !important;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.375rem 0.75rem;
+    max-width: 100%;
+}
+
+.o_survey_brand_message .o_survey_navigation_wrapper {
+    position: static;
+    flex: 0 0 auto;
+    padding: 0;
+    white-space: nowrap;
+}
+
 /* Brighter highlight for selected answer */
 .o_survey_choice_btn.o_survey_selected {
     background-color: #0d3d013d !important;

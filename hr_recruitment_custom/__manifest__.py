@@ -38,6 +38,9 @@
         
     ],
     'assets': {
+    'survey.survey_assets': [
+        'hr_recruitment_custom/static/src/js/survey_explicit_submit.js',
+    ],
     'web.assets_frontend': [
         'hr_recruitment_custom/static/src/css/answer_color.css',
         #'hr_recruitment_custom/static/src/js/survey_submit_warning.js',

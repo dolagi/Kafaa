@@ -6,6 +6,9 @@
         <field name="model">hr.applicant</field>
         <field name="inherit_id" ref="hr_recruitment.hr_applicant_view_form"/>
         <field name="arch" type="xml">
+            <xpath expr="//form" position="attributes">
+                <attribute name="delete">false</attribute>
+            </xpath>
             <xpath expr="//header" position="inside">
                 <button name="action_open_evaluation_wizard"
                         type="object"
@@ -76,6 +79,7 @@
         <field name="inherit_id" ref="hr_recruitment.crm_case_tree_view_job"/>
         <field name="arch" type="xml">
             <xpath expr="//list" position="attributes">
+                <attribute name="delete">false</attribute>
                 <attribute name="decoration-success">hired_for_other_jobs</attribute>
             </xpath>
             <xpath expr="//field[@name='job_id']" position="after">
@@ -90,6 +94,9 @@
         <field name="model">hr.applicant</field>
         <field name="inherit_id" ref="hr_recruitment.hr_kanban_view_applicant"/>
         <field name="arch" type="xml">
+            <xpath expr="//kanban" position="attributes">
+                <attribute name="delete">false</attribute>
+            </xpath>
             <xpath expr="//kanban/templates" position="before">
                 <field name="hired_for_other_jobs"/>
             </xpath>

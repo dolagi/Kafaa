@@ -40,6 +40,10 @@ class SurveyUserInput(models.Model):
     _inherit = 'survey.user_input'
 
     job_id = fields.Many2one('hr.job', string='Job Position', index=True)
+    requesting_entity_id = fields.Many2one(
+        'res.partner', related='job_id.address_id',
+        string='Requesting Entity', readonly=True,
+    )
     is_interview_form = fields.Boolean(
         compute='_compute_interview_applicant_partners',
     )

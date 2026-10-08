@@ -166,6 +166,7 @@ if records:
                     <field name="is_interview_form" invisible="1"/>
                     <field name="interview_applicant_partner_ids" invisible="1"/>
                     <field name="job_id" />
+                    <field name="requesting_entity_id" invisible="not is_interview_form"/>
                 </xpath>
                 <xpath expr="//field[@name='partner_id']" position="after">
                     <field name="applicant_exam_score"

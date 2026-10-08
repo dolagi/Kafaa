@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 <data>
+    <template id="survey_layout_logo_position" inherit_id="survey.layout">
+        <xpath expr="//div[@t-call='web.brand_promotion_message']" position="replace">
+            <div class="o_recruitment_survey_logo">
+                <img src="/hr_recruitment_custom/static/src/img/KafaatLogo.png"
+                     alt="National Government Recruitment Platform"/>
+            </div>
+        </xpath>
+    </template>
+    <template id="survey_explicit_exam_submission" inherit_id="survey.survey_fill_form_in_progress">
+        <xpath expr="//button[@t-att-value='submit_value'] | //t[@t-if=&quot;survey.questions_layout == 'one_page'&quot;]//button[@type='submit']" position="attributes">
+            <attribute name="t-att-data-explicit-exam-submit">'1' if survey.survey_type == 'assessment' and not answer.is_session_answer else None</attribute>
+        </xpath>
+        <xpath expr="//t[@t-if=&quot;survey.questions_layout == 'one_page'&quot;]//button[@type='submit']" position="replace">
+            <button type="submit" value="finish" class="btn btn-secondary disabled"
+                    t-att-data-explicit-exam-submit="'1' if survey.survey_type == 'assessment' and not answer.is_session_answer else None">تسليم وخروج</button>
+        </xpath>
+        <xpath expr="//t[@t-if=&quot;submit_value == 'finish'&quot;]" position="replace">
+            <t t-if="submit_value == 'finish'">تسليم وخروج</t>
+        </xpath>
+    </template>
     <template id="survey_fill_form_done" inherit_id="survey.survey_fill_form_done">
         <!-- Hide "Take Again" button -->
         <xpath expr="//t[@t-call='survey.survey_button_retake']" position="replace"/>

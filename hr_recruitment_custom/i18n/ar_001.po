@@ -438,6 +438,11 @@ msgid "Date"
 msgstr "التاريخ"
 
 #. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_survey_user_input__requesting_entity_id
+msgid "Requesting Entity"
+msgstr "الجهة الطالبة"
+
+#. module: hr_recruitment_custom
 #: model:ir.model.fields,field_description:hr_recruitment_custom.field_transfer_applicants_wizard__manager_name
 msgid "Requesting Entity Manager"
 msgstr "اسم مدير الجهة الطالبة"
