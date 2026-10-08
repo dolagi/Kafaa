@@ -1,144 +1,201 @@
 /** @odoo-module **/
 
 import SurveyFormWidget from "@survey/js/survey_form";
+import { rpc } from "@web/core/network/rpc";
 
 SurveyFormWidget.include({
-    start() {
-        return this._super(...arguments).then(() => {
-            this.examStartClick = (event) => {
-                const button = event.target.closest('button[type="submit"]');
-                if (!this.options.isStartScreen || !button || !this.el.contains(button)) {
-                    return;
+    _updateExamProgress() {
+        const meta = this.el.querySelector('.o_exam_progress_data');
+        const form = this.el.querySelector('form');
+        if (!meta || !form) {
+            return;
+        }
+        const ids = JSON.parse(meta.dataset.questionIds || '[]');
+        const answered = new Set(JSON.parse(meta.dataset.answeredIds || '[]'));
+        const params = {};
+        this._prepareSubmitValues(new FormData(form), params);
+        const current = form.querySelector('input[name="question_id"]');
+        if (current && !Object.prototype.hasOwnProperty.call(params, current.value)) {
+            answered.delete(Number(current.value));
+        }
+        for (const id of ids) {
+            if (Object.prototype.hasOwnProperty.call(params, String(id))) {
+                const value = params[id];
+                const hasAnswer = value !== '' && value !== null && value !== undefined
+                    && value !== false && value !== '[]' && value !== '{}'
+                    && (!Array.isArray(value) || value.length > 0);
+                if (hasAnswer) {
+                    answered.add(id);
+                } else {
+                    answered.delete(id);
                 }
-                event.preventDefault();
-                event.stopImmediatePropagation();
-                this._submitForm({});
-            };
-            this.examStartKey = (event) => {
-                if (event.key !== 'Enter' || !this.options.isStartScreen
-                    || event.target.closest('textarea')) {
-                    return;
-                }
-                event.preventDefault();
-                event.stopImmediatePropagation();
-                this._submitForm({});
-            };
-            this.el.addEventListener('click', this.examStartClick, true);
-            document.addEventListener('keydown', this.examStartKey, true);
-        });
+            }
+        }
+        this.$surveyProgress.text(`تمت الإجابة على ${answered.size} من ${ids.length}`);
     },
 
+    _onNextScreenDone(options) {
+        this._examCloseConfirmation();
+        const result = this._super(...arguments);
+        this._updateExamProgress();
+        return result;
+    },
+
+    _onChangeChoiceItem(event) {
+        const result = this._super(...arguments);
+        this._updateExamProgress();
+        return result;
+    },
+
+    _onSubmit(event) {
+        if (this.examConfirmation) {
+            event.preventDefault();
+            if (event.currentTarget.value === 'previous') {
+                this._examCloseConfirmation();
+            } else {
+                this.examConfirmation.querySelector('[data-finish]').focus();
+            }
+            return;
+        }
+        return this._super(...arguments);
+    },
     async _nextScreen(nextScreenPromise, options) {
-        if (!this.examReviewMode) {
-            return this._super(...arguments);
-        }
-        // Review navigation must not depend on a fadeOut callback: the form
-        // was hidden on the confirmation screen and may already be invisible.
+        const nextScreen = this._super.bind(this);
         try {
-            const [, result] = await nextScreenPromise;
-            this.nextScreenResult = result;
-            this._onNextScreenDone(options);
+            return await nextScreen(nextScreenPromise, options);
         } catch (error) {
+            // Odoo fades the current content before awaiting the RPC. A failed
+            // request/render must restore it instead of leaving a blank screen.
             this.preventEnterSubmit = false;
-            this.$('.o_survey_error').removeClass('d-none');
-            console.error('Exam review navigation failed', error);
-        } finally {
+            this._examCloseConfirmation();
             this.$('.o_survey_form_content').stop(true, true).show();
+            this.$('button[type="submit"]').removeClass('disabled').prop('disabled', false);
+            this.$('.o_survey_error').removeClass('d-none');
+            console.error('Exam screen transition failed', error);
         }
     },
 
-    _showExamSubmissionConfirmation() {
-        if (this.examSubmissionPage) {
+    _examConfirmation() {
+        if (this.examConfirmation) {
             return;
         }
         const form = this.el.querySelector('form');
-        if (!form || !this._validateForm($(form), new FormData(form))) {
+        if (!this._validateForm($(form), new FormData(form))) {
             return;
         }
-        const dialog = document.createElement('section');
-        dialog.className = 'o_exam_submission_confirmation';
-        dialog.dir = 'rtl';
-        dialog.innerHTML = `
-            <h3>تسليم الامتحان</h3>
-            <p>وصلت إلى نهاية الأسئلة. اضغط «تسليم وخروج» لإنهاء الامتحان، أو راجع إجاباتك من السؤال الأول.</p>
-            <div class="d-flex gap-3 justify-content-center">
-                <button type="button" class="btn btn-secondary" data-action="back">مراجعة الإجابات</button>
-                <button type="button" class="btn btn-primary" data-action="finish">تسليم وخروج</button>
+        const panel = document.createElement('section');
+        panel.className = 'o_exam_confirmation text-center my-auto py-5';
+        panel.dir = 'rtl';
+        panel.innerHTML = `<h3>نهاية الأسئلة</h3>
+            <p>يمكنك مراجعة إجاباتك أو تسليم الامتحان.</p>
+            <div class="d-flex justify-content-center gap-3">
+                <button type="button" class="btn btn-secondary" data-review="1">مراجعة الإجابات</button>
+                <button type="button" class="btn btn-primary" data-finish="1">تسليم وخروج</button>
             </div>`;
-        dialog.querySelector('[data-action="back"]').addEventListener('click', () => {
-            const reviewPages = JSON.parse(form.dataset.examReviewPageIds || '[]');
-            const firstPageId = reviewPages[0] || Number(form.dataset.firstExamPageId);
-            this._closeExamSubmissionConfirmation();
-            if (firstPageId) {
-                this.examReviewMode = true;
-                this._submitForm({ previousPageId: firstPageId });
+        panel.querySelector('[data-review]').addEventListener('click', () => {
+            const ids = JSON.parse(form.dataset.examReviewIds || '[]');
+            this._examCloseConfirmation();
+            if (ids.length) {
+                this.examReview = true;
+                this._submitForm({ previousPageId: ids[0] });
             }
         });
-        dialog.querySelector('[data-action="finish"]').addEventListener('click', () => {
-            this._closeExamSubmissionConfirmation();
-            this._submitForm({ isFinish: true, explicitExamSubmit: true });
+        panel.querySelector('[data-finish]').addEventListener('click', () => {
+            panel.querySelectorAll('button').forEach(button => { button.disabled = true; });
+            this._submitForm({ isFinish: true, examConfirmed: true });
         });
-        this.examSubmissionPage = dialog;
-        form.classList.add('d-none');
-        this.$surveyNavigation.addClass('d-none');
-        this.el.appendChild(dialog);
-        dialog.querySelector('[data-action="back"]').focus();
+        // Hide only the questions, preserving the timer and the original form.
+        this.$('.o_survey_form_content').hide();
+        this.$surveyNavigation.removeClass('d-none');
+        this._updateExamProgress();
+        this.examConfirmation = panel;
+        this.el.appendChild(panel);
+        panel.querySelector('[data-review]').focus();
     },
 
-    _closeExamSubmissionConfirmation() {
-        if (this.examSubmissionPage) {
-            this.examSubmissionPage.remove();
-            this.examSubmissionPage = null;
-            const form = this.el.querySelector('form');
-            if (form) {
-                form.classList.remove('d-none');
-            }
+    _examCloseConfirmation() {
+        if (this.examConfirmation) {
+            this.examConfirmation.remove();
+            this.examConfirmation = null;
+            this.$('.o_survey_form_content').stop(true, true).show();
             this.$surveyNavigation.removeClass('d-none');
         }
     },
 
-    destroy() {
-        if (this.examStartClick) {
-            this.el.removeEventListener('click', this.examStartClick, true);
-            document.removeEventListener('keydown', this.examStartKey, true);
+    async _examReviewQuestion(targetId) {
+        if (this.examReviewPending) {
+            return;
         }
-        this._closeExamSubmissionConfirmation();
-        return this._super(...arguments);
+        const form = this.el.querySelector('form');
+        const data = new FormData(form);
+        if (!this._validateForm($(form), data)) {
+            return;
+        }
+        const params = { previous_page_id: targetId };
+        this._prepareSubmitValues(data, params);
+        this.examReviewPending = true;
+        this.preventEnterSubmit = true;
+        try {
+            const [, result] = await rpc(
+                `/survey/submit/${this.options.surveyToken}/${this.options.answerToken}`, params
+            );
+            if (!result || result.error) {
+                console.error('Exam review response rejected', {
+                    targetId,
+                    questionId: params.question_id,
+                    pageId: params.page_id,
+                    result,
+                });
+            } else {
+                this.$('.o_survey_error').addClass('d-none');
+            }
+            this.nextScreenResult = result;
+            // Render the response directly, without a fade callback or the
+            // scoring-after-page detour used by normal answer submission.
+            this._onNextScreenDone({ previousPageId: targetId });
+        } catch (error) {
+            this.$('.o_survey_error').removeClass('d-none');
+            console.error('Exam review request failed', error);
+        } finally {
+            this.examReviewPending = false;
+            this.preventEnterSubmit = false;
+            this.$('.o_survey_form_content').stop(true, true).show();
+        }
     },
 
     _submitForm(options = {}) {
-        if (this.examStartPending && this.options.isStartScreen) {
+        // Start Exam always uses Odoo's original handlers and request flow.
+        if (this.options.isStartScreen || this.options.sessionInProgress) {
+            return this._super(...arguments);
+        }
+        if (this.examReviewPending) {
             return;
         }
-        if (this.options.isStartScreen) {
-            this.examStartPending = true;
-            const submit = this._super.bind(this);
-            return Promise.resolve(submit(options)).finally(() => {
-                this.examStartPending = false;
-            });
+        const final = this.el.querySelector('button[data-exam-final="1"]');
+        if (final && !options.previousPageId && !options.skipValidation && !options.examConfirmed) {
+            return this._examConfirmation();
         }
-        const finishButton = this.el.querySelector(
-            'button[value="finish"][data-explicit-exam-submit="1"]'
-        );
-        // No RPC is sent from the last question until the candidate confirms.
-        // Timer expiry retains Odoo's automatic submission behavior.
-        if (finishButton && !options.previousPageId && !options.skipValidation
-            && !options.explicitExamSubmit) {
-            return this._showExamSubmissionConfirmation();
+        if (!options.examConfirmed) {
+            this._examCloseConfirmation();
         }
-        this._closeExamSubmissionConfirmation();
-        if (this.examReviewMode && !options.previousPageId
-            && !options.skipValidation && !options.explicitExamSubmit) {
-            const form = this.el.querySelector('form');
-            const pages = JSON.parse(form.dataset.examReviewPageIds || '[]');
-            const current = form.querySelector('input[name="question_id"], input[name="page_id"]');
-            const index = current ? pages.indexOf(Number(current.value)) : -1;
-            if (index >= 0 && index + 1 < pages.length) {
-                // Save this answer and render the exact next review question.
-                // Avoid Odoo's skipped-question/last-displayed navigation state.
-                options = { ...options, isFinish: false, previousPageId: pages[index + 1] };
+        if (this.examReview && !options.skipValidation && !options.examConfirmed) {
+            if (options.previousPageId) {
+                return this._examReviewQuestion(options.previousPageId);
             }
+            const form = this.el.querySelector('form');
+            const ids = JSON.parse(form.dataset.examReviewIds || '[]');
+            const current = form.querySelector('input[name="question_id"], input[name="page_id"]');
+            const index = current ? ids.indexOf(Number(current.value)) : -1;
+            if (index >= 0 && index + 1 < ids.length) {
+                return this._examReviewQuestion(ids[index + 1]);
+            }
+            return this._examConfirmation();
         }
         return this._super(options);
+    },
+
+    destroy() {
+        this._examCloseConfirmation();
+        return this._super(...arguments);
     },
 });

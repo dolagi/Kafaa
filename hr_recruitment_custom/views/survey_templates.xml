@@ -2,6 +2,11 @@
 <odoo>
 <data>
     <template id="survey_layout_logo_position" inherit_id="survey.layout">
+        <xpath expr="//div[@t-call='survey.survey_navigation']" position="attributes">
+            <!-- Keep the wrapper in the DOM before Start: Odoo only replaces
+                 its contents when loading questions through AJAX. -->
+            <attribute name="t-if">True</attribute>
+        </xpath>
         <xpath expr="//div[@t-call='web.brand_promotion_message']" position="replace">
             <div class="o_recruitment_survey_logo">
                 <img src="/hr_recruitment_custom/static/src/img/KafaatLogo.png"
@@ -11,28 +16,35 @@
     </template>
     <template id="survey_exam_review_navigation" inherit_id="survey.survey_fill_form">
         <xpath expr="//form" position="attributes">
-            <attribute name="t-att-data-first-exam-page-id">survey._get_pages_or_questions(answer)[:1].id if answer and survey.questions_layout != 'one_page' else None</attribute>
-            <attribute name="t-att-data-exam-review-page-ids">json.dumps(survey._get_pages_or_questions(answer).filtered(lambda item: item not in answer._get_inactive_conditional_questions()).ids) if answer and survey.questions_layout != 'one_page' else '[]'</attribute>
+            <attribute name="t-att-data-exam-review-ids">json.dumps(survey._get_pages_or_questions(answer).filtered(lambda q: q not in answer._get_inactive_conditional_questions()).ids) if answer else '[]'</attribute>
         </xpath>
     </template>
+    <record id="survey_exam_review_navigation" model="ir.ui.view"><field name="active" eval="True"/></record>
     <template id="survey_explicit_exam_submission" inherit_id="survey.survey_fill_form_in_progress">
+        <xpath expr="." position="inside">
+            <t t-set="exam_questions" t-value="answer.predefined_question_ids.filtered(lambda q: not q.is_page and q not in answer._get_inactive_conditional_questions())"/>
+            <div class="o_exam_progress_data d-none" t-if="survey.survey_type == 'assessment'"
+                 t-att-data-question-ids="json.dumps(exam_questions.ids)"
+                 t-att-data-answered-ids="json.dumps(answer.user_input_line_ids.filtered(lambda line: not line.skipped and line.question_id in exam_questions).mapped('question_id').ids)"/>
+        </xpath>
         <xpath expr="//t[@t-if=&quot;survey.questions_layout == 'page_per_section'&quot;]//button[@t-att-value='submit_value']" position="attributes">
-            <attribute name="t-att-data-explicit-exam-submit">'1' if survey.survey_type == 'assessment' and not answer.is_session_answer else None</attribute>
-        </xpath>
-        <xpath expr="//div[@t-if=&quot;survey.questions_layout == 'page_per_question'&quot;]//button[@t-att-value='submit_value']" position="attributes">
-            <attribute name="t-att-data-explicit-exam-submit">'1' if survey.survey_type == 'assessment' and not answer.is_session_answer else None</attribute>
-        </xpath>
-        <xpath expr="//t[@t-if=&quot;survey.questions_layout == 'one_page'&quot;]//button[@type='submit']" position="replace">
-            <button type="submit" value="finish" class="btn btn-secondary disabled"
-                    t-att-data-explicit-exam-submit="'1' if survey.survey_type == 'assessment' and not answer.is_session_answer else None">Continue</button>
+            <attribute name="t-att-data-exam-final">'1' if submit_value == 'finish' and survey.survey_type == 'assessment' and not answer.is_session_answer else None</attribute>
         </xpath>
         <xpath expr="//t[@t-if=&quot;survey.questions_layout == 'page_per_section'&quot;]//t[@t-if=&quot;submit_value == 'finish'&quot;]" position="replace">
             <t t-if="submit_value == 'finish'">Continue</t>
         </xpath>
+        <xpath expr="//div[@t-if=&quot;survey.questions_layout == 'page_per_question'&quot;]//button[@t-att-value='submit_value']" position="attributes">
+            <attribute name="t-att-data-exam-final">'1' if submit_value == 'finish' and survey.survey_type == 'assessment' and not answer.is_session_answer else None</attribute>
+        </xpath>
         <xpath expr="//div[@t-if=&quot;survey.questions_layout == 'page_per_question'&quot;]//t[@t-if=&quot;submit_value == 'finish'&quot;]" position="replace">
             <t t-if="submit_value == 'finish'">Continue</t>
         </xpath>
+        <xpath expr="//t[@t-if=&quot;survey.questions_layout == 'one_page'&quot;]//button[@type='submit']" position="replace">
+            <button type="submit" value="finish" class="btn btn-primary disabled"
+                    t-att-data-exam-final="'1' if survey.survey_type == 'assessment' and not answer.is_session_answer else None">Continue</button>
+        </xpath>
     </template>
+    <record id="survey_explicit_exam_submission" model="ir.ui.view"><field name="active" eval="True"/></record>
     <template id="survey_fill_form_done" inherit_id="survey.survey_fill_form_done">
         <!-- Hide "Take Again" button -->
         <xpath expr="//t[@t-call='survey.survey_button_retake']" position="replace"/>
