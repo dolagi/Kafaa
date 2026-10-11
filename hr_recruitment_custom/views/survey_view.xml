@@ -45,7 +45,7 @@
                 <!-- Test -->
                 <xpath expr="//header/button[@name='action_test_survey']" position="attributes">
                     <attribute name="groups">hr_recruitment_custom.group_examinations_department</attribute>
-                    <attribute name="invisible">1</attribute>
+                    <attribute name="invisible">not active or not question_ids</attribute>
                 </xpath>
 
                 <!-- Reopen -->
@@ -78,6 +78,23 @@
                 </xpath>
                 <xpath expr="//field[@name='questions_selection']" position="attributes">
                     <attribute name="readonly">1</attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="survey_kanban_hide_share_results" model="ir.ui.view">
+            <field name="name">survey.survey.kanban.hide.share.results</field>
+            <field name="model">survey.survey</field>
+            <field name="inherit_id" ref="survey.survey_survey_view_kanban"/>
+            <field name="arch" type="xml">
+                <xpath expr="//a[@name='action_send_survey']" position="attributes">
+                    <attribute name="t-if">False</attribute>
+                </xpath>
+                <xpath expr="//button[@name='action_send_survey']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//button[@name='action_result_survey']" position="attributes">
+                    <attribute name="invisible">1</attribute>
                 </xpath>
             </field>
         </record>
