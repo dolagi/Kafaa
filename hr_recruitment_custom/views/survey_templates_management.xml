@@ -1,13 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo><data>
     <template id="survey_navigation" inherit_id="survey.survey_navigation">
-        <xpath expr="./div" position="attributes">
-            <attribute name="t-if">answer and answer.state == 'in_progress' and not answer.is_session_answer</attribute>
-        </xpath>
-        <xpath expr="//button[@name='button_submit']" position="attributes">
-            <attribute name="t-if">survey and (survey.users_can_go_back or survey.survey_type == 'assessment')</attribute>
-            <attribute name="t-att-disabled">not previous_page_id</attribute>
-        </xpath>
         <!-- Replace back chevron (first button) with "Previous" -->
         <xpath expr="//i[contains(@class,'oi-chevron-left')]" position="replace">
             <span class="px-2">Previous</span>

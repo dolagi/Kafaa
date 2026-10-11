@@ -93,7 +93,7 @@ SurveyFormWidget.include({
                 <button type="button" class="btn btn-primary" data-finish="1">تسليم وخروج</button>
             </div>`;
         panel.querySelector('[data-review]').addEventListener('click', () => {
-            const ids = JSON.parse(form.dataset.examReviewIds || '[]');
+            const ids = JSON.parse(form.dataset.examReviewPageIds || '[]');
             this._examCloseConfirmation();
             if (ids.length) {
                 this.examReview = true;
@@ -171,7 +171,7 @@ SurveyFormWidget.include({
         if (this.examReviewPending) {
             return;
         }
-        const final = this.el.querySelector('button[data-exam-final="1"]');
+        const final = this.el.querySelector('button[value="finish"][data-explicit-exam-submit="1"]');
         if (final && !options.previousPageId && !options.skipValidation && !options.examConfirmed) {
             return this._examConfirmation();
         }
@@ -183,7 +183,7 @@ SurveyFormWidget.include({
                 return this._examReviewQuestion(options.previousPageId);
             }
             const form = this.el.querySelector('form');
-            const ids = JSON.parse(form.dataset.examReviewIds || '[]');
+            const ids = JSON.parse(form.dataset.examReviewPageIds || '[]');
             const current = form.querySelector('input[name="question_id"], input[name="page_id"]');
             const index = current ? ids.indexOf(Number(current.value)) : -1;
             if (index >= 0 && index + 1 < ids.length) {

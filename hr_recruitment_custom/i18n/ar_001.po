@@ -434,6 +434,7 @@ msgstr "تاريخ الإنشاء"
 
 #. module: hr_recruitment_custom
 #: model:ir.model.fields,field_description:hr_recruitment_custom.field_transfer_applicants_wizard__date
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_selection_decision__date
 msgid "Date"
 msgstr "التاريخ"
 
@@ -444,16 +445,19 @@ msgstr "الجهة الطالبة"
 
 #. module: hr_recruitment_custom
 #: model:ir.model.fields,field_description:hr_recruitment_custom.field_transfer_applicants_wizard__manager_name
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_selection_decision__manager_name
 msgid "Requesting Entity Manager"
 msgstr "اسم مدير الجهة الطالبة"
 
 #. module: hr_recruitment_custom
 #: model:ir.model.fields,field_description:hr_recruitment_custom.field_transfer_applicants_wizard__entity_name
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_selection_decision__entity_name
 msgid "Requesting Entity Name"
 msgstr "اسم الجهة الطالبة"
 
 #. module: hr_recruitment_custom
 #: model:ir.model.fields,field_description:hr_recruitment_custom.field_transfer_applicants_wizard__sector
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_selection_decision__sector
 msgid "Sector"
 msgstr "القطاع"
 
@@ -476,43 +480,14 @@ msgstr "السنة"
 
 #. module: hr_recruitment_custom
 #: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_selection_decision__degree
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_job__degree_level
 msgid "Degree Level"
 msgstr "المستوى العلمي"
-
-#. module: hr_recruitment_custom
-#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_selection_decision__applicant_count
-msgid "Count"
-msgstr "العدد"
-
-#. module: hr_recruitment_custom
-#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_selection_decision__job_id
-msgid "Job Position"
-msgstr "المسمى الوظيفي"
-
-#. module: hr_recruitment_custom
-#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_selection_decision__date
-msgid "Date"
-msgstr "التاريخ"
 
 #. module: hr_recruitment_custom
 #: model:ir.model.fields,field_description:hr_recruitment_custom.field_transfer_applicants_wizard__degree
 msgid "Degree"
 msgstr "الدرجة"
-
-#. module: hr_recruitment_custom
-#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_selection_decision__manager_name
-msgid "Requesting Entity Manager"
-msgstr "اسم مدير الجهة الطالبة"
-
-#. module: hr_recruitment_custom
-#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_selection_decision__entity_name
-msgid "Requesting Entity Name"
-msgstr "اسم الجهة الطالبة"
-
-#. module: hr_recruitment_custom
-#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_selection_decision__sector
-msgid "Sector"
-msgstr "القطاع"
 
 #. module: hr_recruitment_custom
 #: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_selection_decision__letter_number
@@ -552,12 +527,6 @@ msgid "Selection Decision"
 msgstr "قرار التعيين"
 
 #. module: hr_recruitment_custom
-#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.view_hr_applicant_form_inherit
-#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.hr_candidate_view_form
-msgid "Selection Decision"
-msgstr "قرار التعيين"
-
-#. module: hr_recruitment_custom
 #: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.view_transfer_applicants_wizard
 msgid "Manager Name"
 msgstr "اسم المدير"
@@ -566,16 +535,6 @@ msgstr "اسم المدير"
 #: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.view_transfer_applicants_wizard
 msgid "Example: University"
 msgstr "مثال: الجامعة"
-
-#. module: hr_recruitment_custom
-#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.view_hr_selection_decision_form
-msgid "Selection Decision"
-msgstr "قرار التعيين"
-
-#. module: hr_recruitment_custom
-#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.view_hr_selection_decision_form
-msgid "Selected Applicants"
-msgstr "المتقدمون المختارون"
 
 #. module: hr_recruitment_custom
 #: model:ir.actions.act_window,name:hr_recruitment_custom.action_hr_selection_decision
@@ -595,19 +554,9 @@ msgid "Count"
 msgstr "العدد"
 
 #. module: hr_recruitment_custom
-#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_selection_decision__degree
-msgid "Degree Level"
-msgstr "المؤهل"
-
-#. module: hr_recruitment_custom
 #: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_selection_decision__job_id
 msgid "Job Position"
 msgstr "المسمى الوظيفي"
-
-#. module: hr_recruitment_custom
-#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_selection_decision__date
-msgid "Date"
-msgstr "التاريخ"
 
 #. module: hr_recruitment_custom
 #: model:ir.model.fields,field_description:hr_recruitment_custom.field_survey_user_input_signature__signed_date
@@ -628,11 +577,6 @@ msgstr "تاريخ الإعلان عن الوظيفة."
 #: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__candidate_education__graduation_month__12
 msgid "December"
 msgstr "ديسمبر"
-
-#. module: hr_recruitment_custom
-#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_job__degree_level
-msgid "Degree Level"
-msgstr "الدرجة"
 
 #. module: hr_recruitment_custom
 #: model:ir.model.fields.selection,name:hr_recruitment_custom.selection__candidate_education__certification__diploma
@@ -1008,6 +952,7 @@ msgstr ""
 
 #. module: hr_recruitment_custom
 #: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_candidate__image_1920
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_news_news__image
 msgid "Image"
 msgstr "صورة"
 
@@ -1158,12 +1103,6 @@ msgstr "معالج تقرير امتحان الوظيفة"
 #: model:ir.ui.menu,name:hr_recruitment_custom.menu_applicant_result_results
 msgid "Job Exam Results"
 msgstr "نتائج امتحان الوظيفة"
-
-#. module: hr_recruitment_custom
-#: model:ir.model,name:hr_recruitment_custom.model_hr_job
-#: model:ir.model.fields,field_description:hr_recruitment_custom.field_survey_user_input__job_id
-msgid "Job Position"
-msgstr "المنصب الوظيفي"
 
 #. module: hr_recruitment_custom
 #: model:ir.model.fields,field_description:hr_recruitment_custom.field_candidate_work_experience__job_title
@@ -1359,11 +1298,6 @@ msgstr "العنوان"
 #: model:ir.model.fields,field_description:hr_recruitment_custom.field_news_news__content
 msgid "Content"
 msgstr "المحتوى"
-
-#. module: hr_recruitment_custom
-#: model:ir.model.fields,field_description:hr_recruitment_custom.field_news_news__image
-msgid "Image"
-msgstr "الصورة"
 
 #. module: hr_recruitment_custom
 #: model:ir.model.fields,field_description:hr_recruitment_custom.field_news_news__is_published
@@ -1571,8 +1505,12 @@ msgstr "إجمالي الوقت المسموح به للإمتحان المنش�
 
 #. module: hr_recruitment_custom
 #: model:ir.model.fields,help:hr_recruitment_custom.field_exam_builder_wizard__total_questions_count
-msgid "Maximum number of questions the generated exam may contain. The sum of questions picked from all source exams below must not exceed this number."
-msgstr "الحد الأقصى لعدد الأسئلة التي يمكن أن يحتويها الإمتحان المنشئ. يجب ألا يتجاوز مجموع الأسئلة المختارة من جميع الإمتحانات المصدر أدناه هذا الرقم."
+msgid ""
+"Maximum number of questions the generated exam may contain. The sum of "
+"questions picked from all source exams below must not exceed this number."
+msgstr ""
+"الحد الأقصى لعدد الأسئلة التي يمكن أن يحتويها الإمتحان المنشئ. يجب ألا "
+"يتجاوز مجموع الأسئلة المختارة من جميع الإمتحانات المصدر أدناه هذا الرقم."
 
 #. module: hr_recruitment_custom
 #: model:ir.model.fields,help:hr_recruitment_custom.field_exam_builder_wizard__passing_score
@@ -1586,20 +1524,33 @@ msgstr "إحدى الإمتحانات الموجودة في بنك الأسئل�
 
 #. module: hr_recruitment_custom
 #: model:ir.model.fields,help:hr_recruitment_custom.field_exam_builder_wizard_line__section_name
-msgid "The section (page) title that will group this source exam's questions inside the generated exam, e.g. \"Example: Subject Exam Section / Aptitude Section\"."
-msgstr "عنوان القسم (الصفحة) الذي سيجمع أسئلة هذا الإمتحان المصدر داخل الإمتحان المنشئ، على سبيل المثال: \"مثال: قسم امتحان الموضوع / قسم القدرة\"."
+msgid ""
+"The section (page) title that will group this source exam's questions inside"
+" the generated exam, e.g. \"Example: Subject Exam Section / Aptitude "
+"Section\"."
+msgstr ""
+"عنوان القسم (الصفحة) الذي سيجمع أسئلة هذا الإمتحان المصدر داخل الإمتحان "
+"المنشئ، على سبيل المثال: \"مثال: قسم امتحان الموضوع / قسم القدرة\"."
 
 #. module: hr_recruitment_custom
 #. odoo-python
 #: code:addons/hr_recruitment_custom/wizard/exam_bulider_wizard.py:0
-msgid "The number of questions selected from the source exams (%(selected)s) exceeds the total number of questions allowed for this exam (%(total)s)."
-msgstr "عدد الأسئلة المختارة من الإمتحانات المصدر (%(selected)s) يتجاوز إجمالي عدد الأسئلة المسموح بها لهذا الإمتحان (%(total)s)."
+msgid ""
+"The number of questions selected from the source exams (%(selected)s) "
+"exceeds the total number of questions allowed for this exam (%(total)s)."
+msgstr ""
+"عدد الأسئلة المختارة من الإمتحانات المصدر (%(selected)s) يتجاوز إجمالي عدد "
+"الأسئلة المسموح بها لهذا الإمتحان (%(total)s)."
 
 #. module: hr_recruitment_custom
 #. odoo-python
 #: code:addons/hr_recruitment_custom/wizard/exam_bulider_wizard.py:0
-msgid "Source exam \"%(survey)s\" only has %(available)s scorable question(s), but %(requested)s were requested."
-msgstr "الإمتحان المصدر \"%(survey)s\" يحتوي على %(available)s سؤال(أسئلة) قابلة للتقييم فقط، بينما تم طلب %(requested)s."
+msgid ""
+"Source exam \"%(survey)s\" only has %(available)s scorable question(s), but "
+"%(requested)s were requested."
+msgstr ""
+"الإمتحان المصدر \"%(survey)s\" يحتوي على %(available)s سؤال(أسئلة) قابلة "
+"للتقييم فقط، بينما تم طلب %(requested)s."
 
 #. module: hr_recruitment_custom
 msgid "Please add at least one source exam."
@@ -1609,7 +1560,9 @@ msgstr "يرجى إضافة إمتحان مصدر واحد على الأقل."
 #. odoo-python
 #: code:addons/hr_recruitment_custom/wizard/exam_bulider_wizard.py:0
 msgid "Source exam \"%(survey)s\" only has %(available)s question(s) available."
-msgstr "الإمتحان المصدر \"%(survey)s\" يحتوي على %(available)s سؤال(أسئلة) متاح(ة) فقط."
+msgstr ""
+"الإمتحان المصدر \"%(survey)s\" يحتوي على %(available)s سؤال(أسئلة) متاح(ة) "
+"فقط."
 
 #. module: hr_recruitment_custom
 #: model:ir.model,name:hr_recruitment_custom.model_exam_builder_wizard_line
@@ -1706,8 +1659,12 @@ msgstr "الدرجة القصوى"
 #. module: hr_recruitment_custom
 #. odoo-python
 #: code:addons/hr_recruitment_custom/models/survey.py:0
-msgid "The answer score (%(score)s) cannot exceed the maximum score for this question (%(maximum)s)."
-msgstr "لا يمكن أن تتجاوز درجة الإجابة (%(score)s) الدرجة القصوى لهذا السؤال (%(maximum)s)."
+msgid ""
+"The answer score (%(score)s) cannot exceed the maximum score for this "
+"question (%(maximum)s)."
+msgstr ""
+"لا يمكن أن تتجاوز درجة الإجابة (%(score)s) الدرجة القصوى لهذا السؤال "
+"(%(maximum)s)."
 
 #. module: hr_recruitment_custom
 #: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_job__scoring_criteria
@@ -1750,8 +1707,11 @@ msgstr "اسم الأمين العام"
 
 #. module: hr_recruitment_custom
 #: model:ir.model.fields,help:hr_recruitment_custom.field_res_company__secretary_general_name
-msgid "Name of the Secretary General of the company, used in decision letters for selected candidates."
-msgstr "اسم الأمين العام للشركة، يُستخدم في خطابات القرار للمتقدمين المختارين."
+msgid ""
+"Name of the Secretary General of the company, used in decision letters for "
+"selected candidates."
+msgstr ""
+"اسم الأمين العام للشركة، يُستخدم في خطابات القرار للمتقدمين المختارين."
 
 #. module: hr_recruitment_custom
 #: model:res.groups,name:hr_recruitment_custom.group_selection_affairs
@@ -1873,6 +1833,8 @@ msgstr "الحالة"
 
 #. module: hr_recruitment_custom
 #: model:ir.model,name:hr_recruitment_custom.model_survey_survey
+#: model:ir.model,name:survey.model_res_partner
+#: model:ir.model.fields,field_description:survey.field_survey_user_input__survey_id
 msgid "Survey"
 msgstr "امتحان"
 
@@ -2170,12 +2132,6 @@ msgid "Contact"
 msgstr "المتقدم"
 
 #. module: survey
-#: model:ir.model,name:survey.model_res_partner
-#: model:ir.model.fields,field_description:survey.field_survey_user_input__survey_id
-msgid "Survey"
-msgstr "الإمتحان/الإستمارة"
-
-#. module: survey
 #: model:ir.actions.act_window,name:survey.action_survey_form
 #: model:ir.ui.menu,name:survey.menu_survey_form
 #: model:ir.ui.menu,name:survey.menu_surveys
@@ -2353,10 +2309,69 @@ msgstr "العدد المطلوب"
 
 #. module: hr_recruitment_custom
 #: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.view_hr_job_close_wizard_form
-msgid "The selected applicants are fewer than the requested number.\n                    Review the figures and confirm closure only if approved."
-msgstr "عدد المتقدمين المختارين أقل من العدد المطلوب.\n                    راجع الأعداد وأكّد الإغلاق إذا تمت الموافقة عليه."
+msgid ""
+"The selected applicants are fewer than the requested number.\n"
+"                    Review the figures and confirm closure only if approved."
+msgstr ""
+"عدد المتقدمين المختارين أقل من العدد المطلوب.\n"
+"                    راجع الأعداد وأكّد الإغلاق إذا تمت الموافقة عليه."
 
 #. module: hr_recruitment_custom
 #: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.view_hr_job_close_wizard_form
-msgid "Review the selected applicants before confirming closure.\n                    Closing the job will stop its publication."
-msgstr "راجع المتقدمين المختارين قبل تأكيد الإغلاق.\n                    سيؤدي إغلاق الوظيفة إلى إيقاف نشرها."
+msgid ""
+"Review the selected applicants before confirming closure.\n"
+"                    Closing the job will stop its publication."
+msgstr ""
+"راجع المتقدمين المختارين قبل تأكيد الإغلاق.\n"
+"                    سيؤدي إغلاق الوظيفة إلى إيقاف نشرها."
+
+#. module: hr_recruitment_custom
+#. odoo-javascript
+#: code:addons/hr_recruitment_custom/static/src/js/survey_explicit_submit.js:0
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.survey_exam_review_navigation
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.survey_navigation
+msgid "Previous"
+msgstr "السابق"
+
+#. module: hr_recruitment_custom
+#. odoo-javascript
+#: code:addons/hr_recruitment_custom/static/src/js/survey_explicit_submit.js:0
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.survey_exam_review_navigation
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.survey_navigation
+msgid "Next"
+msgstr "التالي"
+
+#. module: hr_recruitment_custom
+#. odoo-javascript
+#: code:addons/hr_recruitment_custom/static/src/js/survey_explicit_submit.js:0
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.survey_exam_review_navigation
+msgid "End of Questions"
+msgstr "نهاية الأسئلة"
+
+#. module: hr_recruitment_custom
+#. odoo-javascript
+#: code:addons/hr_recruitment_custom/static/src/js/survey_explicit_submit.js:0
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.survey_exam_review_navigation
+msgid "You can review your answers or submit the exam."
+msgstr "يمكنك مراجعة إجاباتك أو تسليم الامتحان."
+
+#. module: hr_recruitment_custom
+#. odoo-javascript
+#: code:addons/hr_recruitment_custom/static/src/js/survey_explicit_submit.js:0
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.survey_exam_review_navigation
+msgid "Review Answers"
+msgstr "مراجعة الإجابات"
+
+#. module: hr_recruitment_custom
+#. odoo-javascript
+#: code:addons/hr_recruitment_custom/static/src/js/survey_explicit_submit.js:0
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.survey_exam_review_navigation
+msgid "Submit and Exit"
+msgstr "تسليم وخروج"
+
+#. module: hr_recruitment_custom
+#. odoo-javascript
+#: code:addons/hr_recruitment_custom/static/src/js/survey_explicit_submit.js:0
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.survey_exam_review_navigation
+msgid "Answered %(answered)s of %(total)s"
+msgstr "تمت الإجابة على %(answered)s من %(total)s"
