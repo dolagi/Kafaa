@@ -6,6 +6,44 @@ _logger = logging.getLogger(__name__)
 class HrApplicant(models.Model):
     _inherit = 'hr.applicant'
 
+    is_filtered = fields.Boolean(
+        string='Passed Filtering', default=False, readonly=True, copy=False,
+        help='The application passed the most recently applied candidate filters.',
+    )
+
+    def _check_filtered_for_stage(self, stage, job_id=None):
+        filtering_stages = self.env['hr.recruitment.stage'].sudo().search([
+            ('filtering_stage', '=', True),
+        ])
+        unfiltered = self.filtered(lambda applicant: (
+            (not applicant.stage_id or stage.sequence > applicant.stage_id.sequence)
+            and any(
+                stage.sequence > filtering_stage.sequence
+                and (not filtering_stage.job_ids or
+                     (job_id if job_id is not None else applicant.job_id.id)
+                     in filtering_stage.job_ids.ids)
+                for filtering_stage in filtering_stages
+            )
+            and (not applicant.is_filtered or (
+                job_id is not None and job_id != applicant.job_id.id
+            ))
+        ))
+        if unfiltered:
+            names = '\n'.join(
+                '- %s (%s)' % (applicant.partner_name or applicant.display_name,
+                               applicant.job_id.display_name or '')
+                for applicant in unfiltered
+            )
+            raise ValidationError(_(
+                'Apply candidate filtering before moving the following applicants '
+                'to the next stage:\n%s'
+            ) % names)
+
+    def unlink(self):
+        raise ValidationError(_(
+            'Applicants cannot be deleted at any recruitment stage. Archive them instead.'
+        ))
+
     exam_stage = fields.Boolean(
         related='stage_id.exam_stage',
         string='Exam Stage',
@@ -156,6 +194,8 @@ class HrApplicant(models.Model):
     def write(self, vals):
         if 'stage_id' in vals:
             new_stage = self.env['hr.recruitment.stage'].browse(vals['stage_id'])
+            if new_stage:
+                self._check_filtered_for_stage(new_stage, vals.get('job_id'))
             if new_stage.allowed_group_ids:
                 user_groups = self.env.user.groups_id
 
@@ -199,6 +239,8 @@ class HrApplicant(models.Model):
                         _('Cannot move to an interview stage without setting the interview date.')
                     )
 
+        if 'job_id' in vals and any(applicant.job_id.id != vals['job_id'] for applicant in self):
+            vals = dict(vals, is_filtered=False)
         return super().write(vals)
 
     def open_next_stage_wizard(self) :

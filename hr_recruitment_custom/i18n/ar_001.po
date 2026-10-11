@@ -2381,3 +2381,32 @@ msgstr "تمت الإجابة على %(answered)s من %(total)s"
 #: model:ir.ui.menu,name:hr_recruitment_custom.menu_company_contacts
 msgid "Contacts"
 msgstr "الجهات الطالبة"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_applicant__is_filtered
+msgid "Passed Filtering"
+msgstr "اجتاز التصفية"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,help:hr_recruitment_custom.field_hr_applicant__is_filtered
+msgid "The application passed the most recently applied candidate filters."
+msgstr "اجتاز الطلب آخر معايير تصفية تم تطبيقها."
+
+#. module: hr_recruitment_custom
+#: code:addons/hr_recruitment_custom/models/hr_applicant.py:0
+msgid ""
+"Apply candidate filtering before moving the following applicants to the next stage:\n"
+"%s"
+msgstr ""
+"يجب تطبيق التصفية قبل نقل المتقدمين التاليين إلى المرحلة التالية:\n"
+"%s"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,field_description:hr_recruitment_custom.field_hr_recruitment_stage__filtering_stage
+msgid "Is Filtering Stage"
+msgstr "مرحلة التصفية"
+
+#. module: hr_recruitment_custom
+#: model:ir.model.fields,help:hr_recruitment_custom.field_hr_recruitment_stage__filtering_stage
+msgid "Applicants must pass candidate filtering before moving beyond this stage."
+msgstr "يجب أن يجتاز المتقدمون التصفية قبل الانتقال إلى مرحلة لاحقة لهذه المرحلة."

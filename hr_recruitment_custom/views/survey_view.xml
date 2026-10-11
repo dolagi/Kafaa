@@ -52,6 +52,11 @@
                     <attribute name="groups">hr_recruitment_custom.group_examinations_department</attribute>
                 </xpath>
 
+                <!-- Keep Close as the only survey header action. -->
+                <xpath expr="//header/button[@name != 'action_archive']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
                 <xpath expr="//sheet/notebook/page[@name='options']" position="inside">
                     <group>
                         <field name="pass_stage_id"/>
@@ -111,6 +116,9 @@ if records:
         <field name="model">survey.user_input</field>
             <field name="inherit_id" ref="survey.survey_user_input_view_form"/>
             <field name="arch" type="xml">
+                <xpath expr="//field[@name='access_token']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
                 <!-- Result ribbons are meaningful only after the exam answer is
                      completed (or approved), never while it is new/in progress. -->
                 <xpath expr="(//widget[@name='web_ribbon'])[1]" position="attributes">

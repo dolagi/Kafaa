@@ -4,6 +4,11 @@ from odoo.exceptions import ValidationError
 class HrRecruitmentStage(models.Model):
     _inherit = 'hr.recruitment.stage'
 
+    filtering_stage = fields.Boolean(
+        string='Is Filtering Stage',
+        help='Applicants must pass candidate filtering before moving beyond this stage.',
+    )
+
     exam_date_stage = fields.Boolean(
         string='Is Exam Date Stage',
         help='Setting an exam date and exam center is mandatory for this stage.'

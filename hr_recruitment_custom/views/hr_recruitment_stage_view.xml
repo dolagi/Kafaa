@@ -7,6 +7,7 @@
         <field name="inherit_id" ref="hr_recruitment.hr_recruitment_stage_form"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='hired_stage']" position="after">
+                <field name="filtering_stage"/>
                 <field name="exam_date_stage"/>
                 <field name="exam_stage"/>
                 <field name="interview_stage"/>
