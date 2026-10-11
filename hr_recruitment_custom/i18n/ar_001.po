@@ -2375,3 +2375,9 @@ msgstr "تسليم وخروج"
 #: model_terms:ir.ui.view,arch_db:hr_recruitment_custom.survey_exam_review_navigation
 msgid "Answered %(answered)s of %(total)s"
 msgstr "تمت الإجابة على %(answered)s من %(total)s"
+
+#. module: hr_recruitment_custom
+#: model:ir.actions.act_window,name:hr_recruitment_custom.action_company_contacts
+#: model:ir.ui.menu,name:hr_recruitment_custom.menu_company_contacts
+msgid "Contacts"
+msgstr "الجهات الطالبة"

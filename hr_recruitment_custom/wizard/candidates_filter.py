@@ -121,8 +121,17 @@ class CandidatesFilterWizard(models.TransientModel):
         return passing_ids
 
     # ── Action: Filter only ────────────────────────────────────────────────
-    def action_apply_filters(self):
+    def _apply_filter_results(self):
+        self.ensure_one()
         passing_ids = self._get_passing_ids()
+        self.applicant_ids.write({'is_filtered': False})
+        self.applicant_ids.filtered(lambda applicant: applicant.id in passing_ids).write({
+            'is_filtered': True,
+        })
+        return passing_ids
+
+    def action_apply_filters(self):
+        passing_ids = self._apply_filter_results()
         return {
             'type': 'ir.actions.act_window',
             'name': _('Filtered Candidates'),
@@ -133,7 +142,7 @@ class CandidatesFilterWizard(models.TransientModel):
 
     # ── Action: Filter then open Transfer Wizard ───────────────────────────
     def action_filter_and_transfer(self):
-        passing_ids = self._get_passing_ids()
+        passing_ids = self._apply_filter_results()
 
         if not passing_ids:
             return {

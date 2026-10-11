@@ -10,6 +10,7 @@
                 <attribute name="delete">false</attribute>
             </xpath>
             <xpath expr="//header" position="inside">
+                <field name="is_filtered" readonly="1"/>
                 <button name="action_open_evaluation_wizard"
                         type="object"
                         groups="hr_recruitment_custom.group_inspection_committee">
@@ -83,6 +84,7 @@
                 <attribute name="decoration-success">hired_for_other_jobs</attribute>
             </xpath>
             <xpath expr="//field[@name='job_id']" position="after">
+                <field name="is_filtered" optional="show" readonly="1"/>
                 <field name="hired_for_other_jobs" string="Hired For"
                        optional="show" readonly="1"/>
             </xpath>

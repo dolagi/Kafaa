@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
+    <record id="action_company_contacts" model="ir.actions.act_window">
+        <field name="name">Contacts</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="domain">[('is_company', '=', True)]</field>
+        <field name="context">{'default_is_company': True, 'default_company_type': 'company'}</field>
+    </record>
+
+    <menuitem id="menu_company_contacts"
+              name="Contacts"
+              parent="hr_recruitment.menu_hr_recruitment_configuration"
+              action="action_company_contacts"
+              sequence="5"/>
+
     <menuitem
         name="Recruitment"
         id="hr_recruitment.menu_hr_recruitment_root"

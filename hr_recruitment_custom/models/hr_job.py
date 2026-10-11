@@ -10,6 +10,8 @@ class HrJob(models.Model):
     description = fields.Html(string='Job Description', sanitize_attributes=False, translate=True)
     requirements = fields.Text('Requirements', translate=True)
 
+    address_id = fields.Many2one(default=False)
+
     def _address_id_domain(self):
         return [('is_company', '=', True)]
     

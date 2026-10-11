@@ -94,6 +94,7 @@ class TransferApplicantsWizard(models.TransientModel):
 
     def action_confirm(self):
         self.ensure_one()
+        self.applicant_ids._check_filtered_for_stage(self.stage_id)
 
         if self.hired_stage and not self.manager_name:
             raise ValidationError(_(
