@@ -114,14 +114,17 @@ class HrApplicant(models.Model):
         'hr.selection.decision',
         string='Selection Decisions',
         compute='_compute_selection_decision_ids',
+        groups='hr_recruitment_custom.group_inspection_committee'
     )
     selection_decision_count = fields.Integer(
         string='Selection Decision Count',
         compute='_compute_selection_decision_ids',
+        groups='hr_recruitment_custom.group_inspection_committee'
     )
     hired_for_other_jobs = fields.Char(
         string='Hired for Other Jobs',
         compute='_compute_hired_for_other_jobs',
+        groups='hr_recruitment_custom.group_information_center',
         help='Jobs for which this candidate was hired through another application.',
     )
 
@@ -154,7 +157,8 @@ class HrApplicant(models.Model):
                 ('candidate_id', '=', applicant.candidate_id.id),
                 ('id', '!=', applicant.id),
             ])
-            decisions = self.env['hr.selection.decision'].search([
+            # Information Center sees only the job-name summary, not decisions.
+            decisions = self.env['hr.selection.decision'].sudo().search([
                 ('applicant_ids', 'in', other_applicants.ids),
             ])
             job_names = dict.fromkeys(

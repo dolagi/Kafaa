@@ -2408,6 +2408,24 @@ msgid "Is Filtering Stage"
 msgstr "مرحلة التصفية"
 
 #. module: hr_recruitment_custom
+#. odoo-python
+#: code:addons/hr_recruitment_custom/models/survey.py:0
+msgid "Only the General Secretariat can approve exam results."
+msgstr "لا يُسمح باعتماد نتائج الامتحانات إلا للأمين العام."
+
+#. module: hr_recruitment_custom
+#. odoo-python
+#: code:addons/hr_recruitment_custom/models/survey.py:0
+msgid "Approved exam results cannot be modified or deleted."
+msgstr "لا يمكن تعديل نتائج الامتحانات المعتمدة أو حذفها."
+
+#. module: hr_recruitment_custom
+#. odoo-python
+#: code:addons/hr_recruitment_custom/models/survey.py:0
+msgid "Approved exam results are locked. Create a new exam to change its questions or scoring."
+msgstr "نتائج الامتحان المعتمدة مقفلة. أنشئ امتحانًا جديدًا لتغيير الأسئلة أو معايير التصحيح."
+
+#. module: hr_recruitment_custom
 #: model:ir.model.fields,help:hr_recruitment_custom.field_hr_recruitment_stage__filtering_stage
 msgid "Applicants must pass candidate filtering before moving beyond this stage."
 msgstr "يجب أن يجتاز المتقدمون التصفية قبل الانتقال إلى مرحلة لاحقة لهذه المرحلة."

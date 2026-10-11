@@ -44,10 +44,12 @@ class HrCandidate(models.Model):
         'hr.selection.decision',
         string='Selection Decisions',
         compute='_compute_selection_decision_ids',
+        groups='hr_recruitment_custom.group_inspection_committee',
     )
     selection_decision_count = fields.Integer(
         string='Selection Decision Count',
         compute='_compute_selection_decision_ids',
+        groups='hr_recruitment_custom.group_inspection_committee',
     )
 
     def _compute_selection_decision_ids(self):

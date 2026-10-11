@@ -50,3 +50,12 @@
 .o_survey_choice_btn.o_survey_selected .o_survey_choice_key span {
     color: #ffffff !important;
 }
+.o_exam_confirmation {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 2rem 1rem;
+}

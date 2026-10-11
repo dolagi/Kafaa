@@ -8,6 +8,61 @@ import xlsxwriter
 class Survey(models.Model):
     _inherit = 'survey.survey'
 
+    def _check_approved_results(self):
+        if self.env['survey.user_input'].sudo().search_count([
+            ('survey_id', 'in', self.ids), ('state', '=', 'approved'),
+        ], limit=1):
+            raise ValidationError(_('Approved exam results are locked. Create a new exam to change its questions or scoring.'))
+
+    def write(self, vals):
+        if set(vals) & {
+            'question_ids', 'question_and_page_ids', 'scoring_type',
+            'scoring_success_min', 'questions_selection', 'questions_layout',
+            'scoring_after_session',
+        }:
+            self._check_approved_results()
+        return super().write(vals)
+
+    def unlink(self):
+        self._check_approved_results()
+        return super().unlink()
+
+    def _get_pages_or_questions(self, user_input):
+        """Recover attempts created before their randomized questions existed."""
+        if (
+            self.questions_layout == 'page_per_question'
+            and self.questions_selection == 'random'
+            and not self.session_state
+            and user_input.state == 'in_progress'
+            and not user_input.predefined_question_ids
+        ):
+            questions = self._prepare_user_input_predefined_questions()
+            if questions:
+                user_input.write({
+                    'predefined_question_ids': [(6, 0, questions.ids)],
+                })
+        result = super()._get_pages_or_questions(user_input)
+        if (
+            user_input.state == 'in_progress'
+            and not user_input.is_session_answer
+            and self.questions_layout != 'one_page'
+            and not result
+        ):
+            raise UserError(_(
+                'This exam has no available questions. Please ask the examinations '
+                'department to check its sections, questions and random question counts.'
+            ))
+        return result
+
+    def _get_next_page_or_question(self, user_input, page_or_question_id, go_back=False):
+        # An empty current question has no predecessor. Never pass False to
+        # Odoo's list.index() when preparing the navigation bar.
+        if go_back and not page_or_question_id:
+            return self.env['survey.question']
+        return super()._get_next_page_or_question(
+            user_input, page_or_question_id, go_back=go_back,
+        )
+
     def _default_pass_stage_id(self):
         if self.env.context.get('default_survey_type') != 'assessment':
             return False
@@ -38,6 +93,32 @@ class Survey(models.Model):
 
 class SurveyUserInput(models.Model):
     _inherit = 'survey.user_input'
+
+    def _check_result_not_approved(self):
+        if any(record.state == 'approved' for record in self):
+            raise ValidationError(_('Approved exam results cannot be modified or deleted.'))
+
+    def unlink(self):
+        self._check_result_not_approved()
+        return super().unlink()
+
+    def _save_lines(self, question, answer, comment=None, overwrite_existing=True):
+        self.ensure_one()
+        # The assessment review flow resubmits the current answer before
+        # displaying another question, even when users_can_go_back is off.
+        if (
+            (
+                self.survey_id.survey_type == 'assessment'
+                or self.survey_id.scoring_type != 'no_scoring'
+            )
+            and self.state == 'in_progress'
+            and not self.is_session_answer
+        ):
+            overwrite_existing = True
+        return super()._save_lines(
+            question, answer, comment=comment,
+            overwrite_existing=overwrite_existing,
+        )
 
     job_id = fields.Many2one('hr.job', string='Job Position', index=True)
     requesting_entity_id = fields.Many2one(
@@ -109,16 +190,14 @@ class SurveyUserInput(models.Model):
 
     @api.model_create_multi
     def create(self, vals_list):
+        if any(vals.get('state') == 'approved' for vals in vals_list):
+            self._check_exam_approval_access()
         if self.env.user.has_group(
             'hr_recruitment_custom.group_inspection_committee'
         ):
             for vals in vals_list:
                 self.browse()._check_committee_evaluation_scope(vals)
         return super().create(vals_list)
-
-    def write(self, vals):
-        self._check_committee_evaluation_scope(vals)
-        return super().write(vals)
 
     @api.depends('survey_id', 'job_id')
     def _compute_interview_applicant_partners(self):
@@ -254,6 +333,11 @@ class SurveyUserInput(models.Model):
         print("Created feedback survey answer for partner %s on survey %s" % (self.partner_id.id, feedback_answer))
 
     def write(self, vals):
+        if vals:
+            self._check_result_not_approved()
+        if vals.get('state') == 'approved':
+            self._check_exam_approval_access()
+        self._check_committee_evaluation_scope(vals)
         res = super().write(vals)
         if vals.get('state') in ('done', 'approved'):
             for rec in self:
@@ -298,9 +382,15 @@ class SurveyUserInput(models.Model):
                     rec.applicant_exam_score = exam_answer.scoring_percentage
                     break
 
+    def _check_exam_approval_access(self):
+        if not self.env.user.has_group(
+            'hr_recruitment_custom.group_general_secretariat'
+        ):
+            raise AccessError(_('Only the General Secretariat can approve exam results.'))
+
     def action_approve(self):
-        for input in self:
-            input.state = 'approved'
+        self._check_exam_approval_access()
+        self.filtered(lambda record: record.state != 'approved').write({'state': 'approved'})
 
     @api.onchange('survey_id')
     def _onchange_survey_id(self):
@@ -384,6 +474,9 @@ class SurveyUserInputLine(models.Model):
 
     @api.model_create_multi
     def create(self, vals_list):
+        self.env['survey.user_input'].browse([
+            vals['user_input_id'] for vals in vals_list if vals.get('user_input_id')
+        ])._check_result_not_approved()
         if self.env.user.has_group(
             'hr_recruitment_custom.group_inspection_committee'
         ):
@@ -395,11 +488,18 @@ class SurveyUserInputLine(models.Model):
         return super().create(vals_list)
 
     def write(self, vals):
+        self.mapped('user_input_id')._check_result_not_approved()
+        if vals.get('user_input_id'):
+            self.env['survey.user_input'].browse(vals['user_input_id'])._check_result_not_approved()
         if self.env.user.has_group(
             'hr_recruitment_custom.group_inspection_committee'
         ):
             self.mapped('user_input_id')._check_committee_evaluation_scope()
         return super().write(vals)
+
+    def unlink(self):
+        self.mapped('user_input_id')._check_result_not_approved()
+        return super().unlink()
 
     @api.model
     def _get_answer_score_values(self, vals, compute_speed_score=True):
@@ -428,6 +528,52 @@ class SurveyUserInputLine(models.Model):
                     'score': line.answer_score,
                     'maximum': line.question_max_score,
                 })
+
+class SurveyQuestionResultLock(models.Model):
+    _inherit = 'survey.question'
+
+    @api.model_create_multi
+    def create(self, vals_list):
+        self.env['survey.survey'].browse([
+            vals['survey_id'] for vals in vals_list if vals.get('survey_id')
+        ])._check_approved_results()
+        return super().create(vals_list)
+
+    def write(self, vals):
+        self.mapped('survey_id')._check_approved_results()
+        if vals.get('survey_id'):
+            self.env['survey.survey'].browse(vals['survey_id'])._check_approved_results()
+        return super().write(vals)
+
+    def unlink(self):
+        self.mapped('survey_id')._check_approved_results()
+        return super().unlink()
+
+
+class SurveyQuestionAnswerResultLock(models.Model):
+    _inherit = 'survey.question.answer'
+
+    @api.model_create_multi
+    def create(self, vals_list):
+        self.env['survey.question'].browse([
+            vals[field] for vals in vals_list
+            for field in ('question_id', 'matrix_question_id') if vals.get(field)
+        ]).mapped('survey_id')._check_approved_results()
+        return super().create(vals_list)
+
+    def write(self, vals):
+        self.mapped('question_id.survey_id')._check_approved_results()
+        self.mapped('matrix_question_id.survey_id')._check_approved_results()
+        for field in ('question_id', 'matrix_question_id'):
+            if vals.get(field):
+                self.env['survey.question'].browse(vals[field]).mapped('survey_id')._check_approved_results()
+        return super().write(vals)
+
+    def unlink(self):
+        self.mapped('question_id.survey_id')._check_approved_results()
+        self.mapped('matrix_question_id.survey_id')._check_approved_results()
+        return super().unlink()
+
 
 class SurveyUserInputSignature(models.Model):
     _name = 'survey.user_input.signature'
@@ -462,6 +608,9 @@ class SurveyUserInputSignature(models.Model):
 
     @api.model_create_multi
     def create(self, vals_list):
+        self.env['survey.user_input'].browse([
+            vals['user_input_id'] for vals in vals_list if vals.get('user_input_id')
+        ])._check_result_not_approved()
         if self.env.user.has_group(
             'hr_recruitment_custom.group_inspection_committee'
         ):
@@ -474,6 +623,9 @@ class SurveyUserInputSignature(models.Model):
         return super().create(vals_list)
 
     def write(self, vals):
+        self.mapped('user_input_id')._check_result_not_approved()
+        if vals.get('user_input_id'):
+            self.env['survey.user_input'].browse(vals['user_input_id'])._check_result_not_approved()
         if self.env.user.has_group(
             'hr_recruitment_custom.group_inspection_committee'
         ):
@@ -483,3 +635,7 @@ class SurveyUserInputSignature(models.Model):
                 raise AccessError(_('A committee member can only edit their own signature.'))
             self.mapped('user_input_id')._check_committee_evaluation_scope()
         return super().write(vals)
+
+    def unlink(self):
+        self.mapped('user_input_id')._check_result_not_approved()
+        return super().unlink()

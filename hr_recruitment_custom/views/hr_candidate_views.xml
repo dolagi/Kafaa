@@ -71,8 +71,10 @@
                         </list>
                     </field>
                 </page>
-                <field name="selection_decision_count" invisible="1"/>
-                <page string="Selection Decision" invisible="not selection_decision_count">
+                <field name="selection_decision_count" invisible="1"
+                       groups="hr_recruitment_custom.group_inspection_committee"/>
+                <page string="Selection Decision" invisible="not selection_decision_count"
+                      groups="hr_recruitment_custom.group_inspection_committee">
                     <field name="selection_decision_ids" readonly="1">
                         <list create="false" edit="false" delete="false">
                             <field name="job_id"/>
