@@ -2393,6 +2393,7 @@ msgid "The application passed the most recently applied candidate filters."
 msgstr "اجتاز الطلب آخر معايير تصفية تم تطبيقها."
 
 #. module: hr_recruitment_custom
+#. odoo-python
 #: code:addons/hr_recruitment_custom/models/hr_applicant.py:0
 msgid ""
 "Apply candidate filtering before moving the following applicants to the next stage:\n"
