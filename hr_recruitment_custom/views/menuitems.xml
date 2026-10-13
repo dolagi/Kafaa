@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
+    <record id="hr_recruitment.report_hr_recruitment" model="ir.ui.menu">
+        <field name="groups_id" eval="[(4, ref('hr_recruitment_custom.group_examinations_department'))]"/>
+    </record>
+
     <record id="action_company_contacts" model="ir.actions.act_window">
         <field name="name">Contacts</field>
         <field name="res_model">res.partner</field>
@@ -36,7 +40,7 @@
             parent="hr_recruitment.menu_crm_case_categ0_act_job"
             action="hr_recruitment.action_hr_job"
             sequence="1"
-            groups="hr_recruitment.group_hr_recruitment_user,hr_recruitment_custom.group_information_center,hr_recruitment_custom.group_general_secretariat,hr_recruitment_custom.group_selection_affairs"/>
+            groups="hr_recruitment.group_hr_recruitment_user,hr_recruitment_custom.group_information_center,hr_recruitment_custom.group_general_secretariat,hr_recruitment_custom.group_selection_affairs,hr_recruitment_custom.group_examinations_department"/>
 
     <menuitem
             name="All Applications"
@@ -50,7 +54,7 @@
             name="Surveys"
             id="survey.menu_surveys"
             sequence="130"
-            groups="survey.group_survey_user,hr_recruitment_custom.group_selection_affairs,hr_recruitment_custom.group_general_secretariat"
+            groups="survey.group_survey_user,hr_recruitment_custom.group_selection_affairs,hr_recruitment_custom.group_general_secretariat,hr_recruitment_custom.group_examinations_department,hr_recruitment_custom.group_inspection_committee"
             web_icon="survey,static/description/icon.png"/>
 
     <menuitem 
@@ -58,7 +62,7 @@
             id="survey.menu_survey_form" 
             action="survey.action_survey_form" 
             parent="survey.menu_surveys" 
-            groups="hr_recruitment_custom.group_selection_affairs,hr_recruitment_custom.group_examinations_department"
+            groups="hr_recruitment_custom.group_selection_affairs,hr_recruitment_custom.group_examinations_department,hr_recruitment_custom.group_inspection_committee"
             sequence="1"/>
 
     <menuitem
@@ -66,7 +70,7 @@
             id="menu_question_bank"
             action="action_question_bank"
             parent="survey.menu_surveys"
-            groups="hr_recruitment_custom.group_examinations_department,hr_recruitment_custom.group_selection_affairs"
+            groups="hr_recruitment_custom.group_examinations_department,hr_recruitment_custom.group_inspection_committee,hr_recruitment_custom.group_selection_affairs"
             sequence="2"/>
 
     <menuitem 
@@ -74,7 +78,7 @@
             id="survey.menu_survey_type_form1"
             action="survey.action_survey_user_input"
             parent="survey.menu_surveys"
-            groups="hr_recruitment_custom.group_examinations_department,hr_recruitment_custom.group_general_secretariat"
+            groups="hr_recruitment_custom.group_examinations_department,hr_recruitment_custom.group_general_secretariat,hr_recruitment_custom.group_inspection_committee"
             sequence="1"/>
 
     <menuitem 
@@ -90,7 +94,7 @@
             id="hr_recruitment.menu_hr_candidate"
             action="hr_recruitment.action_hr_candidate"
             sequence="3"
-            groups="hr_recruitment_custom.group_selection_affairs"/>
+            groups="hr_recruitment_custom.group_selection_affairs,hr_recruitment_custom.group_inspection_committee"/>
 
         <menuitem
             name="News"

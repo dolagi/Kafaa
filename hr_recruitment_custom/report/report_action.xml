@@ -3,12 +3,12 @@
 
     <record id="action_applicant_result_report" model="ir.actions.report">
         <field name="name">Applicant Results Report</field>
-        <field name="model">hr.applicant</field>
+        <field name="model">applicant.result.report.wizard</field>
         <field name="report_type">qweb-pdf</field>
         <field name="report_name">hr_recruitment_custom.applicant_results_template</field>
         <field name="report_file">hr_recruitment_custom.applicant_results_template</field>
         <field name="print_report_name">'Applicant Result - %s' % (object.job_id.name)</field>
-        <field name="binding_model_id" ref="hr_recruitment.model_hr_applicant"/>
+        <field name="binding_model_id" eval="False"/>
         <field name="binding_type">report</field>
     </record>
 

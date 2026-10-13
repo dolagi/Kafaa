@@ -152,6 +152,16 @@ class HrJob(models.Model):
                 ))
 
     def write(self, vals):
+        if (
+            not self.env.su
+            and not self.env.user.has_group('base.group_system')
+            and self.env.user.has_group('hr_recruitment_custom.group_information_center')
+            and not self.env.user.has_group('hr_recruitment_custom.group_selection_affairs')
+            and not self.env.user.has_group('hr_recruitment_custom.group_general_secretariat')
+            and any(job.state != 'draft' for job in self)
+            and set(vals) - {'message_main_attachment_id'}
+        ):
+            raise AccessError(_('Information Center may only edit draft job requests.'))
         # Capture old exam_ids before write for recompute triggers
         old_exam_survey_ids = set()
         if 'exam_id' in vals:

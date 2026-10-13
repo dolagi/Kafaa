@@ -8,3 +8,4 @@ from . import survey
 from . import res_company
 from . import hr_selection_decision
 from . import news
+from . import chatter_tracking

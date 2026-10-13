@@ -121,12 +121,26 @@ class HrApplicant(models.Model):
         compute='_compute_selection_decision_ids',
         groups='hr_recruitment_custom.group_inspection_committee'
     )
+    highlight_hired_for_other_jobs = fields.Boolean(
+        compute='_compute_highlight_hired_for_other_jobs',
+    )
     hired_for_other_jobs = fields.Char(
         string='Hired for Other Jobs',
         compute='_compute_hired_for_other_jobs',
         groups='hr_recruitment_custom.group_information_center',
         help='Jobs for which this candidate was hired through another application.',
     )
+
+    @api.depends('hired_for_other_jobs')
+    @api.depends_context('uid')
+    def _compute_highlight_hired_for_other_jobs(self):
+        can_see = self.env.user.has_group(
+            'hr_recruitment_custom.group_information_center'
+        )
+        for applicant in self:
+            applicant.highlight_hired_for_other_jobs = (
+                bool(applicant.hired_for_other_jobs) if can_see else False
+            )
 
     def _compute_selection_decision_ids(self):
         for applicant in self:

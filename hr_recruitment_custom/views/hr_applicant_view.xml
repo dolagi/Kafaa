@@ -21,6 +21,7 @@
             </xpath>
             <xpath expr="//div[hasclass('oe_title')]" position="before">
                 <div class="alert alert-success" role="alert"
+                     groups="hr_recruitment_custom.group_information_center"
                      invisible="not hired_for_other_jobs">
                     <i class="fa fa-check-circle me-2"/>
                     <strong>Already hired for: </strong>
@@ -83,11 +84,13 @@
         <field name="arch" type="xml">
             <xpath expr="//list" position="attributes">
                 <attribute name="delete">false</attribute>
-                <attribute name="decoration-success">hired_for_other_jobs</attribute>
+                <attribute name="decoration-success">highlight_hired_for_other_jobs</attribute>
             </xpath>
             <xpath expr="//field[@name='job_id']" position="after">
                 <field name="is_filtered" optional="show" readonly="1"/>
+                <field name="highlight_hired_for_other_jobs" column_invisible="True"/>
                 <field name="hired_for_other_jobs" string="Hired For"
+                       groups="hr_recruitment_custom.group_information_center"
                        optional="show" readonly="1"/>
             </xpath>
         </field>
@@ -102,10 +105,11 @@
                 <attribute name="delete">false</attribute>
             </xpath>
             <xpath expr="//kanban/templates" position="before">
-                <field name="hired_for_other_jobs"/>
+                <field name="hired_for_other_jobs" groups="hr_recruitment_custom.group_information_center"/>
             </xpath>
             <xpath expr="//t[@t-name='card']/field[@name='partner_name']" position="before">
                 <widget name="web_ribbon" title="Already Hired" bg_color="text-bg-success"
+                        groups="hr_recruitment_custom.group_information_center"
                         invisible="not hired_for_other_jobs"/>
             </xpath>
         </field>
@@ -123,6 +127,7 @@ if records:
 
     <record id="action_filter_candidates" model="ir.actions.server">
         <field name="name">Filter Candidates</field>
+        <field name="groups_id" eval="[(6, 0, [ref('hr_recruitment_custom.group_information_center'), ref('hr_recruitment_custom.group_selection_affairs')])]"/>
         <field name="model_id" ref="hr_recruitment.model_hr_applicant"/>
         <field name="binding_model_id" ref="hr_recruitment.model_hr_applicant"/>
         <field name="state">code</field>

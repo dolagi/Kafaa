@@ -15,6 +15,14 @@ class Survey(models.Model):
             raise ValidationError(_('Approved exam results are locked. Create a new exam to change its questions or scoring.'))
 
     def write(self, vals):
+        if (
+            not self.env.su
+            and not self.env.user.has_group('base.group_system')
+            and self.env.user.has_group('hr_recruitment_custom.group_selection_affairs')
+            and not self.env.user.has_group('hr_recruitment_custom.group_examinations_department')
+            and set(vals) - {'scoring_success_min', 'pass_stage_id'}
+        ):
+            raise AccessError(_('Selection Affairs may only change the passing score and passing stage of an exam.'))
         if set(vals) & {
             'question_ids', 'question_and_page_ids', 'scoring_type',
             'scoring_success_min', 'questions_selection', 'questions_layout',
@@ -93,6 +101,17 @@ class Survey(models.Model):
 
 class SurveyUserInput(models.Model):
     _inherit = 'survey.user_input'
+
+    committee_evaluation = fields.Boolean(
+        compute='_compute_committee_evaluation', store=True, compute_sudo=True,
+    )
+
+    @api.depends('survey_id', 'job_id', 'job_id.survey_id')
+    def _compute_committee_evaluation(self):
+        for record in self:
+            record.committee_evaluation = bool(
+                record.job_id and record.survey_id == record.job_id.survey_id
+            )
 
     def _check_result_not_approved(self):
         if any(record.state == 'approved' for record in self):
@@ -335,6 +354,20 @@ class SurveyUserInput(models.Model):
     def write(self, vals):
         if vals:
             self._check_result_not_approved()
+        if not self.env.su and not self.env.user.has_group('base.group_system'):
+            if (
+                self.env.user.has_group('hr_recruitment_custom.group_general_secretariat')
+                and not self.env.user.has_group('hr_recruitment_custom.group_inspection_committee')
+                and not self.env.user.has_group('hr_recruitment_custom.group_examinations_department')
+                and set(vals) - {'state'}
+            ):
+                raise AccessError(_('The General Secretariat may approve results but cannot edit answers or scores.'))
+            if (
+                self.env.user.has_group('hr_recruitment_custom.group_examinations_department')
+                and not self.env.user.has_group('hr_recruitment_custom.group_inspection_committee')
+                and set(vals) & {'scoring_percentage', 'scoring_total', 'scoring_success', 'user_input_line_ids'}
+            ):
+                raise AccessError(_('The Examinations Department cannot edit exam answers or results.'))
         if vals.get('state') == 'approved':
             self._check_exam_approval_access()
         self._check_committee_evaluation_scope(vals)

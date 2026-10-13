@@ -2429,3 +2429,105 @@ msgstr "نتائج الامتحان المعتمدة مقفلة. أنشئ امت
 #: model:ir.model.fields,help:hr_recruitment_custom.field_hr_recruitment_stage__filtering_stage
 msgid "Applicants must pass candidate filtering before moving beyond this stage."
 msgstr "يجب أن يجتاز المتقدمون التصفية قبل الانتقال إلى مرحلة لاحقة لهذه المرحلة."
+
+#. module: hr_recruitment_custom
+#. odoo-python
+#: code:addons/hr_recruitment_custom/models/hr_recruitment_stage.py:0
+msgid "Only administrators can change recruitment stage settings."
+msgstr "لا يمكن تغيير إعدادات مراحل التوظيف إلا بواسطة المسؤولين."
+
+
+#. module: hr_recruitment_custom
+#. odoo-python
+#: code:addons/hr_recruitment_custom/models/survey.py:0
+msgid ""
+"Selection Affairs may only change the passing score and passing stage of an "
+"exam."
+msgstr "يمكن لشؤون الاختيار تعديل درجة النجاح ومرحلة النجاح للامتحان فقط."
+
+
+#. module: hr_recruitment_custom
+#. odoo-python
+#: code:addons/hr_recruitment_custom/models/hr_job.py:0
+msgid "Information Center may only edit draft job requests."
+msgstr "يمكن لمركز المعلومات تعديل طلبات الوظائف في حالة المسودة فقط."
+
+
+
+
+
+
+#. module: hr_recruitment_custom
+#. odoo-python
+#: code:addons/hr_recruitment_custom/models/survey.py:0
+msgid ""
+"The General Secretariat may approve results but cannot edit answers or "
+"scores."
+msgstr "يمكن للأمين العام اعتماد النتائج دون تعديل الإجابات أو الدرجات."
+
+
+#. module: hr_recruitment_custom
+#. odoo-python
+#: code:addons/hr_recruitment_custom/models/survey.py:0
+msgid "The Examinations Department cannot edit exam answers or results."
+msgstr "لا يمكن لإدارة الامتحانات تعديل إجابات الامتحانات أو نتائجها."
+
+
+
+
+
+
+
+
+
+
+#. module: hr_recruitment_custom
+#. odoo-python
+#: code:addons/hr_recruitment_custom/models/chatter_tracking.py:0
+msgid "Not set"
+msgstr "غير محدد"
+
+
+#. module: hr_recruitment_custom
+#. odoo-python
+#: code:addons/hr_recruitment_custom/models/chatter_tracking.py:0
+msgid "File updated"
+msgstr "تم تحديث الملف"
+
+
+#. module: hr_recruitment_custom
+#. odoo-python
+#: code:addons/hr_recruitment_custom/models/chatter_tracking.py:0
+msgid "Yes"
+msgstr "نعم"
+
+
+#. module: hr_recruitment_custom
+#. odoo-python
+#: code:addons/hr_recruitment_custom/models/chatter_tracking.py:0
+msgid "No"
+msgstr "لا"
+
+
+#. module: hr_recruitment_custom
+#. odoo-python
+#: code:addons/hr_recruitment_custom/models/chatter_tracking.py:0
+msgid "Created"
+msgstr "تم الإنشاء"
+
+
+#. module: hr_recruitment_custom
+#. odoo-python
+#: code:addons/hr_recruitment_custom/models/chatter_tracking.py:0
+msgid "Updated"
+msgstr "تم التعديل"
+
+
+#. module: hr_recruitment_custom
+#. odoo-python
+#: code:addons/hr_recruitment_custom/models/chatter_tracking.py:0
+msgid ""
+"Exam content updated: %(questions)s questions, %(choices)s answer choices."
+msgstr ""
+"تم تحديث محتوى الامتحان: %(questions)s أسئلة، و%(choices)s خيارات إجابة."
+

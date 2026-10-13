@@ -56,7 +56,7 @@
         name="Build Exam"
         parent="survey.menu_surveys"
         action="action_exam_builder_wizard"
-        groups="hr_recruitment_custom.group_examinations_department"
+        groups="hr_recruitment_custom.group_examinations_department,hr_recruitment_custom.group_inspection_committee"
         sequence="2"
     />
 </odoo>

@@ -1,8 +1,25 @@
-from odoo import api, fields, models
-from odoo.exceptions import ValidationError
+from odoo import api, fields, models, _
+from odoo.exceptions import AccessError, ValidationError
 
 class HrRecruitmentStage(models.Model):
     _inherit = 'hr.recruitment.stage'
+
+    def _check_stage_settings_access(self):
+        if not self.env.su and not self.env.user.has_group('base.group_system'):
+            raise AccessError(_('Only administrators can change recruitment stage settings.'))
+
+    @api.model_create_multi
+    def create(self, vals_list):
+        self._check_stage_settings_access()
+        return super().create(vals_list)
+
+    def write(self, vals):
+        self._check_stage_settings_access()
+        return super().write(vals)
+
+    def unlink(self):
+        self._check_stage_settings_access()
+        return super().unlink()
 
     filtering_stage = fields.Boolean(
         string='Is Filtering Stage',

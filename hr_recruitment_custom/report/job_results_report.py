@@ -10,6 +10,10 @@ class JobResultsReport(models.AbstractModel):
         jobs = self.env['hr.job'].browse(docids)
         job = jobs[:1]
         needed = job.no_of_recruitment or 0
+        interview_results = self.env['survey.user_input']
+        if self.env.user.has_group('hr_recruitment_custom.group_examinations_department'):
+            # Expose interview scores only through the complete results report.
+            interview_results = interview_results.sudo()
 
         applicants = self.env['hr.applicant'].search([
             ('job_id', '=', job.id),
@@ -32,7 +36,7 @@ class JobResultsReport(models.AbstractModel):
 
             interview_input = self.env['survey.user_input']
             if job.survey_id:
-                interview_input = self.env['survey.user_input'].search([
+                interview_input = interview_results.search([
                     ('survey_id', '=', job.survey_id.id),
                     ('partner_id', '=', partner.id),
                     ('state', 'in', ['done', 'approved']),

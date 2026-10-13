@@ -7,56 +7,56 @@
             <field name="inherit_id" ref="survey.survey_survey_view_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//div[@name='button_box']" position="attributes">
-                    <attribute name="groups">hr_recruitment_custom.group_examinations_department</attribute>
+                    <attribute name="groups">hr_recruitment_custom.group_examinations_department,hr_recruitment_custom.group_inspection_committee</attribute>
                 </xpath>
                 <xpath expr="//field[@name='survey_type']" position="attributes">
                     <attribute name="invisible">1</attribute>
                 </xpath>
                 <!-- Share -->
                 <xpath expr="//header/button[@name='action_send_survey']" position="attributes">
-                    <attribute name="groups">hr_recruitment_custom.group_examinations_department</attribute>
+                    <attribute name="groups">hr_recruitment_custom.group_examinations_department,hr_recruitment_custom.group_inspection_committee</attribute>
                     <attribute name="invisible">1</attribute>
                 </xpath>
 
                 <!-- See results -->
                 <xpath expr="//header/button[@name='action_result_survey']" position="attributes">
-                    <attribute name="groups">hr_recruitment_custom.group_examinations_department</attribute>
-                    <attribute name="invisible">1</attribute>
+                    <attribute name="groups">hr_recruitment_custom.group_examinations_department,hr_recruitment_custom.group_inspection_committee</attribute>
+                    <attribute name="invisible">not active</attribute>
                 </xpath>
 
                 <!-- Create Live Session -->
                 <xpath expr="//header/button[@name='action_start_session']" position="attributes">
-                    <attribute name="groups">hr_recruitment_custom.group_examinations_department</attribute>
+                    <attribute name="groups">hr_recruitment_custom.group_examinations_department,hr_recruitment_custom.group_inspection_committee</attribute>
                     <attribute name="invisible">1</attribute>
                 </xpath>
 
                 <!-- Open Session Manager -->
                 <xpath expr="//header/button[@name='action_open_session_manager']" position="attributes">
-                    <attribute name="groups">hr_recruitment_custom.group_examinations_department</attribute>
+                    <attribute name="groups">hr_recruitment_custom.group_examinations_department,hr_recruitment_custom.group_inspection_committee</attribute>
                     <attribute name="invisible">1</attribute>
                 </xpath>
 
                 <!-- Close Live Session -->
                 <xpath expr="//header/button[@name='action_end_session']" position="attributes">
-                    <attribute name="groups">hr_recruitment_custom.group_examinations_department</attribute>
+                    <attribute name="groups">hr_recruitment_custom.group_examinations_department,hr_recruitment_custom.group_inspection_committee</attribute>
                     <attribute name="invisible">1</attribute>
                 </xpath>
 
                 <!-- Test -->
                 <xpath expr="//header/button[@name='action_test_survey']" position="attributes">
-                    <attribute name="groups">hr_recruitment_custom.group_examinations_department</attribute>
+                    <attribute name="groups">hr_recruitment_custom.group_examinations_department,hr_recruitment_custom.group_inspection_committee</attribute>
                     <attribute name="invisible">not active or not question_ids</attribute>
                 </xpath>
 
                 <!-- Reopen -->
                 <xpath expr="//header/button[@name='action_unarchive']" position="attributes">
-                    <attribute name="groups">hr_recruitment_custom.group_examinations_department</attribute>
+                    <attribute name="groups">hr_recruitment_custom.group_examinations_department,hr_recruitment_custom.group_inspection_committee</attribute>
                     <attribute name="invisible">active</attribute>
                 </xpath>
 
                 <!-- Close -->
                 <xpath expr="//header/button[@name='action_archive']" position="attributes">
-                    <attribute name="groups">hr_recruitment_custom.group_examinations_department</attribute>
+                    <attribute name="groups">hr_recruitment_custom.group_examinations_department,hr_recruitment_custom.group_inspection_committee</attribute>
                 </xpath>
 
                 <xpath expr="//sheet/notebook/page[@name='options']" position="inside">
@@ -94,7 +94,8 @@
                     <attribute name="invisible">1</attribute>
                 </xpath>
                 <xpath expr="//button[@name='action_result_survey']" position="attributes">
-                    <attribute name="invisible">1</attribute>
+                    <attribute name="groups">hr_recruitment_custom.group_examinations_department,hr_recruitment_custom.group_inspection_committee</attribute>
+                    <attribute name="invisible">not active</attribute>
                 </xpath>
             </field>
         </record>

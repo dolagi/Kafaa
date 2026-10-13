@@ -10,6 +10,11 @@ class ShortlistReport(models.AbstractModel):
         wizard = self.env['applicant.result.report.wizard'].browse(docids)
         job = wizard.job_id
         needed = job.no_of_recruitment or 0
+        interview_results = self.env['survey.user_input']
+        if self.env.user.has_group('hr_recruitment_custom.group_examinations_department'):
+            # The results report may include interview scores, while the
+            # interview forms and participations remain inaccessible in the UI.
+            interview_results = interview_results.sudo()
 
         applicants = self.env['hr.applicant'].search([
             ('job_id', '=', job.id),
@@ -32,7 +37,7 @@ class ShortlistReport(models.AbstractModel):
 
             interview_input = None
             if job.survey_id:
-                interview_input = self.env['survey.user_input'].search([
+                interview_input = interview_results.search([
                     ('survey_id', '=', job.survey_id.id),
                     ('partner_id', '=', partner.id),
                     ('state', 'in', ['done', 'approved']),

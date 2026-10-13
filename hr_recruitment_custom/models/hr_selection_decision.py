@@ -8,6 +8,7 @@ class HrSelectionDecision(models.Model):
     later and so decision numbers are never reused.
     """
     _name = 'hr.selection.decision'
+    _inherit = ['mail.thread']
     _description = 'Selection Decision'
     _order = 'id desc'
 
